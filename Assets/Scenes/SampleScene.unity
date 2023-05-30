@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 153196374}
   - component: {fileID: 153196373}
   - component: {fileID: 153196377}
+  - component: {fileID: 153196378}
   - component: {fileID: 153196376}
   m_Layer: 6
   m_Name: Right Foot
@@ -431,6 +432,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &153196378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 153196371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &235981992
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +458,7 @@ GameObject:
   - component: {fileID: 235981995}
   - component: {fileID: 235981994}
   - component: {fileID: 235981998}
+  - component: {fileID: 235981999}
   - component: {fileID: 235981997}
   m_Layer: 6
   m_Name: Head
@@ -644,6 +659,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &235981999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235981992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &319580452
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +685,7 @@ GameObject:
   - component: {fileID: 319580455}
   - component: {fileID: 319580454}
   - component: {fileID: 319580458}
+  - component: {fileID: 319580459}
   - component: {fileID: 319580457}
   m_Layer: 6
   m_Name: Left Arm
@@ -856,6 +885,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &319580459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319580452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &396577423
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +911,7 @@ GameObject:
   - component: {fileID: 396577426}
   - component: {fileID: 396577425}
   - component: {fileID: 396577429}
+  - component: {fileID: 396577430}
   - component: {fileID: 396577428}
   m_Layer: 6
   m_Name: Left Shoulder
@@ -1067,6 +1110,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &396577430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396577423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &602241337
 GameObject:
   m_ObjectHideFlags: 0
@@ -1080,6 +1136,7 @@ GameObject:
   - component: {fileID: 602241340}
   - component: {fileID: 602241339}
   - component: {fileID: 602241343}
+  - component: {fileID: 602241344}
   - component: {fileID: 602241342}
   m_Layer: 6
   m_Name: Right Arm
@@ -1279,6 +1336,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &602241344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602241337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,8 +1466,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774469797}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.367, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.276, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1419,7 +1489,7 @@ Transform:
   - {fileID: 1422004867}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851542791
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1600,7 @@ GameObject:
   - component: {fileID: 856992303}
   - component: {fileID: 856992302}
   - component: {fileID: 856992306}
+  - component: {fileID: 856992307}
   - component: {fileID: 856992305}
   m_Layer: 6
   m_Name: Right Shoulder
@@ -1728,6 +1799,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &856992307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856992300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &859857703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1741,6 +1825,7 @@ GameObject:
   - component: {fileID: 859857706}
   - component: {fileID: 859857705}
   - component: {fileID: 859857709}
+  - component: {fileID: 859857710}
   - component: {fileID: 859857708}
   m_Layer: 6
   m_Name: Right Thigh
@@ -1939,6 +2024,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &859857710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859857703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &912191920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +2050,7 @@ GameObject:
   - component: {fileID: 912191923}
   - component: {fileID: 912191922}
   - component: {fileID: 912191926}
+  - component: {fileID: 912191927}
   - component: {fileID: 912191925}
   m_Layer: 6
   m_Name: Left Thigh
@@ -2150,6 +2249,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &912191927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912191920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2226,14 +2338,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.12857427, y: -0, z: -0, w: 0.99169993}
-  m_LocalPosition: {x: 0, y: 2.06, z: -5.61}
+  m_LocalRotation: {x: 0.09091309, y: -0.7012381, z: 0.09091309, w: 0.7012381}
+  m_LocalPosition: {x: 7.14, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 14.774, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 14.774, y: -90, z: 0}
 --- !u!1 &967434272
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,6 +2359,7 @@ GameObject:
   - component: {fileID: 967434275}
   - component: {fileID: 967434274}
   - component: {fileID: 967434278}
+  - component: {fileID: 967434279}
   - component: {fileID: 967434277}
   m_Layer: 6
   m_Name: Left Leg
@@ -2446,6 +2559,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &967434279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967434272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1134669859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2585,8 @@ GameObject:
   - component: {fileID: 1134669862}
   - component: {fileID: 1134669861}
   - component: {fileID: 1134669865}
+  - component: {fileID: 1134669867}
+  - component: {fileID: 1134669866}
   - component: {fileID: 1134669864}
   m_Layer: 6
   m_Name: Hips
@@ -2474,14 +2602,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134669859}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 774469798}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!135 &1134669861
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2657,6 +2785,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1134669866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134669859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9eee6c3a7cd15e14887e9dba90242ec3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100
+  runningSpeed: 1.5
+  strafeSpeed: 100
+  jumpForce: 3000
+  hips: {fileID: 1134669865}
+  isGrounded: 0
+--- !u!114 &1134669867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134669859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1167998351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,6 +2829,7 @@ GameObject:
   - component: {fileID: 1167998354}
   - component: {fileID: 1167998353}
   - component: {fileID: 1167998357}
+  - component: {fileID: 1167998358}
   - component: {fileID: 1167998356}
   m_Layer: 6
   m_Name: Left Hand
@@ -2868,6 +3028,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1167998358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167998351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1182787858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2881,6 +3054,7 @@ GameObject:
   - component: {fileID: 1182787861}
   - component: {fileID: 1182787860}
   - component: {fileID: 1182787864}
+  - component: {fileID: 1182787865}
   - component: {fileID: 1182787863}
   m_Layer: 6
   m_Name: Torso
@@ -3079,6 +3253,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1182787865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182787858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1267017183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,6 +3279,7 @@ GameObject:
   - component: {fileID: 1267017186}
   - component: {fileID: 1267017185}
   - component: {fileID: 1267017189}
+  - component: {fileID: 1267017190}
   - component: {fileID: 1267017188}
   m_Layer: 6
   m_Name: Stomach
@@ -3290,6 +3478,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1267017190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1267017183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1377747366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3303,6 +3504,7 @@ GameObject:
   - component: {fileID: 1377747369}
   - component: {fileID: 1377747368}
   - component: {fileID: 1377747372}
+  - component: {fileID: 1377747373}
   - component: {fileID: 1377747371}
   m_Layer: 6
   m_Name: Right Hand
@@ -3501,6 +3703,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1377747373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377747366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1422004866
 GameObject:
   m_ObjectHideFlags: 0
@@ -3514,6 +3729,7 @@ GameObject:
   - component: {fileID: 1422004869}
   - component: {fileID: 1422004868}
   - component: {fileID: 1422004872}
+  - component: {fileID: 1422004873}
   - component: {fileID: 1422004871}
   m_Layer: 6
   m_Name: Left Foot
@@ -3712,6 +3928,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1422004873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422004866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
 --- !u!1 &1490443258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3804,7 +4033,7 @@ Transform:
   m_GameObject: {fileID: 1490443258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3823,6 +4052,7 @@ GameObject:
   - component: {fileID: 1926019948}
   - component: {fileID: 1926019947}
   - component: {fileID: 1926019951}
+  - component: {fileID: 1926019952}
   - component: {fileID: 1926019950}
   m_Layer: 6
   m_Name: Right Leg
@@ -4022,3 +4252,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1926019952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926019945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e25b3a3ed5a2d243b67a0b78e42dac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1134669866}
