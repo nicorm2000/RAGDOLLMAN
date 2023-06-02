@@ -1901,12 +1901,12 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 3
-    positionSpring: 750
+    positionSpring: 700
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_AngularYZDrive:
     serializedVersion: 3
-    positionSpring: 750
+    positionSpring: 700
     positionDamper: 0
     maximumForce: 3.4028233e+38
   m_SlerpDrive:
@@ -1941,6 +1941,7 @@ MonoBehaviour:
   runningSpeed: 1.5
   strafeSpeed: 100
   jumpForce: 3000
+  animator: {fileID: 1883029542}
   hips: {fileID: 817285097}
   isGrounded: 0
 --- !u!114 &817285100
