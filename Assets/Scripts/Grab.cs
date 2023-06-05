@@ -6,11 +6,11 @@ public class Grab : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] int breakForce = 9001;
-    [SerializeField] int isLeftToRight;
-    [SerializeField] bool alreadyGrabbing = false;
+    [SerializeField] int isLeftOrRight;
 
     private Rigidbody rb;
     private GameObject grabbedObject;
+    private FixedJoint fj;
 
     void Start()
     {
@@ -19,30 +19,33 @@ public class Grab : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(isLeftToRight))
+        if (Input.GetMouseButtonDown(isLeftOrRight))
         {
-            if (isLeftToRight == 0)
+            if (isLeftOrRight == 0)
             {
                 animator.SetBool("isLeftHandUp", true);
             }
-            else if (isLeftToRight == 1)
+            else if (isLeftOrRight == 1)
             {
                 animator.SetBool("isRightHandUp", true);
             }
 
-            FixedJoint fj = grabbedObject.AddComponent<FixedJoint>();
+            if (grabbedObject != null)
+            {
+                fj = grabbedObject.AddComponent<FixedJoint>();
 
-            fj.connectedBody = rb;
+                fj.connectedBody = rb;
 
-            fj.breakForce = breakForce;
+                fj.breakForce = breakForce;
+            }
         }
-        else if (Input.GetMouseButtonUp(isLeftToRight))
+        else if (Input.GetMouseButtonUp(isLeftOrRight))
         {
-            if (isLeftToRight == 0)
+            if (isLeftOrRight == 0)
             {
                 animator.SetBool("isLeftHandUp", false);
             }
-            else if (isLeftToRight == 1)
+            else if (isLeftOrRight == 1)
             {
                 animator.SetBool("isRightHandUp", false);
             }
