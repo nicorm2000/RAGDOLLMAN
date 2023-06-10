@@ -6,6 +6,8 @@ public class Door : MonoBehaviour
 {
     [SerializeField] int requiredSwitchesToOpen = 1;
 
+    [SerializeField] Animator animator;
+
     public bool isDoorOpen = false;
 
     private List<PressureSwitch> currentSwitchesOpen = new();
@@ -16,6 +18,7 @@ public class Door : MonoBehaviour
         {
             currentSwitchesOpen.Add(currentSwitch);
         }
+
         TryOpen();
     }
 
@@ -25,6 +28,7 @@ public class Door : MonoBehaviour
         {
             currentSwitchesOpen.Remove(currentSwitch);
         }
+
         TryOpen();
     }
 
@@ -44,7 +48,7 @@ public class Door : MonoBehaviour
     {
         if (!isDoorOpen)
         {
-            Debug.Log("Open");
+            animator.SetBool("Up", true);
         }
 
         isDoorOpen = true;
@@ -52,9 +56,9 @@ public class Door : MonoBehaviour
 
     private void CloseDoor()
     {
-        if (!isDoorOpen)
+        if (isDoorOpen)
         {
-            Debug.Log("Close");
+            animator.SetBool("Up", false);
         }
 
         isDoorOpen = false;

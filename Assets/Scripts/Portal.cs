@@ -5,13 +5,25 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     [SerializeField] Transform teleportDestination;
+
     [SerializeField] float ejectionForce = 5f;
+
+    [SerializeField] LayerMask itemLayer;
+    [SerializeField] LayerMask playerLayer;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (((1 << other.gameObject.layer) & itemLayer) != 0)
         {
             TeleportItem(other.gameObject);
+        }
+
+        if (((1 << other.gameObject.layer) & playerLayer) != 0)
+        {
+            for (int i = 0; i < other.transform.parent.childCount; i++)
+            {
+                TeleportItem(other.transform.parent.GetChild(i).gameObject);
+            }
         }
     }
 

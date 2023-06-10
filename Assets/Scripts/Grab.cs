@@ -7,6 +7,7 @@ public class Grab : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] int breakForce = 9001;
     [SerializeField] int isLeftOrRight;
+    [SerializeField] LayerMask itemLayer;
 
     private Rigidbody rb;
     private GameObject grabbedObject;
@@ -61,7 +62,7 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Item"))
+        if (((1 << other.gameObject.layer) & itemLayer) != 0)
         {
             grabbedObject = other.gameObject;
         }
@@ -69,6 +70,10 @@ public class Grab : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        grabbedObject = null;
+        if (((1 << other.gameObject.layer) & itemLayer) != 0)
+        {
+            grabbedObject = null;
+
+        }
     }
 }

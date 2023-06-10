@@ -9,15 +9,23 @@ public class PressureSwitch : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    [SerializeField] LayerMask playerLayer;
+
     private void OnTriggerStay(Collider other)
     {
-        currentDoor.AddPressureSwitch(this);
-        animator.SetBool("Down", true);
+        if (((1 << other.gameObject.layer) & playerLayer) != 0)
+        {
+            currentDoor.AddPressureSwitch(this);
+            animator.SetBool("Down", true);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        currentDoor.RemovePressureSwitch(this);
-        animator.SetBool("Down", false);
+        if (((1 << other.gameObject.layer) & playerLayer) != 0)
+        {
+            currentDoor.RemovePressureSwitch(this);
+            animator.SetBool("Down", false);
+        }
     }
 }
