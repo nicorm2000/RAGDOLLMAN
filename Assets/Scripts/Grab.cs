@@ -73,7 +73,6 @@ public class Grab : MonoBehaviour
         if (((1 << other.gameObject.layer) & itemLayer) != 0)
         {
             grabbedObject = null;
-
         }
     }
 }
