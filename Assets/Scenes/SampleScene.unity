@@ -4930,7 +4930,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teleportDestination: {fileID: 1950199652}
-  ejectionForce: 1
   itemLayer:
     serializedVersion: 2
     m_Bits: 256
