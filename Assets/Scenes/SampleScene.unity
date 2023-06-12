@@ -6439,6 +6439,7 @@ GameObject:
   - component: {fileID: 1727196955}
   - component: {fileID: 1727196954}
   - component: {fileID: 1727196958}
+  - component: {fileID: 1727196959}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -6537,11 +6538,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToChangeTo: 1
-  waitTimeBetweenScenes: 1.5
-  transitionAnim: {fileID: 1528804966}
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1727196959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727196953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5cf6333e7c70f844b1d2b196c985615, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waitTimeBetweenScenes: 1.2
+  transitionAnim: {fileID: 1528804966}
 --- !u!1 &1727358812
 GameObject:
   m_ObjectHideFlags: 0
