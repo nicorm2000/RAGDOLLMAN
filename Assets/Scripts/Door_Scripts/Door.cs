@@ -1,17 +1,23 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] int requiredSwitchesToOpen = 1;
+    [Header("Door Configuration")]
+    [SerializeField] private int requiredSwitchesToOpen = 1;
 
-    [SerializeField] Animator animator;
+    [SerializeField] private DoorAnimator doorAnimator;
 
     public bool isDoorOpen = false;
 
-    private List<PressureSwitch> currentSwitchesOpen = new();
+    // The list of pressure switches currently active on the door
+    private List<PressureSwitch> currentSwitchesOpen = new List<PressureSwitch>();
 
+    /// <summary>
+    /// Adds the given pressure switch to the list of active switches.
+    /// Checks if the door can be opened.
+    /// </summary>
+    /// <param name="currentSwitch">The pressure switch to add.</param>
     public void AddPressureSwitch(PressureSwitch currentSwitch)
     {
         if (!currentSwitchesOpen.Contains(currentSwitch))
@@ -22,6 +28,11 @@ public class Door : MonoBehaviour
         TryOpen();
     }
 
+    /// <summary>
+    /// Removes the given pressure switch from the list of active switches.
+    /// Checks if the door needs to be closed.
+    /// </summary>
+    /// <param name="currentSwitch">The pressure switch to remove.</param>
     public void RemovePressureSwitch(PressureSwitch currentSwitch)
     {
         if (currentSwitchesOpen.Contains(currentSwitch))
@@ -32,6 +43,9 @@ public class Door : MonoBehaviour
         TryOpen();
     }
 
+    /// <summary>
+    /// Tries to open or close the door based on the number of active switches.
+    /// </summary>
     private void TryOpen()
     {
         if (currentSwitchesOpen.Count == requiredSwitchesToOpen)
@@ -44,21 +58,27 @@ public class Door : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Opens the door by triggering the animation.
+    /// </summary>
     private void OpenDoor()
     {
         if (!isDoorOpen)
         {
-            animator.SetBool("Up", true);
+            doorAnimator.SetDoorState(true);
         }
 
         isDoorOpen = true;
     }
 
+    /// <summary>
+    /// Closes the door by triggering the animation.
+    /// </summary>
     private void CloseDoor()
     {
         if (isDoorOpen)
         {
-            animator.SetBool("Up", false);
+            doorAnimator.SetDoorState(false);
         }
 
         isDoorOpen = false;

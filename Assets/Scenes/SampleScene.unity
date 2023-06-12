@@ -1781,6 +1781,7 @@ GameObject:
   - component: {fileID: 464025370}
   - component: {fileID: 464025369}
   - component: {fileID: 464025368}
+  - component: {fileID: 464025374}
   - component: {fileID: 464025373}
   m_Layer: 0
   m_Name: Door
@@ -1802,7 +1803,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   requiredSwitchesToOpen: 1
-  animator: {fileID: 464025373}
+  doorAnimator: {fileID: 464025374}
   isDoorOpen: 0
 --- !u!65 &464025369
 BoxCollider:
@@ -1903,6 +1904,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &464025374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464025367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41a41becb460bcc49b9de959f4a74e3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 464025373}
+  doorUpAnimationParam: Up
 --- !u!1 &598581631
 GameObject:
   m_ObjectHideFlags: 0
