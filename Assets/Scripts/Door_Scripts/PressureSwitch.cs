@@ -1,31 +1,39 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PressureSwitch : MonoBehaviour
 {
-    [SerializeField] Door currentDoor;
+    [Header("Switch Configuration")]
+    [SerializeField] private Door currentDoor;
 
-    [SerializeField] Animator animator;
+    [SerializeField] private PressureSwitchAnimator switchAnimator;
 
-    [SerializeField] LayerMask playerLayer;
+    [SerializeField] private LayerMask playerLayer;
 
+    /// <summary>
+    /// Called when a collider stays within the switch trigger.
+    /// Adds the pressure switch to the door and triggers animation.
+    /// </summary>
+    /// <param name="other">The collider staying within the switch trigger.</param>
     private void OnTriggerStay(Collider other)
     {
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
             currentDoor.AddPressureSwitch(this);
-            animator.SetBool("Down", true);
+            switchAnimator.SetSwitchState(true);
         }
     }
 
+    /// <summary>
+    /// Called when a collider exits the switch trigger.
+    /// Removes the pressure switch from the door and triggers animation.
+    /// </summary>
+    /// <param name="other">The collider exiting the switch trigger.</param>
     private void OnTriggerExit(Collider other)
     {
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
             currentDoor.RemovePressureSwitch(this);
-            animator.SetBool("Down", false);
+            switchAnimator.SetSwitchState(false);
         }
     }
 }
