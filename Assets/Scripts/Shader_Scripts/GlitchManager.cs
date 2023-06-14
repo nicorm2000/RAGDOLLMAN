@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GlitchManager : MonoBehaviour
@@ -16,24 +15,26 @@ public class GlitchManager : MonoBehaviour
 
     [Header("Glitch Configuration")]
     [SerializeField] private float maxGlitchIntensity = 0.5f;
-    [SerializeField] private float maxGlitchFlipIntensity= 0.5f;
+    [SerializeField] private float maxGlitchFlipIntensity = 0.5f;
     [SerializeField] private float maxGlitchColorIntensity = 0.5f;
 
     private void Start()
     {
-        if (glitchCamera == null) 
-        { 
-            gameObject.AddComponent<GlitchEffect>();
+        // Ensure glitchCamera is assigned, otherwise add GlitchEffect component to the game object
+        if (glitchCamera == null)
+        {
+            glitchCamera = gameObject.AddComponent<GlitchEffect>();
         }
     }
 
     private void Update()
     {
+        // Calculate the distance between centerOfObject and playerHips
         float distance = Vector3.Distance(centerOfObject.position, playerHips.position);
-        
+
         if (distance < maxDistance)
         {
-            UpdateGlitchEffects(distance);
+            ApplyGlitchEffects(distance);
         }
         else
         {
@@ -41,6 +42,9 @@ public class GlitchManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Resets the glitch effects to their default values.
+    /// </summary>
     private void ResetGlitchEffects()
     {
         glitchCamera.intensity = 0;
@@ -48,12 +52,23 @@ public class GlitchManager : MonoBehaviour
         glitchCamera.colorIntensity = 0;
     }
 
-    private void UpdateGlitchEffects(float distance)
+    /// <summary>
+    /// Updates the glitch effects based on the distance between the player and the center of the object.
+    /// </summary>
+    /// <param name="distance">The distance between the player and the center of the object.</param>
+    private void ApplyGlitchEffects(float distance)
     {
+        // Calculate the percentage of distance inside the maxDistance range
         float insidePercentage = distance / maxDistance;
 
+        // Apply glitch effects using a linear interpolation based on the insidePercentage
         glitchCamera.intensity = Mathf.Lerp(maxGlitchIntensity, 0, insidePercentage);
         glitchCamera.flipIntensity = Mathf.Lerp(maxGlitchFlipIntensity, 0, insidePercentage);
         glitchCamera.colorIntensity = Mathf.Lerp(maxGlitchColorIntensity, 0, insidePercentage);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(centerOfObject.transform.position, maxDistance);
     }
 }
