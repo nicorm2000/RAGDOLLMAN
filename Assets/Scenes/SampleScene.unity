@@ -1620,7 +1620,7 @@ ConfigurableJoint:
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_ConfiguredInWorldSpace: 0
-  m_SwapBodies: 0
+  m_SwapBodies: 1
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -2332,7 +2332,7 @@ ConfigurableJoint:
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_ConfiguredInWorldSpace: 0
-  m_SwapBodies: 0
+  m_SwapBodies: 1
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -7740,9 +7740,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   glitchCamera: {fileID: 963194230}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
   playerHips: {fileID: 817285104}
   centerOfObject: {fileID: 2088851008}
   maxDistance: 5
