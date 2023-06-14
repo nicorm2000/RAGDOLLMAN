@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1463623602451056200}
   - component: {fileID: 6966426543795474108}
   - component: {fileID: 8566505161806769369}
-  - component: {fileID: 2271779049771963673}
+  - component: {fileID: 5783097849813055440}
   m_Layer: 0
   m_Name: bus-passenger-apocalypse-wheel_FL
   m_TagString: Untagged
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0854187, y: 0.51557136, z: 3.2450104}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732833070318908153}
   m_RootOrder: 4
@@ -52,10 +53,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,7 +85,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2271779049771963673
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5783097849813055440
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -93,7 +97,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1935767374543424925, guid: 612c75b518a92ba4db066531df3edb19, type: 3}
 --- !u!1 &1389240447181269059
@@ -122,6 +126,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1283621155588147868}
   - {fileID: 2812487165416893477}
@@ -143,7 +148,7 @@ GameObject:
   - component: {fileID: 3187063379576231297}
   - component: {fileID: 4821712114626557972}
   - component: {fileID: 3224304910614380562}
-  - component: {fileID: 2271779049771963679}
+  - component: {fileID: 4509490066283443535}
   m_Layer: 0
   m_Name: bus-passenger-apocalypse-wheel_BL
   m_TagString: Untagged
@@ -161,6 +166,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.043396, y: 0.53464985, z: -2.5361786}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732833070318908153}
   m_RootOrder: 2
@@ -184,10 +190,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -213,7 +221,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2271779049771963679
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4509490066283443535
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -224,7 +233,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 904786300652878433, guid: 612c75b518a92ba4db066531df3edb19, type: 3}
 --- !u!1 &4709178282609402362
@@ -238,7 +247,7 @@ GameObject:
   - component: {fileID: 7878312048181668843}
   - component: {fileID: 1143681903558403057}
   - component: {fileID: 2082495052423509581}
-  - component: {fileID: 2271779049771963672}
+  - component: {fileID: 8192835869248727745}
   m_Layer: 0
   m_Name: bus-passenger-apocalypse-wheel_BR
   m_TagString: Untagged
@@ -256,6 +265,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.043457, y: 0.53464985, z: -2.5361786}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732833070318908153}
   m_RootOrder: 3
@@ -279,10 +289,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -308,7 +320,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2271779049771963672
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8192835869248727745
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,7 +332,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6791130693241904130, guid: 612c75b518a92ba4db066531df3edb19, type: 3}
 --- !u!1 &5446459755291855177
@@ -333,7 +346,7 @@ GameObject:
   - component: {fileID: 1283621155588147868}
   - component: {fileID: 8532773331254300567}
   - component: {fileID: 2348710844454668542}
-  - component: {fileID: 2271779049771963677}
+  - component: {fileID: 6436979184562946430}
   m_Layer: 0
   m_Name: bus-passenger-apocalypse-base
   m_TagString: Untagged
@@ -351,6 +364,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732833070318908153}
   m_RootOrder: 0
@@ -374,10 +388,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -409,7 +425,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2271779049771963677
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6436979184562946430
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +437,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2102065290051991119, guid: 612c75b518a92ba4db066531df3edb19, type: 3}
 --- !u!1 &6041173868083663957
@@ -434,7 +451,7 @@ GameObject:
   - component: {fileID: 2812487165416893477}
   - component: {fileID: 5488354582239162970}
   - component: {fileID: 8060369422167446776}
-  - component: {fileID: 2271779049771963678}
+  - component: {fileID: 3066567873344265315}
   m_Layer: 0
   m_Name: bus-passenger-apocalypse-props
   m_TagString: Untagged
@@ -452,6 +469,7 @@ Transform:
   m_LocalRotation: {x: 0.032918893, y: 2.5627044e-24, z: 7.3094625e-18, w: 0.999458}
   m_LocalPosition: {x: 0.000030517578, y: -0.00000086426735, z: -0.0000036209822}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732833070318908153}
   m_RootOrder: 1
@@ -475,10 +493,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -508,7 +528,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2271779049771963678
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3066567873344265315
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -519,7 +540,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 9070095154013097938, guid: 612c75b518a92ba4db066531df3edb19, type: 3}
 --- !u!1 &8284191383540386825
@@ -533,7 +554,7 @@ GameObject:
   - component: {fileID: 2148003056653490758}
   - component: {fileID: 5662388759928361254}
   - component: {fileID: 3689008782698750493}
-  - component: {fileID: 2271779049771963674}
+  - component: {fileID: 5214388409687466313}
   m_Layer: 0
   m_Name: bus-passenger-apocalypse-wheel_FR
   m_TagString: Untagged
@@ -551,6 +572,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.043457, y: 0.53464985, z: 3.3025665}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1732833070318908153}
   m_RootOrder: 5
@@ -574,10 +596,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -603,7 +627,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &2271779049771963674
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5214388409687466313
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,6 +639,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5464126394983790219, guid: 612c75b518a92ba4db066531df3edb19, type: 3}
