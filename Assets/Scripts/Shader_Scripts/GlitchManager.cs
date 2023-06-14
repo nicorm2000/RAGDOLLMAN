@@ -19,20 +19,41 @@ public class GlitchManager : MonoBehaviour
     [SerializeField] private float maxGlitchFlipIntensity= 0.5f;
     [SerializeField] private float maxGlitchColorIntensity = 0.5f;
 
+    private void Start()
+    {
+        if (glitchCamera == null) 
+        { 
+            gameObject.AddComponent<GlitchEffect>();
+        }
+    }
+
     private void Update()
     {
         float distance = Vector3.Distance(centerOfObject.position, playerHips.position);
         
-        if (distance < maxDistance) 
-        { 
-            float insidePercentage = distance / maxDistance;
-
-            if (glitchCamera != null)
-            {
-                glitchCamera.intensity = Mathf.Lerp(maxGlitchIntensity, 0, insidePercentage);
-                glitchCamera.flipIntensity = Mathf.Lerp(maxGlitchFlipIntensity, 0, insidePercentage);
-                glitchCamera.colorIntensity = Mathf.Lerp(maxGlitchColorIntensity, 0, insidePercentage);
-            }
+        if (distance < maxDistance)
+        {
+            UpdateGlitchEffects(distance);
         }
+        else
+        {
+            ResetGlitchEffects();
+        }
+    }
+
+    private void ResetGlitchEffects()
+    {
+        glitchCamera.intensity = 0;
+        glitchCamera.flipIntensity = 0;
+        glitchCamera.colorIntensity = 0;
+    }
+
+    private void UpdateGlitchEffects(float distance)
+    {
+        float insidePercentage = distance / maxDistance;
+
+        glitchCamera.intensity = Mathf.Lerp(maxGlitchIntensity, 0, insidePercentage);
+        glitchCamera.flipIntensity = Mathf.Lerp(maxGlitchFlipIntensity, 0, insidePercentage);
+        glitchCamera.colorIntensity = Mathf.Lerp(maxGlitchColorIntensity, 0, insidePercentage);
     }
 }
