@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - CanBeGrabbed
   layers:
   - Default
   - TransparentFX
@@ -16,11 +17,11 @@ TagManager:
   - PlayerLayer
   - ItemLayer
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player_1
+  - Player_2
+  - Player_3
+  - Player_4
+  - Ground
   - 
   - 
   - 
