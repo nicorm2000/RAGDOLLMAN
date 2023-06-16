@@ -30,42 +30,42 @@ namespace ARP.Examples.Dependancies.Scripts
     
         void OnCollisionStay(Collision col)
         {
-            //Check if hand has joint, if so then check if it is connected to this object.
-            if(controller.RightHand.GetComponent<FixedJoint>() != null)
-            {
-                if(controller.RightHand.GetComponent<FixedJoint>().connectedBody == this.gameObject.GetComponent<Rigidbody>())
-                {
-                    if(forward && !pressed)
-                    {
-                        forward = false;
-                        pressed = true;
-                    }
+            ////Check if hand has joint, if so then check if it is connected to this object.
+            //if(controller.RightHand.GetComponent<FixedJoint>() != null)
+            //{
+            //    if(controller.RightHand.GetComponent<FixedJoint>().connectedBody == this.gameObject.GetComponent<Rigidbody>())
+            //    {
+            //        if(forward && !pressed)
+            //        {
+            //            forward = false;
+            //            pressed = true;
+            //        }
 
-                    else if(!forward && !pressed)
-                    {
-                        forward = true;
-                        pressed = true;
-                    }
-                }
-            }
+            //        else if(!forward && !pressed)
+            //        {
+            //            forward = true;
+            //            pressed = true;
+            //        }
+            //    }
+            //}
         
-            if(controller.LeftHand.GetComponent<FixedJoint>() != null)
-            {
-                if(controller.LeftHand.GetComponent<FixedJoint>().connectedBody == this.gameObject.GetComponent<Rigidbody>())
-                {
-                    if(forward && !pressed)
-                    {
-                        forward = false;
-                        pressed = true;
-                    }
+            //if(controller.LeftHand.GetComponent<FixedJoint>() != null)
+            //{
+            //    if(controller.LeftHand.GetComponent<FixedJoint>().connectedBody == this.gameObject.GetComponent<Rigidbody>())
+            //    {
+            //        if(forward && !pressed)
+            //        {
+            //            forward = false;
+            //            pressed = true;
+            //        }
 
-                    else if(!forward && !pressed)
-                    {
-                        forward = true;
-                        pressed = true;
-                    }
-                }
-            }
+            //        else if(!forward && !pressed)
+            //        {
+            //            forward = true;
+            //            pressed = true;
+            //        }
+            //    }
+            //}
         }
     
         //Check if hand has joint, if so check if it is not this object
