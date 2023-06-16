@@ -14,10 +14,25 @@ public class PlayerTeleporter
     /// <param name="destination">The destination transform to teleport the children to.</param>
     public void TeleportChildren(GameObject player, Transform destination)
     {
-        for (int i = 0; i < player.transform.parent.childCount; i++)
+        Transform root = GetRoot(player.transform);
+
+        ItemTeleporter.Instance.TeleportItem(root.gameObject, destination);
+    }
+
+    /// <summary>
+    /// Gets Root transform from the player
+    /// </summary>
+    /// <param name="player">Everty part of the body that will be checked to look for the Root.</param>
+    private Transform GetRoot(Transform player)
+    {
+        if (player.parent.tag == "Player") 
         {
-            GameObject child = player.transform.parent.GetChild(i).gameObject;
-            ItemTeleporter.Instance.TeleportItem(child, destination);
+            return player.parent;
+        }
+        else
+        {
+            //Recursive function to check for the root transform if it is not found
+            return GetRoot(player.transform.parent);
         }
     }
 }

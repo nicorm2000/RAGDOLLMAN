@@ -14,7 +14,9 @@ public class SceneTransitionController : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+        }
     }
 
     /// <summary>
@@ -34,7 +36,9 @@ public class SceneTransitionController : MonoBehaviour
     private IEnumerator Transition(int sceneIndex)
     {
         transitionAnim.SetTrigger("End");
+
         yield return new WaitForSeconds(waitTimeBetweenScenes);
+
         SceneManager.LoadScene(sceneIndex);
     }
 }
