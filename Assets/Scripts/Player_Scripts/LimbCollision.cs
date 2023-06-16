@@ -6,8 +6,13 @@ public class LimbCollision : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
 
+    [SerializeField] private LayerMask groundLayer;
+    
     private void OnCollisionEnter(Collision collision)
     {
-        playerController.isGrounded = true;
+        if (((1 << collision.gameObject.layer) & groundLayer) != 0)
+        {
+            playerController.isGrounded = true;
+        }
     }
 }

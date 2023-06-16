@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float strafeSpeed;
     [SerializeField] private float jumpForce;
 
-    [SerializeField] Animator animator;
+    //[SerializeField] Animator animator;
 
     [SerializeField] Rigidbody hips;
 
@@ -24,51 +24,51 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                animator.SetBool("isWalk", true);
-                animator.SetBool("isRun", true);
+                //animator.SetBool("isWalk", true);
+                //animator.SetBool("isRun", true);
                 hips.AddForce(hips.transform.forward * speed * runningSpeed);
             }
             else
             {
-                animator.SetBool("isWalk", true);
-                animator.SetBool("isRun", false);
+                //animator.SetBool("isWalk", true);
+                //animator.SetBool("isRun", false);
                 hips.AddForce(hips.transform.forward * speed);
             }
         }
         else
         {
-            animator.SetBool("isWalk", false);
-            animator.SetBool("isRun", false);
+            //animator.SetBool("isWalk", false);
+            //animator.SetBool("isRun", false);
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            animator.SetBool("isSideLeft", true);
+            //animator.SetBool("isSideLeft", true);
             hips.AddForce(-hips.transform.right * strafeSpeed);
         }
         else
         {
-            animator.SetBool("isSideLeft", false);
+            //animator.SetBool("isSideLeft", false);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            animator.SetBool("isWalk", true);
+            //animator.SetBool("isWalk", true);
             hips.AddForce(-hips.transform.forward * speed);
         }
         else if(!Input.GetKey(KeyCode.W))
         {
-            animator.SetBool("isWalk", false);
+            //animator.SetBool("isWalk", false);
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            animator.SetBool("isSideRight", true);
+            //animator.SetBool("isSideRight", true);
             hips.AddForce(hips.transform.right * strafeSpeed);
         }
         else
         {
-            animator.SetBool("isSideRight", false);
+            //animator.SetBool("isSideRight", false);
         }
 
         if (Input.GetAxis("Jump") > 0)
@@ -83,11 +83,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.V))
         {
-            animator.SetBool("isJumpingJack", true);
+            //animator.SetBool("isJumpingJack", true);
         }
         else
         {
-            animator.SetBool("isJumpingJack", false);
+            //animator.SetBool("isJumpingJack", false);
         }
     }
 }
