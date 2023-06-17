@@ -1,30 +1,14 @@
 ﻿using UnityEngine;
 
-
-//-------------------------------------------------------------
-//--APR Player
-//--Hand Contact
-//
-//--Unity Asset Store - Version 1.0
-//
-//--By The Famous Mouse
-//
-//--Twitter @FamousMouse_Dev
-//--Youtube TheFamouseMouse
-//-------------------------------------------------------------
-
-
-
 public class HandContact : MonoBehaviour
 {
-    public APRController APR_Player;
+    [SerializeField] APRController APR_Player;
 
     //Is left or right hand
-    public bool Left;
+    [SerializeField] bool Left;
 
     //Have joint/grabbed
-    public bool hasJoint;
-
+    [SerializeField] bool hasJoint;
 
     void Update()
     {
@@ -36,11 +20,12 @@ public class HandContact : MonoBehaviour
             {
                 if (hasJoint && Input.GetAxisRaw(APR_Player.reachLeft) == 0)
                 {
-                    this.gameObject.GetComponent<FixedJoint>().breakForce = 0;
+                    gameObject.GetComponent<FixedJoint>().breakForce = 0;
+
                     hasJoint = false;
                 }
 
-                if (hasJoint && this.gameObject.GetComponent<FixedJoint>() == null)
+                if (hasJoint && gameObject.GetComponent<FixedJoint>() == null)
                 {
                     hasJoint = false;
                 }
@@ -52,11 +37,12 @@ public class HandContact : MonoBehaviour
             {
                 if (hasJoint && Input.GetAxisRaw(APR_Player.reachRight) == 0)
                 {
-                    this.gameObject.GetComponent<FixedJoint>().breakForce = 0;
+                    gameObject.GetComponent<FixedJoint>().breakForce = 0;
+
                     hasJoint = false;
                 }
 
-                if (hasJoint && this.gameObject.GetComponent<FixedJoint>() == null)
+                if (hasJoint && gameObject.GetComponent<FixedJoint>() == null)
                 {
                     hasJoint = false;
                 }
@@ -77,12 +63,12 @@ public class HandContact : MonoBehaviour
                     if (Input.GetAxisRaw(APR_Player.reachLeft) != 0 && !hasJoint && !APR_Player.punchingLeft)
                     {
                         hasJoint = true;
-                        this.gameObject.AddComponent<FixedJoint>();
-                        this.gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
-                        this.gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
+
+                        gameObject.AddComponent<FixedJoint>();
+                        gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
+                        gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
                     }
                 }
-
             }
 
             //Right Hand
@@ -93,9 +79,10 @@ public class HandContact : MonoBehaviour
                     if (Input.GetAxisRaw(APR_Player.reachRight) != 0 && !hasJoint && !APR_Player.punchingRight)
                     {
                         hasJoint = true;
-                        this.gameObject.AddComponent<FixedJoint>();
-                        this.gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
-                        this.gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
+
+                        gameObject.AddComponent<FixedJoint>();
+                        gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
+                        gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
                     }
                 }
             }

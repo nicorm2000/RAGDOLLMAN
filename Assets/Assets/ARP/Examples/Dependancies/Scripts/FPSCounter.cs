@@ -28,7 +28,7 @@ namespace ARP.Examples.Dependancies.Scripts
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         
-            fpsText = this.GetComponent<TMPro.TextMeshProUGUI>();
+            fpsText = GetComponent<TMPro.TextMeshProUGUI>();
         }
 
         void Update()

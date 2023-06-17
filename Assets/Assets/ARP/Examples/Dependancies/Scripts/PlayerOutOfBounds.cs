@@ -32,7 +32,6 @@ public class PlayerOutOfBounds : MonoBehaviour
         cam = Camera.main;
     }
 
-
     void OnTriggerEnter(Collider col)
     {
         if (!checkedTrigger)
