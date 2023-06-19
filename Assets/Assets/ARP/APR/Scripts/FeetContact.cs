@@ -2,16 +2,19 @@
 
 public class FeetContact : MonoBehaviour
 {
-    public APRController APR_Player;
+    public PlayerController playerController;
 
-    //Alert APR player when feet colliders enter ground object layer
+    /// <summary>
+    /// Called when the GameObject collides with another GameObject. Checks if the player is not jumping and is in the air, and if so, checks if the collision was with an object on the "Ground" layer. If both conditions are met, calls the PlayerLanded method of the playerController object.
+    /// </summary>
+    /// <param name="col">The Collision object representing the collision that occurred.</param>
     void OnCollisionEnter(Collision col)
     {
-        if (!APR_Player.isJumping && APR_Player.inAir)
+        if (!playerController.isJumping && playerController.inAir)
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-                APR_Player.PlayerLanded();
+                playerController.PlayerLanded();
             }
         }
     }

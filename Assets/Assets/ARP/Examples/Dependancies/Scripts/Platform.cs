@@ -5,7 +5,7 @@ public class Platform : MonoBehaviour
     //Physics platform
     public ConfigurableJoint platformJoint;
     //APR Controller script
-    public APRController controller;
+    public PlayerController controller;
 
 
     private bool forward, pressed;

@@ -2,7 +2,7 @@
 
 public class HandContact : MonoBehaviour
 {
-    [SerializeField] APRController APR_Player;
+    [SerializeField] PlayerController playerController;
 
     //Is left or right hand
     [SerializeField] bool Left;
@@ -12,13 +12,13 @@ public class HandContact : MonoBehaviour
 
     void Update()
     {
-        if (APR_Player.useControls)
+        if (playerController.useControls)
         {
             //Left Hand
             //On input release destroy joint
             if (Left)
             {
-                if (hasJoint && Input.GetAxisRaw(APR_Player.reachLeft) == 0)
+                if (hasJoint && Input.GetAxisRaw(playerController.reachLeft) == 0)
                 {
                     gameObject.GetComponent<FixedJoint>().breakForce = 0;
 
@@ -35,7 +35,7 @@ public class HandContact : MonoBehaviour
             //On input release destroy joint
             if (!Left)
             {
-                if (hasJoint && Input.GetAxisRaw(APR_Player.reachRight) == 0)
+                if (hasJoint && Input.GetAxisRaw(playerController.reachRight) == 0)
                 {
                     gameObject.GetComponent<FixedJoint>().breakForce = 0;
 
@@ -50,17 +50,20 @@ public class HandContact : MonoBehaviour
         }
     }
 
-    //Grab on collision when input is used
+    /// <summary>
+    /// Checks if the playerController is using controls. If so, checks if the Left boolean is true or false, and if the collided object has a "CanBeGrabbed" tag and is on a different layer than the player. If these conditions are met and the player is not already holding an object, checks if the reachLeft or reachRight input axes are non-zero and the other hand is not punching. If all of these conditions are met, adds a FixedJoint component to the player's GameObject and sets it to the collided object's Rigidbody component. The Left boolean is used to determine which hand is used.
+    /// </summary>
+    /// <param name="col">The Collision object representing the collision that occurred.</param>
     void OnCollisionEnter(Collision col)
     {
-        if (APR_Player.useControls)
+        if (playerController.useControls)
         {
             //Left Hand
             if (Left)
             {
-                if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(APR_Player.thisPlayerLayer) && !hasJoint)
+                if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
                 {
-                    if (Input.GetAxisRaw(APR_Player.reachLeft) != 0 && !hasJoint && !APR_Player.punchingLeft)
+                    if (Input.GetAxisRaw(playerController.reachLeft) != 0 && !hasJoint && !playerController.punchingLeft)
                     {
                         hasJoint = true;
 
@@ -74,9 +77,9 @@ public class HandContact : MonoBehaviour
             //Right Hand
             if (!Left)
             {
-                if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(APR_Player.thisPlayerLayer) && !hasJoint)
+                if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
                 {
-                    if (Input.GetAxisRaw(APR_Player.reachRight) != 0 && !hasJoint && !APR_Player.punchingRight)
+                    if (Input.GetAxisRaw(playerController.reachRight) != 0 && !hasJoint && !playerController.punchingRight)
                     {
                         hasJoint = true;
 

@@ -3,7 +3,7 @@
 public class PlayerOutOfBounds : MonoBehaviour
 {
     //Player container
-    public GameObject APR_Player;
+    public GameObject playerController;
 
     //Player APR Root
     public GameObject APR_Root;
@@ -36,13 +36,13 @@ public class PlayerOutOfBounds : MonoBehaviour
     {
         if (!checkedTrigger)
         {
-            if (col.gameObject.layer == LayerMask.NameToLayer(APR_Player.GetComponent<APRController>().thisPlayerLayer))
+            if (col.gameObject.layer == LayerMask.NameToLayer(playerController.GetComponent<PlayerController>().thisPlayerLayer))
             {
                 checkedTrigger = true;
 
-                if (APR_Player != null)
+                if (playerController != null)
                 {
-                    PlayerPhysics = APR_Player.GetComponentsInChildren<Rigidbody>();
+                    PlayerPhysics = playerController.GetComponentsInChildren<Rigidbody>();
 
                     //Deactivate physics and store velocity
                     foreach (Rigidbody physics in PlayerPhysics)
@@ -57,7 +57,7 @@ public class PlayerOutOfBounds : MonoBehaviour
 
                     //Set player to new position
                     APR_Root.transform.localPosition = Vector3.zero;
-                    APR_Player.transform.position = resetPoint.position;
+                    playerController.transform.position = resetPoint.position;
 
                     //Re-activate physics and apply stored velocity
                     foreach (Rigidbody physics in PlayerPhysics)

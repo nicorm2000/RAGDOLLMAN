@@ -12,8 +12,8 @@ public class PortalEjectionForceApplier
         if (itemRigidbody != null)
         {
             float ejectionForce = 5f; // Or use a configurable value
-            Vector3 ejectionDirection = Vector3.forward; // Or calculate based on the portal orientation
-            itemRigidbody.AddForce(ejectionDirection * ejectionForce, ForceMode.Impulse);
+            Vector3 ejectiondirection = Vector3.forward; // Or calculate based on the portal orientation
+            itemRigidbody.AddForce(ejectiondirection * ejectionForce, ForceMode.Impulse);
         }
     }
 }
