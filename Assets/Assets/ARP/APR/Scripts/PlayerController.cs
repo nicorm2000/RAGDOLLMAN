@@ -14,10 +14,10 @@ public class PlayerController : MonoBehaviour
     [Header("Ground Dependancies")]
     [SerializeField] GroundCheck groundCheck;
 
-    [Header("RagdollActivator Dependancies")]
+    [Header("Ragdoll Activator Dependancies")]
     [SerializeField] ActivateRagdoll activateRagdoll;
 
-    [Header("RagdollDeactivator Dependancies")]
+    [Header("Ragdoll Deactivator Dependancies")]
     [SerializeField] DeactivateRagdoll deactivateRagdoll;
 
     [Header("Center of Mass Dependancies")]
@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
 
     [Header("Rotation Dependancies")]
     [SerializeField] PlayerRotation playerRotation;
+
+    [Header("Reset Player's Pose Dependancies")]
+    [SerializeField] ResetPlayerPose resetPlayerPose;
+
+    [Header("Reset Walk Cycle Dependancies")]
+    [SerializeField] ResetWalkCycle resetWalkCycle;
 
     [Header("Hand Dependancies")]
     //Hand Controller Scripts & dependancies
@@ -72,7 +78,7 @@ public class PlayerController : MonoBehaviour
     public float armReachStiffness = 2000f;
 
     //Hidden variables
-    private float timer, step_R_timer, step_L_timer, MouseYAxisArms, MouseYAxisBody;
+    public float timer, step_R_timer, step_L_timer, MouseYAxisArms, MouseYAxisBody;
 
     private bool walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, balanced = true, isKeyDown, moveAxisUsed, jumpAxisUsed, reachLeftAxisUsed, reachRightAxisUsed;
 
@@ -119,6 +125,7 @@ public class PlayerController : MonoBehaviour
         if (!usestepPrediction)
         {
             ResetWalkCycle();
+            //resetWalkCycle.WalkCycleReset(walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, step_R_timer, step_L_timer);
         }
 
         GroundCheck();
@@ -135,8 +142,8 @@ public class PlayerController : MonoBehaviour
         if (useControls)
         {
             playerRotation.PlayerRotationCalculation(cam, playerParts[0], turnSpeed);
-            //PlayerRotation();
             ResetPlayerPose();
+            //resetPlayerPose.PlayerPoseReset(resetPose, jumping, MouseYAxisArms, playerParts, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget);
             PlayerGetUpJumping();
         }
     }
@@ -247,6 +254,7 @@ public class PlayerController : MonoBehaviour
         if (!walkForward && !walkBackward)
         {
             ResetWalkCycle();
+            //resetWalkCycle.WalkCycleReset(walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, step_R_timer, step_L_timer);
         }
 
         //Check direction to walk when off balance
@@ -335,22 +343,6 @@ public class PlayerController : MonoBehaviour
         walkForward = false;
         moveAxisUsed = false;
         isKeyDown = false;
-    }
-
-    /// <summary>
-    /// Handles the rotation of the player character.
-    /// </summary>
-    private void PlayerRotation()
-    {
-        //Camera direction and turn of camera.
-        var lookPos = cam.transform.forward;
-
-        lookPos.y = 0;
-
-        var rotation = Quaternion.LookRotation(lookPos);
-
-        //This allows for a smooth rotation of the character.
-        playerParts[0].GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Slerp(playerParts[0].GetComponent<ConfigurableJoint>().targetRotation, Quaternion.Inverse(rotation), Time.deltaTime * turnSpeed);
     }
 
     /// <summary>
@@ -843,49 +835,6 @@ public class PlayerController : MonoBehaviour
 
             resetPose = false;
         }
-    }
-
-    /// <summary>
-    /// Character's center of mass.
-    /// The center of mass can be calculated by taking the masses you are trying to find the center of mass between and multiplying them by their positions.
-    /// Then, you add these together and divide that by the sum of all the individual masses.
-    /// Formula -> centerOfMassPoint = (m1* p1 + m2* p2 + ... + mn* pn) / (m1 + m2 + ... + mn)
-    /// m is the mass of each collider, and p is the position of each collider
-    /// </summary>
-
-    private void CenterOfMass()
-    {
-        //Calculates the center of mass of a rigid body by adding up the positions of the colliders weighted by their mass,
-        //and then dividing by the total mass of the rigid body.
-        //The result is the center of mass point of the entire rigid body.
-
-        Vector3 dividendSum = Vector3.zero
-            ;
-        float divisorSum = 0f;
-
-        for (int i = 0; i < 13; i++)
-        {
-            dividendSum += CenterOfMassPointDividend(i);
-            divisorSum += CenterOfMassPointDivisor(i);
-        }
-
-        Vector3 centerOfMassPoint = dividendSum / divisorSum;
-
-        COMP.position = centerOfMassPoint;
-    }
-
-    Vector3 CenterOfMassPointDividend(int arrayPosition)
-    {
-        centerOfMassPoint = playerParts[arrayPosition].GetComponent<Rigidbody>().mass * playerParts[arrayPosition].transform.position;
-
-        return centerOfMassPoint;
-    }
-
-    float CenterOfMassPointDivisor(int arrayPosition)
-    {
-        float centerOfMassPoint = playerParts[arrayPosition].GetComponent<Rigidbody>().mass;
-        
-        return centerOfMassPoint;
     }
 
     /// <summary>

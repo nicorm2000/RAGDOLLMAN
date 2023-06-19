@@ -1579,6 +1579,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9073c6f3845cb0439ea24b8a7a71edb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1490781757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490781751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94683aee79e1dd049b59917083586fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1490781758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490781751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2cec4d65d2d37d458dfbcd9e1b06db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1490781759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490781751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20bf4bed2667954dbc2791d8cd9f9d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1490781760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490781751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5526e8a5e93bab846ad0280fe7157fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1528804964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2234,9 +2282,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122338867580340331, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: playerLanded
+      value: 
+      objectReference: {fileID: 1490781759}
+    - target: {fileID: 3122338867580340331, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1339617906}
+    - target: {fileID: 3122338867580340332, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: playerLanded
+      value: 
+      objectReference: {fileID: 1490781759}
     - target: {fileID: 3122338867580340332, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerController
       value: 
@@ -2262,6 +2318,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1490781756}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: playerRotation
+      value: 
+      objectReference: {fileID: 1490781757}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: resetWalkCycle
+      value: 
+      objectReference: {fileID: 1490781760}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: activateRagdoll
       value: 
       objectReference: {fileID: 1490781754}
@@ -2269,6 +2333,10 @@ PrefabInstance:
       propertyPath: editorDebugMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: resetPlayerPose
+      value: 
+      objectReference: {fileID: 1490781758}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: deactivateRagdoll
       value: 
