@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3868556280326786426}
   - component: {fileID: 3868556280325820346}
   - component: {fileID: 5437433188315791356}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: ship-yacht
   m_TagString: Untagged
   m_Icon: {fileID: 0}
