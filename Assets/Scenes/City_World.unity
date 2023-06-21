@@ -14489,7 +14489,7 @@ PrefabInstance:
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: groundCheck
       value: 
-      objectReference: {fileID: 1407619943}
+      objectReference: {fileID: 1105681268}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: useControls
       value: 1
@@ -14497,19 +14497,19 @@ PrefabInstance:
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: centerOfMass
       value: 
-      objectReference: {fileID: 1407619940}
+      objectReference: {fileID: 1105681271}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerRotation
       value: 
-      objectReference: {fileID: 1407619939}
+      objectReference: {fileID: 1105681272}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: resetWalkCycle
       value: 
-      objectReference: {fileID: 1407619937}
+      objectReference: {fileID: 1105681274}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: activateRagdoll
       value: 
-      objectReference: {fileID: 1407619942}
+      objectReference: {fileID: 1105681269}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: editorDebugMode
       value: 1
@@ -14517,11 +14517,11 @@ PrefabInstance:
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: resetPlayerPose
       value: 
-      objectReference: {fileID: 1407619938}
+      objectReference: {fileID: 1105681273}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: deactivateRagdoll
       value: 
-      objectReference: {fileID: 1407619941}
+      objectReference: {fileID: 1105681270}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: forwardIsCameraDirection
       value: 1
@@ -14534,9 +14534,61 @@ PrefabInstance:
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1407619936}
+    - target: {fileID: 3122338867580340680, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_UpperRightLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340681, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_LowerLeftArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340682, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_UpperLeftArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340683, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_LowerRightArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340684, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_UpperRightArm
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340685, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_Head
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340686, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_Body
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340687, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_Root
+      objectReference: {fileID: 0}
     - target: {fileID: 3122338867580340687, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340723, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_LeftFoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340724, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_RightFoot
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340725, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_LowerLeftLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340726, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_UpperLeftLeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340727, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_LowerRightLeg
       objectReference: {fileID: 0}
     - target: {fileID: 3122338867580340733, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: m_Name
@@ -14546,10 +14598,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340734, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340735, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_RightHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 8537569746052715024, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8954107397179662024, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ecce1a1895e37524282423faddfd60c9, type: 2}
+    - target: {fileID: 9016187670890978097, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: m_Name
+      value: Player_COMP
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6498776576911632227, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}

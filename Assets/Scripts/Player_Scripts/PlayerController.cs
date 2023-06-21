@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform COMP;
 
     [Header("Ground Dependancies")]
-    [SerializeField] GroundCheck groundCheck;
+    [SerializeField] CheckerGround groundCheck;
 
     [Header("Ragdoll Activator Dependancies")]
     [SerializeField] ActivateRagdoll activateRagdoll;
@@ -128,8 +128,8 @@ public class PlayerController : MonoBehaviour
             //resetWalkCycle.WalkCycleReset(walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, step_R_timer, step_L_timer);
         }
 
-        GroundCheck();
-        //groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, balanced, autoGetUpWhenPossible);
+        //GroundCheck();
+        groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, ref balanced, autoGetUpWhenPossible);
         RagdollCheck();
         //CenterOfMass();
         centerOfMass.CenterOfMassCalculation(COMP, centerOfMassPoint, playerParts);
@@ -195,36 +195,6 @@ public class PlayerController : MonoBehaviour
         LowerRightLegTarget = playerParts[8].GetComponent<ConfigurableJoint>().targetRotation;
         UpperLeftLegTarget = playerParts[9].GetComponent<ConfigurableJoint>().targetRotation;
         LowerLeftLegTarget = playerParts[10].GetComponent<ConfigurableJoint>().targetRotation;
-    }
-
-    /// <summary>
-    /// Check if the player character is in contact with the ground and adjust balancing accordingly.
-    /// </summary>
-    private void GroundCheck()
-    {
-        Ray ray = new Ray(playerParts[0].transform.position, -playerParts[0].transform.up);
-
-        RaycastHit hit;
-
-        //Balance when ground is detected
-        if (Physics.Raycast(ray, out hit, balanceHeight, 1 << LayerMask.NameToLayer("Ground")) && !inAir && !isJumping && !reachRightAxisUsed && !reachLeftAxisUsed)
-        {
-            if (!balanced && playerParts[0].GetComponent<Rigidbody>().velocity.magnitude < 1f)
-            {
-                if (autoGetUpWhenPossible)
-                {
-                    balanced = true;
-                }
-            }
-        }
-        //Fall over when ground is not detected
-        else if (!Physics.Raycast(ray, out hit, balanceHeight, 1 << LayerMask.NameToLayer("Ground")))
-        {
-            if (balanced)
-            {
-                balanced = false;
-            }
-        }
     }
 
     /// <summary>

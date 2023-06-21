@@ -18,6 +18,7 @@ public class CenterOfMass : MonoBehaviour
         //The result is the center of mass point of the entire rigid body.
 
         Vector3 dividendSum = Vector3.zero;
+
         float divisorSum = 0f;
 
         for (int i = 0; i < 13; i++)
