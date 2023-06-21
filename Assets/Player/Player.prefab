@@ -2484,7 +2484,7 @@ GameObject:
   - component: {fileID: 3122338867580340330}
   - component: {fileID: 3122338867580340672}
   m_Layer: 10
-  m_Name: APR_Player
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
