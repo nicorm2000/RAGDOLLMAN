@@ -959,8 +959,8 @@ MonoBehaviour:
   distance: 5
   smoothness: 0.15
   rotateSpeed: 2.5
-  minAngle: -60
-  maxAngle: 0
+  minAngle: -90
+  maxAngle: 25
 --- !u!1 &1088861008
 GameObject:
   m_ObjectHideFlags: 0
