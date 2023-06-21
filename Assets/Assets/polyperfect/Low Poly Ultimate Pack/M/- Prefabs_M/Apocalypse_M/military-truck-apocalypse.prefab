@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1791998148278325584}
   - component: {fileID: 6777854141057214033}
   - component: {fileID: 7048166356068898650}
-  - component: {fileID: 4831310184419033724}
+  - component: {fileID: 7142660114871393604}
   m_Layer: 0
   m_Name: military-truck-apocalypse-cover
   m_TagString: Untagged
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2037964, y: 1.3119501, z: -0.3443489}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 1
@@ -52,10 +53,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,7 +83,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033724
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7142660114871393604
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,7 +95,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7040992971006263675, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &1063940699137374029
@@ -105,7 +109,7 @@ GameObject:
   - component: {fileID: 2488622206308235635}
   - component: {fileID: 4461507827188384180}
   - component: {fileID: 1189319126760781713}
-  - component: {fileID: 4831310184419033725}
+  - component: {fileID: 3845350959627480435}
   m_Layer: 0
   m_Name: military-truck-apocalypse-wheel_BR1
   m_TagString: Untagged
@@ -123,6 +127,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.55794144, y: 0.32471913, z: -0.947361}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 2
@@ -146,10 +151,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -175,7 +182,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033725
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3845350959627480435
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,7 +194,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5238830602784853731, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &3525517198433239314
@@ -200,7 +208,7 @@ GameObject:
   - component: {fileID: 2696762431902416987}
   - component: {fileID: 7175074687749733954}
   - component: {fileID: 4034363034889372253}
-  - component: {fileID: 4831310184419033664}
+  - component: {fileID: 5394754005128573402}
   m_Layer: 0
   m_Name: military-truck-apocalypse-wheel_FR
   m_TagString: Untagged
@@ -218,6 +226,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.6363106, y: 0.2892732, z: 2.7826385}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 5
@@ -241,10 +250,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -270,7 +281,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033664
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5394754005128573402
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,7 +293,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6535252280197041742, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &4727830821363227578
@@ -295,7 +307,7 @@ GameObject:
   - component: {fileID: 6810685137667386461}
   - component: {fileID: 7673750503138716340}
   - component: {fileID: 830999716038793291}
-  - component: {fileID: 4831310184419033666}
+  - component: {fileID: 6395337271946650814}
   m_Layer: 0
   m_Name: military-truck-apocalypse-wheel_LR2
   m_TagString: Untagged
@@ -313,6 +325,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5946026, y: 2.303578, z: -2.3269043}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 7
@@ -336,10 +349,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -365,7 +380,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033666
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6395337271946650814
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,7 +392,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3967158059808076007, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &5302967478081844117
@@ -390,7 +406,7 @@ GameObject:
   - component: {fileID: 3821179842048599205}
   - component: {fileID: 4332797522278635804}
   - component: {fileID: 7670401036331050302}
-  - component: {fileID: 4831310184419033665}
+  - component: {fileID: 1929993364837843534}
   m_Layer: 0
   m_Name: military-truck-apocalypse-wheel_LR1
   m_TagString: Untagged
@@ -408,6 +424,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.5663891, y: 0.34629577, z: 0.4396057}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 6
@@ -431,10 +448,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -460,7 +479,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033665
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1929993364837843534
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -471,7 +491,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -9064886035977921350, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &5418711161855154614
@@ -485,7 +505,7 @@ GameObject:
   - component: {fileID: 1806318213136415276}
   - component: {fileID: 8900655005628588992}
   - component: {fileID: 4979751435249333372}
-  - component: {fileID: 4831310184419033726}
+  - component: {fileID: 2041191893896643397}
   m_Layer: 0
   m_Name: military-truck-apocalypse-wheel_BR2
   m_TagString: Untagged
@@ -503,6 +523,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5269661, y: 0.33872175, z: -2.4208946}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 3
@@ -526,10 +547,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -555,7 +578,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033726
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2041191893896643397
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -566,7 +590,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4073090381778819372, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &5750299380821999389
@@ -595,6 +619,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2013196836092813291}
   - {fileID: 1791998148278325584}
@@ -618,7 +643,7 @@ GameObject:
   - component: {fileID: 2013196836092813291}
   - component: {fileID: 5405095270835289525}
   - component: {fileID: 7935878334356379391}
-  - component: {fileID: 4831310184419033723}
+  - component: {fileID: 6697808578007249258}
   m_Layer: 0
   m_Name: military-truck-apocalypse-base
   m_TagString: Untagged
@@ -636,6 +661,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 0
@@ -659,10 +685,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -692,7 +720,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033723
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6697808578007249258
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -703,7 +732,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8400840046176884516, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
 --- !u!1 &9128214296482368915
@@ -717,7 +746,7 @@ GameObject:
   - component: {fileID: 5301422671263398875}
   - component: {fileID: 4607055550321083538}
   - component: {fileID: 1429704424415776979}
-  - component: {fileID: 4831310184419033727}
+  - component: {fileID: 2660525273059299960}
   m_Layer: 0
   m_Name: military-truck-apocalypse-wheel_FL
   m_TagString: Untagged
@@ -735,6 +764,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.7363224, y: 2.2377977, z: 2.7755585}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4937909462959351207}
   m_RootOrder: 4
@@ -758,10 +788,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -787,7 +819,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4831310184419033727
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2660525273059299960
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -798,6 +831,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1992331402717018653, guid: 2ac00091cc768ca47ba840893ee6d709, type: 3}
