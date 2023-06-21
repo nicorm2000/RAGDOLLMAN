@@ -3,51 +3,51 @@ using UnityEngine;
 public class ActivateRagdoll : MonoBehaviour
 {
     /// <summary>
-    /// Activates player raagdoll, which controls balance.
+    /// Activates the ragdoll state by turning off balance and pose using DriveOff.
     /// </summary>
-    public void RagdollActivator(bool balanced, bool isRagdoll, bool reachRightAxisUsed, bool reachLeftAxisUsed, GameObject playerPart0, GameObject playerPart2, GameObject playerPart3, GameObject playerPart4, GameObject playerPart5, GameObject playerPart6, GameObject playerPart7, GameObject playerPart8, GameObject playerPart9, GameObject playerPart10, GameObject playerPart11, GameObject playerPart12, JointDrive driveOff)
+    /// <param name="balanced">The current balance state of the character.</param>
+    /// <param name="isRagdoll">Indicates if the character is currently in ragdoll state.</param>
+    /// <param name="reachRightAxisUsed">Indicates if the character's right axis is being used.</param>
+    /// <param name="reachLeftAxisUsed">Indicates if the character's left axis is being used.</param>
+    /// <param name="playerPart0">The root player part GameObject.</param>
+    /// <param name="playerParts">An array of player part GameObjects.</param>
+    /// <param name="driveOff">The JointDrive used for deactivating the ragdoll state.</param>
+    public void RagdollActivator(ref bool balanced,
+        ref bool isRagdoll,
+        bool reachRightAxisUsed,
+        bool reachLeftAxisUsed,
+        GameObject[] playerParts,
+        JointDrive DriveOff)
     {
-        //To start being a raggdoll the balance and pose are set OFF, by using DriveOff.
-
+        // To start being a ragdoll, the balance and pose are set OFF, using DriveOff.
         isRagdoll = true;
         balanced = false;
 
-        //Root
-        playerPart0.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart0.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-        //Head
-        playerPart2.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart2.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
+        playerParts[0].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
+        playerParts[0].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
 
-        //Arms
+        for (int i = 2; i < playerParts.Length; i++)
+        {
+            playerParts[i].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
+            playerParts[i].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
+        }
+
         if (!reachRightAxisUsed)
         {
-            playerPart3.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-            playerPart3.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-            playerPart4.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-            playerPart4.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
+            for (int i = 3; i <= 4; i++)
+            {
+                playerParts[i].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
+                playerParts[i].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
+            }
         }
 
         if (!reachLeftAxisUsed)
         {
-            playerPart5.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-            playerPart5.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-            playerPart6.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-            playerPart6.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
+            for (int i = 5; i <= 6; i++)
+            {
+                playerParts[i].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
+                playerParts[i].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
+            }
         }
-
-        //Legs
-        playerPart7.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart7.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-        playerPart8.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart8.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-        playerPart9.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart9.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-        playerPart10.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart10.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-        playerPart11.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart11.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
-        playerPart12.GetComponent<ConfigurableJoint>().angularXDrive = driveOff;
-        playerPart12.GetComponent<ConfigurableJoint>().angularYZDrive = driveOff;
     }
 }

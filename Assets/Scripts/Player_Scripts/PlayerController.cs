@@ -205,13 +205,11 @@ public class PlayerController : MonoBehaviour
         //Balance on/off
         if (balanced && isRagdoll)
         {
-            DeactivateRagdoll();
-            //deactivateRagdoll.RagdollDeactivator(balanced, isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, resetPose, playerParts[0], playerParts[2], playerParts[3], playerParts[4], playerParts[5], playerParts[6], playerParts[7], playerParts[8], playerParts[9], playerParts[10], playerParts[11], playerParts[12], BalanceOn, PoseOn);
+            deactivateRagdoll.RagdollDeactivator(ref balanced, ref isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, ref resetPose, playerParts, BalanceOn, PoseOn);
         }
         else if (!balanced && !isRagdoll)
         {
-            ActivateRagdoll();
-            //activateRagdoll.RagdollActivator(balanced, isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, playerParts[0], playerParts[2], playerParts[3], playerParts[4], playerParts[5], playerParts[6], playerParts[7], playerParts[8], playerParts[9], playerParts[10], playerParts[11], playerParts[12], DriveOff);
+            activateRagdoll.RagdollActivator(ref balanced, ref isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, playerParts, DriveOff);
         }
     }
 
@@ -331,7 +329,7 @@ public class PlayerController : MonoBehaviour
 
                 else if (!balanced)
                 {
-                    DeactivateRagdoll();
+                    deactivateRagdoll.RagdollDeactivator(ref balanced, ref isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, ref resetPose, playerParts, BalanceOn, PoseOn);
                 }
             }
 
@@ -686,106 +684,6 @@ public class PlayerController : MonoBehaviour
                 playerParts[12].GetComponent<Rigidbody>().AddForce(-Vector3.up * feetMountForce * Time.deltaTime, ForceMode.Impulse);
             }
         }
-    }
-
-    /// <summary>
-    /// Activates player raagdoll, which controls balance.
-    /// </summary>
-    private void ActivateRagdoll()
-    {
-        //To start being a raggdoll the balance and pose are set OFF, by using DriveOff.
-
-        isRagdoll = true;
-        balanced = false;
-
-        //Root
-        playerParts[0].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[0].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        //Head
-        playerParts[2].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[2].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-
-        //Arms
-        if (!reachRightAxisUsed)
-        {
-            playerParts[3].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-            playerParts[3].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-            playerParts[4].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-            playerParts[4].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        }
-
-        if (!reachLeftAxisUsed)
-        {
-            playerParts[5].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-            playerParts[5].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-            playerParts[6].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-            playerParts[6].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        }
-
-        //Legs
-        playerParts[7].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[7].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        playerParts[8].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[8].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        playerParts[9].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[9].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        playerParts[10].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[10].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        playerParts[11].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[11].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-        playerParts[12].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-        playerParts[12].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-    }
-
-    /// <summary>
-    /// Deactivates player raagdoll, which controls balance.
-    /// </summary>
-    private void DeactivateRagdoll()
-    {
-        //To stop being a raggdoll the balance and pose are set ON.
-
-        isRagdoll = false;
-        balanced = true;
-
-        //Root
-        playerParts[0].GetComponent<ConfigurableJoint>().angularXDrive = BalanceOn;
-        playerParts[0].GetComponent<ConfigurableJoint>().angularYZDrive = BalanceOn;
-        //Head
-        playerParts[2].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[2].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-
-        //Arms
-        if (!reachRightAxisUsed)
-        {
-            playerParts[3].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-            playerParts[3].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-            playerParts[4].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-            playerParts[4].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        }
-
-        if (!reachLeftAxisUsed)
-        {
-            playerParts[5].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-            playerParts[5].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-            playerParts[6].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-            playerParts[6].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        }
-
-        //Legs
-        playerParts[7].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[7].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        playerParts[8].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[8].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        playerParts[9].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[9].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        playerParts[10].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[10].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        playerParts[11].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[11].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-        playerParts[12].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-        playerParts[12].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-
-        resetPose = true;
     }
 
     /// <summary>

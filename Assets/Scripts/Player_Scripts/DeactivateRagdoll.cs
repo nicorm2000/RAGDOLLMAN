@@ -13,11 +13,11 @@ public class DeactivateRagdoll : MonoBehaviour
     /// <param name="playerParts">An array of GameObjects representing different parts of the player.</param>
     /// <param name="BalanceOn">The JointDrive used for balancing.</param>
     /// <param name="PoseOn">The JointDrive used for restoring the pose.</param>
-    private void RagdollDeactivator(bool balanced, 
-        bool isRagdoll, 
+    public void RagdollDeactivator(ref bool balanced, 
+        ref bool isRagdoll, 
         bool reachRightAxisUsed, 
         bool reachLeftAxisUsed, 
-        bool resetPose, 
+        ref bool resetPose, 
         GameObject[] playerParts, 
         JointDrive BalanceOn, 
         JointDrive PoseOn)
