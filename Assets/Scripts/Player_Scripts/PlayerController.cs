@@ -3,7 +3,7 @@
 public class PlayerController : MonoBehaviour
 {
     //Active Ragdoll Player parts
-    [SerializeField] GameObject Root, Body, Head, UpperRightArm, LowerRightArm, UpperLeftArm, LowerLeftArm, UpperRightLeg, LowerRightLeg, UpperLeftLeg, LowerLeftLeg, RightFoot, LeftFoot;
+    [SerializeField] public GameObject Root, Body, Head, UpperRightArm, LowerRightArm, UpperLeftArm, LowerLeftArm, UpperRightLeg, LowerRightLeg, UpperLeftLeg, LowerLeftLeg, RightFoot, LeftFoot;
 
     //Rigidbody Hands
     [SerializeField] Rigidbody RightHand, LeftHand;
@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
 
     [Header("Ragdoll Check Dependancies")]
     [SerializeField] RagdollCheck ragdollCheck;
+
+    [Header("Player Setup Dependancies")]
+    [SerializeField] PlayerSetup playerSetup;
 
     [Header("Hand Dependancies")]
     //Hand Controller Scripts & dependancies
@@ -87,9 +90,9 @@ public class PlayerController : MonoBehaviour
 
     public bool jumping, isJumping, inAir, punchingRight, punchingLeft, isRagdoll, resetPose;
 
-    private Camera cam;
-    private Vector3 direction;
-    private Vector3 centerOfMassPoint;
+    public Camera cam;
+    public Vector3 direction;
+    public Vector3 centerOfMassPoint;
 
     //Player Parts Array
     public GameObject[] playerParts;
@@ -101,11 +104,11 @@ public class PlayerController : MonoBehaviour
     public JointDrive BalanceOn, PoseOn, CoreStiffness, ReachStiffness, DriveOff;
 
     //Original pose target rotation
-    Quaternion HeadTarget, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget, UpperRightLegTarget, LowerRightLegTarget, UpperLeftLegTarget, LowerLeftLegTarget;
+    public Quaternion HeadTarget, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget, UpperRightLegTarget, LowerRightLegTarget, UpperLeftLegTarget, LowerLeftLegTarget;
 
     private void Awake()
     {
-        PlayerSetup();
+        playerSetup.SetupPlayer();
     }
 
     private void Update()
@@ -149,55 +152,6 @@ public class PlayerController : MonoBehaviour
             
             PlayerGetUpJumping();
         }
-    }
-
-    /// <summary>
-    /// Set up the player character by initializing various variables and configuring joint drives.
-    /// </summary>
-    private void PlayerSetup()
-    {
-        cam = Camera.main;
-
-        //Setup joint drives
-        BalanceOn = new JointDrive();
-        BalanceOn.positionSpring = balanceStrength;
-        BalanceOn.positionDamper = 0;
-        BalanceOn.maximumForce = Mathf.Infinity;
-
-        PoseOn = new JointDrive();
-        PoseOn.positionSpring = limbStrength;
-        PoseOn.positionDamper = 0;
-        PoseOn.maximumForce = Mathf.Infinity;
-
-        CoreStiffness = new JointDrive();
-        CoreStiffness.positionSpring = coreStrength;
-        CoreStiffness.positionDamper = 0;
-        CoreStiffness.maximumForce = Mathf.Infinity;
-
-        ReachStiffness = new JointDrive();
-        ReachStiffness.positionSpring = armReachStiffness;
-        ReachStiffness.positionDamper = 0;
-        ReachStiffness.maximumForce = Mathf.Infinity;
-
-        DriveOff = new JointDrive();
-        DriveOff.positionSpring = 25;
-        DriveOff.positionDamper = 0;
-        DriveOff.maximumForce = Mathf.Infinity;
-
-        //Setup/reroute active ragdoll parts to array
-        playerParts = new GameObject[] { Root, Body, Head, UpperRightArm, LowerRightArm, UpperLeftArm, LowerLeftArm, UpperRightLeg, LowerRightLeg, UpperLeftLeg, LowerLeftLeg, RightFoot, LeftFoot };
-
-        //Setup original pose for joint drives
-        BodyTarget = playerParts[1].GetComponent<ConfigurableJoint>().targetRotation;
-        HeadTarget = playerParts[2].GetComponent<ConfigurableJoint>().targetRotation;
-        UpperRightArmTarget = playerParts[3].GetComponent<ConfigurableJoint>().targetRotation;
-        LowerRightArmTarget = playerParts[4].GetComponent<ConfigurableJoint>().targetRotation;
-        UpperLeftArmTarget = playerParts[5].GetComponent<ConfigurableJoint>().targetRotation;
-        LowerLeftArmTarget = playerParts[6].GetComponent<ConfigurableJoint>().targetRotation;
-        UpperRightLegTarget = playerParts[7].GetComponent<ConfigurableJoint>().targetRotation;
-        LowerRightLegTarget = playerParts[8].GetComponent<ConfigurableJoint>().targetRotation;
-        UpperLeftLegTarget = playerParts[9].GetComponent<ConfigurableJoint>().targetRotation;
-        LowerLeftLegTarget = playerParts[10].GetComponent<ConfigurableJoint>().targetRotation;
     }
 
     /// <summary>
