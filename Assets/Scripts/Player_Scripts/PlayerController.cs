@@ -3,13 +3,28 @@
 public class PlayerController : MonoBehaviour
 {
     //Active Ragdoll Player parts
-    [SerializeField] public GameObject Root, Body, Head, UpperRightArm, LowerRightArm, UpperLeftArm, LowerLeftArm, UpperRightLeg, LowerRightLeg, UpperLeftLeg, LowerLeftLeg, RightFoot, LeftFoot;
-
-    //Rigidbody Hands
-    [SerializeField] Rigidbody RightHand, LeftHand;
+    [SerializeField]
+    public GameObject Root,
+        Body,
+        Head,
+        UpperRightArm,
+        LowerRightArm,
+        UpperLeftArm,
+        LowerLeftArm,
+        UpperRightLeg,
+        LowerRightLeg,
+        UpperLeftLeg,
+        LowerLeftLeg,
+        RightFoot,
+        LeftFoot;
 
     //Center of mass point
-    [SerializeField] Transform COMP;
+    [SerializeField] public Transform COMP;
+
+    //Rigidbody Hands
+    [SerializeField]
+    Rigidbody RightHand,
+        LeftHand;
 
     [Header("Ground Dependancies")]
     [SerializeField] CheckerGround groundCheck;
@@ -38,10 +53,13 @@ public class PlayerController : MonoBehaviour
     [Header("Player Setup Dependancies")]
     [SerializeField] PlayerSetup playerSetup;
 
+    [Header("Step Prediction Dependancies")]
+    [SerializeField] StepPrediction stepPrediction;
+
     [Header("Hand Dependancies")]
     //Hand Controller Scripts & dependancies
-    public HandContact grabRight;
-    public HandContact grabLeft;
+    public HandContact grabRight,
+        grabLeft;
 
     [Header("Input on this player")]
     //Enable controls
@@ -49,11 +67,11 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Input Axis")]
     //Player Axis controls
-    public string forwardBackward = "Vertical";
-    public string horizontal = "Horizontal";
-    public string jump = "Jump";
-    public string reachLeft = "Fire1";
-    public string reachRight = "Fire2";
+    public string forwardBackward = "Vertical",
+        horizontal = "Horizontal",
+        jump = "Jump",
+        reachLeft = "Fire1",
+        reachRight = "Fire2";
 
     [Header("The Layer Only This Player Is On")]
     //Player layer name
@@ -61,38 +79,56 @@ public class PlayerController : MonoBehaviour
 
     [Header("Movement Properties")]
     //Movement
-    public float moveSpeed = 10f;
-    public float turnSpeed = 6f;
-    public float jumpForce = 18f;
+    public float moveSpeed = 10f,
+        turnSpeed = 6f,
+        jumpForce = 18f;
 
     [Header("Balance Properties")]
     //Balance
-    public bool autoGetUpWhenPossible = true;
-    public bool useStepPrediction = true;
-    public float balanceHeight = 2.5f;
-    public float balanceStrength = 5000f;
-    public float coreStrength = 1500f;
-    public float limbStrength = 500f;
+    public bool autoGetUpWhenPossible = true,
+        useStepPrediction = true;
+    public float balanceHeight = 2.5f,
+        balanceStrength = 5000f, coreStrength = 1500f,
+        limbStrength = 500f;
     //Walking
-    public float stepDuration = 0.2f;
-    public float stepHeight = 1.7f;
-    public float feetMountForce = 25f;
+    public float stepDuration = 0.2f,
+        stepHeight = 1.7f,
+        feetMountForce = 25f;
 
     [Header("Reach Properties")]
     //Reach
-    public float reachSensitivity = 25f;
-    public float armReachStiffness = 2000f;
+    public float reachSensitivity = 25f,
+        armReachStiffness = 2000f;
 
     //Hidden variables
-    public float timer, step_R_timer, step_L_timer, MouseYAxisArms, MouseYAxisBody;
+    public float timer,
+        step_Timer_Right,
+        step_Timer_Left,
+        MouseYAxisArms,
+        MouseYAxisBody;
 
-    public bool walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, balanced = true, isKeyDown, moveAxisUsed, jumpAxisUsed, reachLeftAxisUsed, reachRightAxisUsed;
-
-    public bool jumping, isJumping, inAir, punchingRight, punchingLeft, isRagdoll, resetPose;
+    public bool walkForward,
+        walkBackward,
+        stepRight,
+        stepLeft,
+        alert_Leg_Right,
+        alert_Leg_Left,
+        balanced = true,
+        isKeyDown,
+        moveAxisUsed,
+        jumpAxisUsed,
+        reachLeftAxisUsed,
+        reachRightAxisUsed,
+        jumping, isJumping,
+        inAir,
+        punchingRight,
+        punchingLeft,
+        isRagdoll,
+        resetPose;
 
     public Camera cam;
-    public Vector3 direction;
-    public Vector3 centerOfMassPoint;
+    public Vector3 direction,
+        centerOfMassPoint;
 
     //Player Parts Array
     public GameObject[] playerParts;
@@ -101,10 +137,23 @@ public class PlayerController : MonoBehaviour
     //They allow for greater control over the movement of joints by allowing you to set target rotation and velocity values, along with positional spring and damping values.
     //This can help create realistic and stable movements in your physics simulations.
     //Joint Drives on & off
-    public JointDrive BalanceOn, PoseOn, CoreStiffness, ReachStiffness, DriveOff;
+    public JointDrive BalanceOn,
+        PoseOn,
+        CoreStiffness,
+        ReachStiffness,
+        DriveOff;
 
     //Original pose target rotation
-    public Quaternion HeadTarget, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget, UpperRightLegTarget, LowerRightLegTarget, UpperLeftLegTarget, LowerLeftLegTarget;
+    public Quaternion HeadTarget,
+        BodyTarget,
+        UpperRightArmTarget,
+        LowerRightArmTarget,
+        UpperLeftArmTarget,
+        LowerLeftArmTarget,
+        UpperRightLegTarget,
+        LowerRightLegTarget,
+        UpperLeftLegTarget,
+        LowerLeftLegTarget;
 
     private void Awake()
     {
@@ -125,12 +174,12 @@ public class PlayerController : MonoBehaviour
 
         if (balanced && useStepPrediction)
         {
-            StepPrediction();
+            stepPrediction.PredictNextStep(ref walkForward, ref walkBackward, COMP, playerParts, isKeyDown, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_Timer_Right, ref step_Timer_Left);
         }
 
         if (!useStepPrediction)
         {
-            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_R_timer, ref step_L_timer);
+            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_Timer_Right, ref step_Timer_Left);
         }
 
         groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, ref balanced, autoGetUpWhenPossible);
@@ -149,47 +198,8 @@ public class PlayerController : MonoBehaviour
             playerRotation.PlayerRotationCalculation(cam, playerParts[0], turnSpeed);
 
             resetPlayerPose.PlayerPoseReset(ref resetPose, jumping, ref MouseYAxisArms, playerParts, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget);
-            
+
             PlayerGetUpJumping();
-        }
-    }
-
-    /// <summary>
-    /// Predicts the stepping behavior based on the character's balance state and movement direction.
-    /// </summary>
-    private void StepPrediction()
-    {
-        //Reset variables when balanced
-        if (!walkForward && !walkBackward)
-        {
-            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_R_timer, ref step_L_timer);
-        }
-
-        //Check direction to walk when off balance
-        //Walk backward
-        if (COMP.position.z < playerParts[11].transform.position.z && COMP.position.z < playerParts[12].transform.position.z)
-        {
-            walkBackward = true;
-        }
-        else
-        {
-            if (!isKeyDown)
-            {
-                walkBackward = false;
-            }
-        }
-
-        //Walk forward
-        if (COMP.position.z > playerParts[11].transform.position.z && COMP.position.z > playerParts[12].transform.position.z)
-        {
-            walkForward = true;
-        }
-        else
-        {
-            if (!isKeyDown)
-            {
-                walkForward = false;
-            }
         }
     }
 
@@ -496,7 +506,7 @@ public class PlayerController : MonoBehaviour
             if (stepRight)
             {
                 //Use fixedDeltaTime because of physics operations
-                step_R_timer += Time.fixedDeltaTime;
+                step_Timer_Right += Time.fixedDeltaTime;
 
                 //Right foot force down
                 playerParts[11].GetComponent<Rigidbody>().AddForce(-Vector3.up * feetMountForce * Time.deltaTime, ForceMode.Impulse);
@@ -523,9 +533,9 @@ public class PlayerController : MonoBehaviour
 
                 //Checks if the step_R_timer is greater than stepDuration, and if so, it sets step_R_timer back to zero,
                 //sets stepRight to false, and sets stepLeft to true if walkForward or walkBackward are true.
-                if (step_R_timer > stepDuration)
+                if (step_Timer_Right > stepDuration)
                 {
-                    step_R_timer = 0;
+                    step_Timer_Right = 0;
 
                     stepRight = false;
 
@@ -554,7 +564,7 @@ public class PlayerController : MonoBehaviour
             if (stepLeft)
             {
                 //Use fixedDeltaTime because of physics operations
-                step_L_timer += Time.fixedDeltaTime;
+                step_Timer_Left += Time.fixedDeltaTime;
 
                 //Left foot force down
                 playerParts[12].GetComponent<Rigidbody>().AddForce(-Vector3.up * feetMountForce * Time.deltaTime, ForceMode.Impulse);
@@ -581,9 +591,9 @@ public class PlayerController : MonoBehaviour
 
                 //Checks if the step_R_timer is greater than stepDuration, and if so, it sets step_R_timer back to zero,
                 //sets stepRight to false, and sets stepLeft to true if walkForward or walkBackward are true.
-                if (step_L_timer > stepDuration)
+                if (step_Timer_Left > stepDuration)
                 {
-                    step_L_timer = 0;
+                    step_Timer_Left = 0;
 
                     stepLeft = false;
 

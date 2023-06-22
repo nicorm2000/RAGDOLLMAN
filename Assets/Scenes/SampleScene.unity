@@ -1655,6 +1655,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1339617906}
+--- !u!114 &1490781765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490781751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159731c1ce558f3499901622f92258ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetWalkCycle: {fileID: 1490781760}
 --- !u!1 &1528804964
 GameObject:
   m_ObjectHideFlags: 0
@@ -2361,6 +2374,10 @@ PrefabInstance:
       propertyPath: resetWalkCycle
       value: 
       objectReference: {fileID: 1490781760}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: stepPrediction
+      value: 
+      objectReference: {fileID: 1490781765}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: activateRagdoll
       value: 
