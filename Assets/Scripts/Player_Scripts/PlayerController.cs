@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     [Header("Balance Properties")]
     //Balance
     public bool autoGetUpWhenPossible = true;
-    public bool usestepPrediction = true;
+    public bool useStepPrediction = true;
     public float balanceHeight = 2.5f;
     public float balanceStrength = 5000f;
     public float coreStrength = 1500f;
@@ -117,19 +117,20 @@ public class PlayerController : MonoBehaviour
             PlayerReach();
         }
 
-        if (balanced && usestepPrediction)
+        if (balanced && useStepPrediction)
         {
             StepPrediction();
         }
 
-        if (!usestepPrediction)
+        if (!useStepPrediction)
         {
-            ResetWalkCycle();
-            //resetWalkCycle.WalkCycleReset(walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, step_R_timer, step_L_timer);
+            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_R_timer, ref step_L_timer);
         }
 
         groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, ref balanced, autoGetUpWhenPossible);
+
         RagdollCheck();
+
         centerOfMass.CenterOfMassCalculation(COMP, centerOfMassPoint, playerParts);
     }
 
@@ -140,8 +141,9 @@ public class PlayerController : MonoBehaviour
         if (useControls)
         {
             playerRotation.PlayerRotationCalculation(cam, playerParts[0], turnSpeed);
-            ResetPlayerPose();
-            //resetPlayerPose.PlayerPoseReset(resetPose, jumping, MouseYAxisArms, playerParts, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget);
+
+            resetPlayerPose.PlayerPoseReset(ref resetPose, jumping, ref MouseYAxisArms, playerParts, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget);
+            
             PlayerGetUpJumping();
         }
     }
@@ -219,8 +221,7 @@ public class PlayerController : MonoBehaviour
         //Reset variables when balanced
         if (!walkForward && !walkBackward)
         {
-            ResetWalkCycle();
-            //resetWalkCycle.WalkCycleReset(walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, step_R_timer, step_L_timer);
+            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_R_timer, ref step_L_timer);
         }
 
         //Check direction to walk when off balance
@@ -248,23 +249,6 @@ public class PlayerController : MonoBehaviour
             {
                 walkForward = false;
             }
-        }
-    }
-
-    /// <summary>
-    /// Resets the walk cycle variables when the character is not moving.
-    /// </summary>
-    private void ResetWalkCycle()
-    {
-        //Reset variables when not moving
-        if (!walkForward && !walkBackward)
-        {
-            stepRight = false;
-            stepLeft = false;
-            step_R_timer = 0;
-            step_L_timer = 0;
-            alert_Leg_Right = false;
-            alert_Leg_Left = false;
         }
     }
 
@@ -681,25 +665,6 @@ public class PlayerController : MonoBehaviour
                 playerParts[11].GetComponent<Rigidbody>().AddForce(-Vector3.up * feetMountForce * Time.deltaTime, ForceMode.Impulse);
                 playerParts[12].GetComponent<Rigidbody>().AddForce(-Vector3.up * feetMountForce * Time.deltaTime, ForceMode.Impulse);
             }
-        }
-    }
-
-    /// <summary>
-    /// Resets player pose to original, which is balanced.
-    /// </summary>
-    private void ResetPlayerPose()
-    {
-        if (resetPose && !jumping)
-        {
-            playerParts[1].GetComponent<ConfigurableJoint>().targetRotation = BodyTarget;
-            playerParts[3].GetComponent<ConfigurableJoint>().targetRotation = UpperRightArmTarget;
-            playerParts[4].GetComponent<ConfigurableJoint>().targetRotation = LowerRightArmTarget;
-            playerParts[5].GetComponent<ConfigurableJoint>().targetRotation = UpperLeftArmTarget;
-            playerParts[6].GetComponent<ConfigurableJoint>().targetRotation = LowerLeftArmTarget;
-
-            MouseYAxisArms = 0;
-
-            resetPose = false;
         }
     }
 }
