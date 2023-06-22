@@ -32,6 +32,9 @@ public class PlayerController : MonoBehaviour
     [Header("Reset Walk Cycle Dependancies")]
     [SerializeField] ResetWalkCycle resetWalkCycle;
 
+    [Header("Ragdoll Check Dependancies")]
+    [SerializeField] RagdollCheck ragdollCheck;
+
     [Header("Hand Dependancies")]
     //Hand Controller Scripts & dependancies
     public HandContact grabRight;
@@ -80,7 +83,7 @@ public class PlayerController : MonoBehaviour
     //Hidden variables
     public float timer, step_R_timer, step_L_timer, MouseYAxisArms, MouseYAxisBody;
 
-    private bool walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, balanced = true, isKeyDown, moveAxisUsed, jumpAxisUsed, reachLeftAxisUsed, reachRightAxisUsed;
+    public bool walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, balanced = true, isKeyDown, moveAxisUsed, jumpAxisUsed, reachLeftAxisUsed, reachRightAxisUsed;
 
     public bool jumping, isJumping, inAir, punchingRight, punchingLeft, isRagdoll, resetPose;
 
@@ -89,13 +92,13 @@ public class PlayerController : MonoBehaviour
     private Vector3 centerOfMassPoint;
 
     //Player Parts Array
-    private GameObject[] playerParts;
+    public GameObject[] playerParts;
 
     //JointDrives in Unity are used to control the motion of joints in a physics simulation.
     //They allow for greater control over the movement of joints by allowing you to set target rotation and velocity values, along with positional spring and damping values.
     //This can help create realistic and stable movements in your physics simulations.
     //Joint Drives on & off
-    JointDrive BalanceOn, PoseOn, CoreStiffness, ReachStiffness, DriveOff;
+    public JointDrive BalanceOn, PoseOn, CoreStiffness, ReachStiffness, DriveOff;
 
     //Original pose target rotation
     Quaternion HeadTarget, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget, UpperRightLegTarget, LowerRightLegTarget, UpperLeftLegTarget, LowerLeftLegTarget;
@@ -129,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
         groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, ref balanced, autoGetUpWhenPossible);
 
-        RagdollCheck();
+        ragdollCheck.RagdollChecker(balanced, isRagdoll);
 
         centerOfMass.CenterOfMassCalculation(COMP, centerOfMassPoint, playerParts);
     }
@@ -195,22 +198,6 @@ public class PlayerController : MonoBehaviour
         LowerRightLegTarget = playerParts[8].GetComponent<ConfigurableJoint>().targetRotation;
         UpperLeftLegTarget = playerParts[9].GetComponent<ConfigurableJoint>().targetRotation;
         LowerLeftLegTarget = playerParts[10].GetComponent<ConfigurableJoint>().targetRotation;
-    }
-
-    /// <summary>
-    /// Check the ragdoll state, balanced or not, so that it can be changed.
-    /// </summary>
-    private void RagdollCheck()
-    {
-        //Balance on/off
-        if (balanced && isRagdoll)
-        {
-            deactivateRagdoll.RagdollDeactivator(ref balanced, ref isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, ref resetPose, playerParts, BalanceOn, PoseOn);
-        }
-        else if (!balanced && !isRagdoll)
-        {
-            activateRagdoll.RagdollActivator(ref balanced, ref isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, playerParts, DriveOff);
-        }
     }
 
     /// <summary>
