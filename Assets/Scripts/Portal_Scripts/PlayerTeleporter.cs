@@ -12,7 +12,8 @@ public class PlayerTeleporter
     /// </summary>
     /// <param name="player">The player game object whose children will be teleported.</param>
     /// <param name="destination">The destination transform to teleport the children to.</param>
-    public void TeleportChildren(GameObject player, Transform destination)
+    public void TeleportChildren(GameObject player, 
+        Transform destination)
     {
         Transform root = GetRoot(player.transform);
 

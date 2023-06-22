@@ -8,7 +8,9 @@ public class CenterOfMass : MonoBehaviour
     /// <param name="COMP">The transform to set to the final center of mass position.</param>
     /// <param name="centerOfMassPoint">The center of mass point for the entire rigid body.</param>
     /// <param name="playerParts">An array of 13 GameObjects representing the 13 parts of the rigid body.</param>
-    public void CenterOfMassCalculation(Transform COMP, Vector3 centerOfMassPoint, GameObject[] playerParts)
+    public void CenterOfMassCalculation(Transform COMP, 
+        Vector3 centerOfMassPoint, 
+        GameObject[] playerParts)
     {
         //Character's center of mass.
         //The center of mass can be calculated by taking the masses you are trying to find the center of mass between and multiplying them by their positions.
@@ -23,8 +25,11 @@ public class CenterOfMass : MonoBehaviour
 
         for (int i = 0; i < 13; i++)
         {
-            dividendSum += CenterOfMassPointDividend(i, centerOfMassPoint, playerParts);
-            divisorSum += CenterOfMassPointDivisor(i, playerParts);
+            dividendSum += CenterOfMassPointDividend(i, 
+                centerOfMassPoint, 
+                playerParts);
+            divisorSum += CenterOfMassPointDivisor(i, 
+                playerParts);
         }
 
         Vector3 centerOfMass = dividendSum / divisorSum;
@@ -39,7 +44,9 @@ public class CenterOfMass : MonoBehaviour
     /// <param name="centerOfMassPoint">The center of mass point for the entire rigid body.</param>
     /// <param name="playerParts">An array of 13 GameObjects representing the 13 parts of the rigid body.</param>
     /// <returns>A vector representing the dividend calculation for a single rigid body part.</returns>
-    private Vector3 CenterOfMassPointDividend(int arrayPosition, Vector3 centerOfMassPoint, GameObject[] playerParts)
+    private Vector3 CenterOfMassPointDividend(int arrayPosition, 
+        Vector3 centerOfMassPoint, 
+        GameObject[] playerParts)
     {
         centerOfMassPoint = playerParts[arrayPosition].GetComponent<Rigidbody>().mass * playerParts[arrayPosition].transform.position;
 
@@ -52,7 +59,8 @@ public class CenterOfMass : MonoBehaviour
     /// <param name="arrayPosition">The position of the rigid body part in the playerParts array.</param>
     /// <param name="playerParts">An array of 13 GameObjects representing the 13 parts of the rigid body.</param>
     /// <returns>The mass of a single rigid body part.</returns>
-    private float CenterOfMassPointDivisor(int arrayPosition, GameObject[] playerParts)
+    private float CenterOfMassPointDivisor(int arrayPosition, 
+        GameObject[] playerParts)
     {
         float centerOfMassPoint = playerParts[arrayPosition].GetComponent<Rigidbody>().mass;
 

@@ -16,7 +16,8 @@ public class RagdollCheck : MonoBehaviour
     /// </summary>
     /// <param name="balanced">A boolean representing whether or not the player is balanced.</param>
     /// <param name="isRagdoll">A boolean representing whether or not the player is currently in ragdoll mode.</param>
-    public void RagdollChecker(bool balanced, bool isRagdoll)
+    public void RagdollChecker(bool balanced, 
+        bool isRagdoll)
     {
         //Balance on/off
         if (balanced && isRagdoll)

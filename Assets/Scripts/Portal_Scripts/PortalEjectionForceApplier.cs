@@ -9,10 +9,13 @@ public class PortalEjectionForceApplier
     public void ApplyEjectionForce(GameObject item)
     {
         Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
+
         if (itemRigidbody != null)
         {
             float ejectionForce = 5f; // Or use a configurable value
+
             Vector3 ejectiondirection = Vector3.forward; // Or calculate based on the portal orientation
+
             itemRigidbody.AddForce(ejectiondirection * ejectionForce, ForceMode.Impulse);
         }
     }

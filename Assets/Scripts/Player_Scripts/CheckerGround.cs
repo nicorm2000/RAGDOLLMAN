@@ -10,7 +10,10 @@ public class CheckerGround : MonoBehaviour
     /// <param name="reachRightAxisUsed">Indicates if the character's right axis is being used.</param>
     /// <param name="reachLeftAxisUsed">Indicates if the character's left axis is being used.</param>
     /// <returns>Returns true if the character is idle; otherwise, returns false.</returns>
-    bool IsIdle(bool inAir, bool isJumping, bool reachRightAxisUsed, bool reachLeftAxisUsed)
+    bool IsIdle(bool inAir, 
+        bool isJumping, 
+        bool reachRightAxisUsed, 
+        bool reachLeftAxisUsed)
     {
         if (!inAir && !isJumping && !reachRightAxisUsed && !reachLeftAxisUsed)
         {
@@ -52,7 +55,10 @@ public class CheckerGround : MonoBehaviour
         if (Physics.Raycast(ray,
             out hit,
             balanceHeight,
-            1 << LayerMask.NameToLayer("Ground")) && IsIdle(inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed))
+            1 << LayerMask.NameToLayer("Ground")) && IsIdle(inAir, 
+            isJumping, 
+            reachRightAxisUsed, 
+            reachLeftAxisUsed))
         {
             if (!balanced && playerPart.GetComponent<Rigidbody>().velocity.magnitude < 1f)
             {
@@ -63,7 +69,10 @@ public class CheckerGround : MonoBehaviour
             }
         }
         //Fall over when ground is not detected
-        else if (!Physics.Raycast(ray, out hit, balanceHeight, 1 << LayerMask.NameToLayer("Ground")))
+        else if (!Physics.Raycast(ray, 
+            out hit, 
+            balanceHeight, 
+            1 << LayerMask.NameToLayer("Ground")))
         {
             if (balanced)
             {

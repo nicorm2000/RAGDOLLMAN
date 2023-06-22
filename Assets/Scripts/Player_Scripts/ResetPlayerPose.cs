@@ -14,7 +14,15 @@ public class ResetPlayerPose : MonoBehaviour
     /// <param name="LowerRightArmTarget">A Quaternion representing the target rotation for the player's lower right arm.</param>
     /// <param name="UpperLeftArmTarget">A Quaternion representing the target rotation for the player's upper left arm.</param>
     /// <param name="LowerLeftArmTarget">A Quaternion representing the target rotation for the player's lower left arm.</param>
-    public void PlayerPoseReset(ref bool resetPose, bool jumping, ref float MouseYAxisArms, GameObject[] playerParts, Quaternion BodyTarget, Quaternion UpperRightArmTarget, Quaternion LowerRightArmTarget, Quaternion UpperLeftArmTarget, Quaternion LowerLeftArmTarget)
+    public void PlayerPoseReset(ref bool resetPose, 
+        bool jumping, 
+        ref float MouseYAxisArms, 
+        GameObject[] playerParts, 
+        Quaternion BodyTarget, 
+        Quaternion UpperRightArmTarget, 
+        Quaternion LowerRightArmTarget, 
+        Quaternion UpperLeftArmTarget, 
+        Quaternion LowerLeftArmTarget)
     {
         if (resetPose && !jumping)
         {

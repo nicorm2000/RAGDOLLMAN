@@ -100,13 +100,14 @@ public class PlayerController : MonoBehaviour
     public float reachSensitivity = 25f,
         armReachStiffness = 2000f;
 
-    //Hidden variables
+    [HideInInspector]
     public float timer,
         step_Timer_Right,
         step_Timer_Left,
         MouseYAxisArms,
         MouseYAxisBody;
 
+    [HideInInspector]
     public bool walkForward,
         walkBackward,
         stepRight,
@@ -126,10 +127,14 @@ public class PlayerController : MonoBehaviour
         isRagdoll,
         resetPose;
 
+    [HideInInspector]
     public Camera cam;
+
+    [HideInInspector]
     public Vector3 direction,
         centerOfMassPoint;
 
+    [HideInInspector]
     //Player Parts Array
     public GameObject[] playerParts;
 
@@ -137,6 +142,7 @@ public class PlayerController : MonoBehaviour
     //They allow for greater control over the movement of joints by allowing you to set target rotation and velocity values, along with positional spring and damping values.
     //This can help create realistic and stable movements in your physics simulations.
     //Joint Drives on & off
+    [HideInInspector]
     public JointDrive BalanceOn,
         PoseOn,
         CoreStiffness,
@@ -144,6 +150,7 @@ public class PlayerController : MonoBehaviour
         DriveOff;
 
     //Original pose target rotation
+    [HideInInspector]
     public Quaternion HeadTarget,
         BodyTarget,
         UpperRightArmTarget,
@@ -174,19 +181,46 @@ public class PlayerController : MonoBehaviour
 
         if (balanced && useStepPrediction)
         {
-            stepPrediction.PredictNextStep(ref walkForward, ref walkBackward, COMP, playerParts, isKeyDown, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_Timer_Right, ref step_Timer_Left);
+            stepPrediction.PredictNextStep(ref walkForward, 
+                ref walkBackward, 
+                COMP, 
+                playerParts, 
+                isKeyDown, 
+                ref stepRight, 
+                ref stepLeft, 
+                ref alert_Leg_Right, 
+                ref alert_Leg_Left, 
+                ref step_Timer_Right,
+                ref step_Timer_Left);
         }
 
         if (!useStepPrediction)
         {
-            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_Timer_Right, ref step_Timer_Left);
+            resetWalkCycle.WalkCycleReset(walkForward, 
+                walkBackward, 
+                ref stepRight, 
+                ref stepLeft, 
+                ref alert_Leg_Right, 
+                ref alert_Leg_Left, 
+                ref step_Timer_Right, 
+                ref step_Timer_Left);
         }
 
-        groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, ref balanced, autoGetUpWhenPossible);
+        groundCheck.GroundChecker(playerParts[0], 
+            balanceHeight, 
+            inAir, 
+            isJumping, 
+            reachRightAxisUsed, 
+            reachLeftAxisUsed, 
+            ref balanced, 
+            autoGetUpWhenPossible);
 
-        ragdollCheck.RagdollChecker(balanced, isRagdoll);
+        ragdollCheck.RagdollChecker(balanced, 
+            isRagdoll);
 
-        centerOfMass.CenterOfMassCalculation(COMP, centerOfMassPoint, playerParts);
+        centerOfMass.CenterOfMassCalculation(COMP, 
+            centerOfMassPoint, 
+            playerParts);
     }
 
     private void FixedUpdate()
@@ -195,9 +229,19 @@ public class PlayerController : MonoBehaviour
 
         if (useControls)
         {
-            playerRotation.PlayerRotationCalculation(cam, playerParts[0], turnSpeed);
+            playerRotation.PlayerRotationCalculation(cam, 
+                playerParts[0], 
+                turnSpeed);
 
-            resetPlayerPose.PlayerPoseReset(ref resetPose, jumping, ref MouseYAxisArms, playerParts, BodyTarget, UpperRightArmTarget, LowerRightArmTarget, UpperLeftArmTarget, LowerLeftArmTarget);
+            resetPlayerPose.PlayerPoseReset(ref resetPose, 
+                jumping, 
+                ref MouseYAxisArms, 
+                playerParts, 
+                BodyTarget, 
+                UpperRightArmTarget, 
+                LowerRightArmTarget, 
+                UpperLeftArmTarget, 
+                LowerLeftArmTarget);
 
             PlayerGetUpJumping();
         }
@@ -235,14 +279,18 @@ public class PlayerController : MonoBehaviour
     private void MovementTrue()
     {
         walkForward = true;
+
         moveAxisUsed = true;
+
         isKeyDown = true;
     }
 
     private void MovementFalse()
     {
         walkForward = false;
+
         moveAxisUsed = false;
+
         isKeyDown = false;
     }
 

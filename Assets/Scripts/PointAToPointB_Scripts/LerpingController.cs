@@ -41,9 +41,11 @@ public class LerpingController : MonoBehaviour
         while (true)
         {
             yield return StartCoroutine(LerpPosition(pointA.position, pointB.position, lerpDuration));
+
             yield return new WaitForSeconds(waitTime);
 
             yield return StartCoroutine(LerpPosition(pointB.position, pointA.position, lerpDuration));
+
             yield return new WaitForSeconds(waitTime);
         }
     }

@@ -19,6 +19,7 @@ public class PressureSwitch : MonoBehaviour
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
             currentDoor.AddPressureSwitch(this);
+
             switchAnimator.SetSwitchState(true);
         }
     }
@@ -33,6 +34,7 @@ public class PressureSwitch : MonoBehaviour
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
             currentDoor.RemovePressureSwitch(this);
+
             switchAnimator.SetSwitchState(false);
         }
     }

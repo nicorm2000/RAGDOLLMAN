@@ -11,7 +11,10 @@ public class PlayerLanded : MonoBehaviour
     /// <param name="isJumping">A boolean representing whether or not the player is currently jumping.</param>
     /// <param name="jumping">A boolean representing whether or not the player has attempted to jump.</param>
     /// <param name="resetPose">A boolean representing whether or not to reset the player's pose.</param>
-    public void PlayerHasLanded(ref bool inAir, bool isJumping, bool jumping, ref bool resetPose)
+    public void PlayerHasLanded(ref bool inAir, 
+        bool isJumping, 
+        bool jumping, 
+        ref bool resetPose)
     {
         bool playerLanded = inAir && !isJumping && !jumping;
 

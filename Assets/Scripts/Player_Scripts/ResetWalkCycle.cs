@@ -13,16 +13,28 @@ public class ResetWalkCycle : MonoBehaviour
     /// <param name="alert_Leg_Left">A reference to a boolean representing whether or not the left leg is in an alert state.</param>
     /// <param name="step_R_timer">A reference to a float representing the time elapsed since the right leg stepped.</param>
     /// <param name="step_L_timer">A reference to a float representing the time elapsed since the left leg stepped.</param>
-    public void WalkCycleReset(bool walkForward, bool walkBackward, ref bool stepRight, ref bool stepLeft, ref bool alert_Leg_Right, ref bool alert_Leg_Left, ref float step_R_timer, ref float step_L_timer)
+    public void WalkCycleReset(bool walkForward, 
+        bool walkBackward, 
+        ref bool stepRight, 
+        ref bool stepLeft, 
+        ref bool alert_Leg_Right, 
+        ref bool alert_Leg_Left, 
+        ref float step_R_timer, 
+        ref float step_L_timer)
     {
         //Reset variables when not moving
         if (!walkForward && !walkBackward)
         {
             stepRight = false;
+
             stepLeft = false;
+
             step_R_timer = 0;
+
             step_L_timer = 0;
+
             alert_Leg_Right = false;
+
             alert_Leg_Left = false;
         }
     }

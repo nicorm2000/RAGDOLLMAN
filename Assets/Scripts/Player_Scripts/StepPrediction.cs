@@ -35,7 +35,14 @@ public class StepPrediction : MonoBehaviour
         //Reset variables when balanced
         if (notWalking)
         {
-            resetWalkCycle.WalkCycleReset(walkForward, walkBackward, ref stepRight, ref stepLeft, ref alert_Leg_Right, ref alert_Leg_Left, ref step_R_timer, ref step_L_timer);
+            resetWalkCycle.WalkCycleReset(walkForward, 
+                walkBackward, 
+                ref stepRight, 
+                ref stepLeft, 
+                ref alert_Leg_Right, 
+                ref alert_Leg_Left, 
+                ref step_R_timer, 
+                ref step_L_timer);
         }
 
         //Check direction to walk when off balance
