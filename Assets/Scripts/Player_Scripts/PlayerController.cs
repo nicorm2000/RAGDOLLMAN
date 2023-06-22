@@ -128,10 +128,8 @@ public class PlayerController : MonoBehaviour
             //resetWalkCycle.WalkCycleReset(walkForward, walkBackward, stepRight, stepLeft, alert_Leg_Right, alert_Leg_Left, step_R_timer, step_L_timer);
         }
 
-        //GroundCheck();
         groundCheck.GroundChecker(playerParts[0], balanceHeight, inAir, isJumping, reachRightAxisUsed, reachLeftAxisUsed, ref balanced, autoGetUpWhenPossible);
         RagdollCheck();
-        //CenterOfMass();
         centerOfMass.CenterOfMassCalculation(COMP, centerOfMassPoint, playerParts);
     }
 
@@ -702,20 +700,6 @@ public class PlayerController : MonoBehaviour
             MouseYAxisArms = 0;
 
             resetPose = false;
-        }
-    }
-
-    /// <summary>
-    /// Handles the player character's landing after being in the air.
-    /// </summary>
-    public void PlayerLanded()
-    {
-        bool playerLanded = inAir && !isJumping && !jumping;
-
-        if (playerLanded)
-        {
-            inAir = false;
-            resetPose = true;
         }
     }
 }
