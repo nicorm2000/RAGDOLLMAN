@@ -8,7 +8,8 @@ public class CameraController : MonoBehaviour
 
     [Header("Follow Properties")]
     //Follow values
-    public float distance = 10.0f;
+    public float distanceY = 10.0f;
+    public float distanceZ = 10.0f;
     public float smoothness = 0.15f;
 
     [Header("Rotation Properties")]
@@ -55,7 +56,7 @@ public class CameraController : MonoBehaviour
     /// </summary>
     void FixedUpdate()
     {
-        dir = new Vector3(0, 0, -distance);
+        dir = new Vector3(0, -distanceY, -distanceZ);
         rotation = Quaternion.Euler(-currentY, currentX, 0);
         cam.transform.position = Vector3.Lerp(cam.transform.position, APRRoot.position + rotation * dir, smoothness);
         cam.transform.LookAt(APRRoot.position);
