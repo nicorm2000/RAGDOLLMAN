@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4543445586343508}
   - component: {fileID: 33322156661222284}
   - component: {fileID: 23104489396779016}
-  - component: {fileID: 64055322580568708}
+  - component: {fileID: 5161881898461089507}
   m_Layer: 14
   m_Name: tile-road-intersection-t
   m_TagString: Untagged
@@ -88,8 +88,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64055322580568708
-MeshCollider:
+--- !u!65 &5161881898461089507
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 9c3fb2e1d944d4754909dcbc0acd28ac, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 30.000042, y: 6.0000043, z: 29.999992}
+  m_Center: {x: 0, y: -3.0000026, z: 0.00000047683716}

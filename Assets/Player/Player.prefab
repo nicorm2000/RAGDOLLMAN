@@ -1163,7 +1163,6 @@ GameObject:
   - component: {fileID: 3122338867580340253}
   - component: {fileID: 3122338867580340252}
   - component: {fileID: 3122338867580340251}
-  - component: {fileID: 6498776576911632227}
   m_Layer: 10
   m_Name: APR_Head
   m_TagString: CanBeGrabbed
@@ -1312,19 +1311,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &6498776576911632227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3122338867580340685}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e3e4e74cd4fe284aa30b72beb915475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  APR_Player: {fileID: 3122338867580340672}
 --- !u!1 &3122338867580340686
 GameObject:
   m_ObjectHideFlags: 0
@@ -1818,7 +1804,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad81a557255ce5f40a5543de21640a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APR_Player: {fileID: 3122338867580340672}
+  playerController: {fileID: 0}
+  playerLanded: {fileID: 0}
 --- !u!1 &3122338867580340724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,7 +1979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad81a557255ce5f40a5543de21640a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APR_Player: {fileID: 3122338867580340672}
+  playerController: {fileID: 0}
+  playerLanded: {fileID: 0}
 --- !u!1 &3122338867580340725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2531,19 +2519,28 @@ MonoBehaviour:
   LowerLeftLeg: {fileID: 3122338867580340725}
   RightFoot: {fileID: 3122338867580340724}
   LeftFoot: {fileID: 3122338867580340723}
+  COMP: {fileID: 6703360756035188815}
   RightHand: {fileID: 3122338867580340722}
   LeftHand: {fileID: 3122338867580340721}
-  COMP: {fileID: 6703360756035188815}
-  GrabRight: {fileID: 3122338867580340674}
-  GrabLeft: {fileID: 3122338867580340673}
+  groundCheck: {fileID: 0}
+  activateRagdoll: {fileID: 0}
+  deactivateRagdoll: {fileID: 0}
+  centerOfMass: {fileID: 0}
+  playerRotation: {fileID: 0}
+  resetPlayerPose: {fileID: 0}
+  resetWalkCycle: {fileID: 0}
+  ragdollCheck: {fileID: 0}
+  playerSetup: {fileID: 0}
+  stepPrediction: {fileID: 0}
+  grabRight: {fileID: 0}
+  grabLeft: {fileID: 0}
   useControls: 1
   forwardBackward: Vertical
-  leftRight: Horizontal
+  horizontal: Horizontal
   jump: Jump
   reachLeft: Fire1
   reachRight: Fire2
   thisPlayerLayer: Player_1
-  forwardIsCameraDirection: 1
   moveSpeed: 10
   turnSpeed: 6
   jumpForce: 18
@@ -2553,17 +2550,49 @@ MonoBehaviour:
   balanceStrength: 5000
   coreStrength: 1500
   limbStrength: 500
-  StepDuration: 0.2
-  StepHeight: 1.7
-  FeetMountForce: 25
+  stepDuration: 0.2
+  stepHeight: 1.7
+  feetMountForce: 25
   reachSensitivity: 25
   armReachStiffness: 2000
+  timer: 0
+  step_Timer_Right: 0
+  step_Timer_Left: 0
+  MouseYAxisArms: 0
+  MouseYAxisBody: 0
+  walkForward: 0
+  walkBackward: 0
+  stepRight: 0
+  stepLeft: 0
+  alert_Leg_Right: 0
+  alert_Leg_Left: 0
+  balanced: 1
+  isKeyDown: 0
+  moveAxisUsed: 0
+  jumpAxisUsed: 0
+  reachLeftAxisUsed: 0
+  reachRightAxisUsed: 0
   jumping: 0
   isJumping: 0
   inAir: 0
   punchingRight: 0
   punchingLeft: 0
-  editorDebugMode: 1
+  isRagdoll: 0
+  resetPose: 0
+  cam: {fileID: 0}
+  direction: {x: 0, y: 0, z: 0}
+  centerOfMassPoint: {x: 0, y: 0, z: 0}
+  playerParts: []
+  HeadTarget: {x: 0, y: 0, z: 0, w: 0}
+  BodyTarget: {x: 0, y: 0, z: 0, w: 0}
+  UpperRightArmTarget: {x: 0, y: 0, z: 0, w: 0}
+  LowerRightArmTarget: {x: 0, y: 0, z: 0, w: 0}
+  UpperLeftArmTarget: {x: 0, y: 0, z: 0, w: 0}
+  LowerLeftArmTarget: {x: 0, y: 0, z: 0, w: 0}
+  UpperRightLegTarget: {x: 0, y: 0, z: 0, w: 0}
+  LowerRightLegTarget: {x: 0, y: 0, z: 0, w: 0}
+  UpperLeftLegTarget: {x: 0, y: 0, z: 0, w: 0}
+  LowerLeftLegTarget: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &3122338867580340734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,7 +2766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c4df9e82ca43343af2ab82a1de4cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APR_Player: {fileID: 3122338867580340672}
+  playerController: {fileID: 0}
   Left: 1
   hasJoint: 0
 --- !u!1 &3122338867580340735
@@ -2913,7 +2942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c4df9e82ca43343af2ab82a1de4cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  APR_Player: {fileID: 3122338867580340672}
+  playerController: {fileID: 0}
   Left: 0
   hasJoint: 0
 --- !u!1 &3441530407161919283
