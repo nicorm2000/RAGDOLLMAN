@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 126e5dd0ec1ac5f4ebb1f807967d8c8b, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -14491,6 +14491,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1105681268}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: playerSetup
+      value: 
+      objectReference: {fileID: 1105681276}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: useControls
       value: 1
       objectReference: {fileID: 0}
@@ -14499,6 +14503,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1105681271}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: ragdollCheck
+      value: 
+      objectReference: {fileID: 1105681277}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerRotation
       value: 
       objectReference: {fileID: 1105681272}
@@ -14506,6 +14514,10 @@ PrefabInstance:
       propertyPath: resetWalkCycle
       value: 
       objectReference: {fileID: 1105681274}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: stepPrediction
+      value: 
+      objectReference: {fileID: 1105681275}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: activateRagdoll
       value: 
@@ -14608,7 +14620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8537569746052715024, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8954107397179662024, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -16688,6 +16700,9 @@ GameObject:
   - component: {fileID: 1105681269}
   - component: {fileID: 1105681268}
   - component: {fileID: 1105681267}
+  - component: {fileID: 1105681277}
+  - component: {fileID: 1105681276}
+  - component: {fileID: 1105681275}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -16806,6 +16821,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5526e8a5e93bab846ad0280fe7157fa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1105681275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105681265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 159731c1ce558f3499901622f92258ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetWalkCycle: {fileID: 1105681274}
+--- !u!114 &1105681276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105681265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511b9af9e18ad594ebe404958c3c56f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1407619936}
+--- !u!114 &1105681277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105681265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de67cd2ae24a00446aa79b611390bae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1407619936}
+  activateRagdoll: {fileID: 1105681269}
+  deactivateRagdoll: {fileID: 1105681270}
 --- !u!114 &1105946696 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3122338867580340674, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
@@ -17290,7 +17346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   APRRoot: {fileID: 1646505336}
-  distance: 5
+  distanceY: 0
+  distanceZ: 5
   smoothness: 0.15
   rotateSpeed: 2.5
   minAngle: -90
