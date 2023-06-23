@@ -8,8 +8,8 @@ public class SceneTransitionController : MonoBehaviour
     public static SceneTransitionController Instance => instance;
 
     [Header("Transition Configuration")]
-    [SerializeField] private float waitTimeBetweenScenes = 1.2f;
-    [SerializeField] private Animator transitionAnim;
+    [SerializeField] float waitTimeBetweenScenes = 1.2f;
+    [SerializeField] Animator transitionAnim;
 
     private void Awake()
     {
