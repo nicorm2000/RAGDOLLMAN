@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4025116980516556}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: cargo-shipping_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4411641534174370}
   - {fileID: 4610767011810050}
@@ -45,7 +46,7 @@ GameObject:
   - component: {fileID: 33400961722927728}
   - component: {fileID: 23452728769395142}
   - component: {fileID: 64416433267373976}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: cargo-shipping-door_R_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +63,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.0999985, y: 1.1999997, z: 2.949997}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4025116980516556}
   m_RootOrder: 2
@@ -85,10 +87,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -113,6 +117,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64416433267373976
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -139,7 +144,7 @@ GameObject:
   - component: {fileID: 33906367516067200}
   - component: {fileID: 23318929751501922}
   - component: {fileID: 64045311369782248}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: cargo-shipping-base_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,6 +161,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4025116980516556}
   m_RootOrder: 0
@@ -179,10 +185,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -207,6 +215,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64045311369782248
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -233,7 +242,7 @@ GameObject:
   - component: {fileID: 33263386289844540}
   - component: {fileID: 23084039906397082}
   - component: {fileID: 64369255202912132}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: cargo-shipping-door_L_green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,6 +259,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.0999985, y: 1.1999997, z: 2.949997}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4025116980516556}
   m_RootOrder: 1
@@ -273,10 +283,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -301,6 +313,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &64369255202912132
 MeshCollider:
   m_ObjectHideFlags: 0

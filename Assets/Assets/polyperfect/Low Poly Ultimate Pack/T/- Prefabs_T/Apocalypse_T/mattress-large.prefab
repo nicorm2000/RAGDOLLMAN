@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 631186472969955969}
   - component: {fileID: 3397573982390001227}
   - component: {fileID: 4100261554947457736}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: mattress-large
   m_TagString: CanBeGrabbed
   m_Icon: {fileID: 0}

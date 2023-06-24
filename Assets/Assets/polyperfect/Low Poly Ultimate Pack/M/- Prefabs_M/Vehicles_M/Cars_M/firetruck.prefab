@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5035216109840274635}
   - component: {fileID: 5035216109839308299}
   - component: {fileID: 5904480844610255449}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: firetruck-wheel_FL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.9315138, y: 0.54464984, z: 2.3149972}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5035216109841601773}
   m_RootOrder: 3
@@ -52,10 +53,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +84,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &5904480844610255449
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -107,7 +111,7 @@ GameObject:
   - component: {fileID: 5035216109840274629}
   - component: {fileID: 5035216109839308293}
   - component: {fileID: 1567520768782233870}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: firetruckwheel_FR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,6 +128,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.9315138, y: 0.54464984, z: 2.3149972}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5035216109841601773}
   m_RootOrder: 4
@@ -147,10 +152,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -176,6 +183,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &1567520768782233870
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -202,7 +210,7 @@ GameObject:
   - component: {fileID: 5035216109840274639}
   - component: {fileID: 5035216109839308303}
   - component: {fileID: 6282485528990013034}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: firetruck-wheel_BL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -219,6 +227,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.73862433, y: 0.54807836, z: -1.9730178}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5035216109841601773}
   m_RootOrder: 1
@@ -242,10 +251,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -271,6 +282,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &6282485528990013034
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -297,7 +309,7 @@ GameObject:
   - component: {fileID: 5035216109840274633}
   - component: {fileID: 5035216109839308297}
   - component: {fileID: 427237458565694432}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: firetruck-wheel_BR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,6 +326,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.7386244, y: 0.54807836, z: -1.9730178}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5035216109841601773}
   m_RootOrder: 2
@@ -337,10 +350,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -366,6 +381,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &427237458565694432
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -389,7 +405,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5035216109841601773}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: firetruck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -406,6 +422,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5035216109841601775}
   - {fileID: 5035216109841601769}
@@ -427,7 +444,7 @@ GameObject:
   - component: {fileID: 5035216109840274637}
   - component: {fileID: 5035216109839308301}
   - component: {fileID: 7098320098753066428}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: firetruck-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,6 +461,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5035216109841601773}
   m_RootOrder: 0
@@ -467,10 +485,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -502,6 +522,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &7098320098753066428
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5054585970917407312}
   - component: {fileID: 3561058078333189772}
   - component: {fileID: 6659122289424068225}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plane-passenger-apocalypse-base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 8486551225077559673}
   - component: {fileID: 740675437761530429}
   - component: {fileID: 6435908322413604440}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plane-passenger-apocalypse-props
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -215,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5170327391782940959}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: plane-passenger-apocalypse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

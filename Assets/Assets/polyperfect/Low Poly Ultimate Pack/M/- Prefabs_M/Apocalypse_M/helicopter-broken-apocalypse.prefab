@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7827746702117557390}
   - component: {fileID: 5423822066948448324}
   - component: {fileID: 634247982649771272}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: helicopter-broken-apocalypse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
