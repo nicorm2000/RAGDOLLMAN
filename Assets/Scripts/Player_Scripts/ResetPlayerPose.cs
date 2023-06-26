@@ -17,7 +17,7 @@ public class ResetPlayerPose : MonoBehaviour
     public void PlayerPoseReset(ref bool resetPose, 
         bool jumping, 
         ref float MouseYAxisArms, 
-        GameObject[] playerParts, 
+        Joint[] playerParts, 
         Quaternion BodyTarget, 
         Quaternion UpperRightArmTarget, 
         Quaternion LowerRightArmTarget, 

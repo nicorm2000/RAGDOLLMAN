@@ -36,7 +36,7 @@ public class CheckerGround : MonoBehaviour
     /// <param name="reachLeftAxisUsed">Indicates if the character's left axis is being used.</param>
     /// <param name="balanced">A reference to the balance state of the character.</param>
     /// <param name="autoGetUpWhenPossible">Indicates if the character should automatically get up when possible.</param>
-    public void GroundChecker(GameObject playerPart,
+    public void GroundChecker(Joint playerPart,
         float balanceHeight,
         bool inAir,
         bool isJumping,

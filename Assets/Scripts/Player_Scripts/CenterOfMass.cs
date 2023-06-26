@@ -9,8 +9,8 @@ public class CenterOfMass : MonoBehaviour
     /// <param name="centerOfMassPoint">The center of mass point for the entire rigid body.</param>
     /// <param name="playerParts">An array of 13 GameObjects representing the 13 parts of the rigid body.</param>
     public void CenterOfMassCalculation(Transform COMP, 
-        Vector3 centerOfMassPoint, 
-        GameObject[] playerParts)
+        Vector3 centerOfMassPoint,
+        Joint[] playerParts)
     {
         //Character's center of mass.
         //The center of mass can be calculated by taking the masses you are trying to find the center of mass between and multiplying them by their positions.

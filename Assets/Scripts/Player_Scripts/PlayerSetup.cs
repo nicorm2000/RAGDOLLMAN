@@ -62,7 +62,7 @@ public class PlayerSetup : MonoBehaviour
         playerController.DriveOff.maximumForce = Mathf.Infinity;
 
         //Setup/reroute active ragdoll parts to array
-        playerController.playerParts = new GameObject[] { playerController.Root, 
+        playerController.playerParts = new ConfigurableJoint[] { playerController.Root, 
             playerController.Body, 
             playerController.Head, 
             playerController.UpperRightArm, 
@@ -85,7 +85,7 @@ public class PlayerSetup : MonoBehaviour
 
         for (int i = 1; i <= 10; i++)
         {
-            targets[i - 1] = playerController.playerParts[i].GetComponent<ConfigurableJoint>().targetRotation;
+            targets[i - 1] = playerController.playerParts[i].targetRotation;
         }
 
         playerController.BodyTarget = targets[0];

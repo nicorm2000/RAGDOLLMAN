@@ -9,7 +9,7 @@ public class PlayerRotation : MonoBehaviour
     /// <param name="playerParts">The GameObject representing the player's body parts.</param>
     /// <param name="turnSpeed">The speed at which the player will be rotated.</param>
     public void PlayerRotationCalculation(Camera cam, 
-        GameObject playerParts, 
+        Joint playerParts, 
         float turnSpeed)
     {
         //Camera direction and turn of camera.

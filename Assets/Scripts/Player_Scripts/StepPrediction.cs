@@ -21,7 +21,7 @@ public class StepPrediction : MonoBehaviour
     public void PredictNextStep(ref bool walkForward, 
         ref bool walkBackward, 
         Transform COMP, 
-        GameObject[] playerParts, 
+        Joint[] playerParts, 
         bool isKeyDown,
         ref bool stepRight, 
         ref bool stepLeft, 
@@ -47,7 +47,7 @@ public class StepPrediction : MonoBehaviour
 
         //Check direction to walk when off balance
         //Walk backward
-        if (COMP.position.z < playerParts[11].transform.position.z && COMP.position.z < playerParts[12].transform.position.z)
+        if (COMP.position.z < playerParts[11].gameObject.transform.position.z && COMP.position.z < playerParts[12].transform.position.z)
         {
             walkBackward = true;
         }
