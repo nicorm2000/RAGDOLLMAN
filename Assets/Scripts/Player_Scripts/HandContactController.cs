@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HandContact : MonoBehaviour
+public class HandContactController : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
 

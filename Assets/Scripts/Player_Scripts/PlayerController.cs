@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Hand Dependancies")]
     //Hand Controller Scripts & dependancies
-    public HandContact grabRight,
+    public HandContactController grabRight,
         grabLeft;
 
     [Header("Input on this player")]

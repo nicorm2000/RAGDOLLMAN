@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class FeetContact : MonoBehaviour
+public class FeetContactController : MonoBehaviour
 {
     [SerializeField] PlayerController playerController;
     
