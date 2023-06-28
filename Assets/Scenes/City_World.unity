@@ -14162,9 +14162,29 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1407619936}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: Body
+      value: 
+      objectReference: {fileID: 971960827}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: Head
+      value: 
+      objectReference: {fileID: 971960826}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: Root
+      value: 
+      objectReference: {fileID: 971960816}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: LeftFoot
+      value: 
+      objectReference: {fileID: 971960828}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: grabLeft
       value: 
       objectReference: {fileID: 1107337244}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: RightFoot
+      value: 
+      objectReference: {fileID: 971960818}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: grabRight
       value: 
@@ -14190,6 +14210,22 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: LowerLeftArm
+      value: 
+      objectReference: {fileID: 971960822}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: LowerLeftLeg
+      value: 
+      objectReference: {fileID: 971960819}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: UpperLeftArm
+      value: 
+      objectReference: {fileID: 971960823}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: UpperLeftLeg
+      value: 
+      objectReference: {fileID: 971960817}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: centerOfMass
       value: 
       objectReference: {fileID: 1105681271}
@@ -14197,6 +14233,22 @@ PrefabInstance:
       propertyPath: ragdollCheck
       value: 
       objectReference: {fileID: 1105681277}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: LowerRightArm
+      value: 
+      objectReference: {fileID: 971960824}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: LowerRightLeg
+      value: 
+      objectReference: {fileID: 971960820}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: UpperRightArm
+      value: 
+      objectReference: {fileID: 971960825}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: UpperRightLeg
+      value: 
+      objectReference: {fileID: 971960821}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerRotation
       value: 
@@ -14327,6 +14379,71 @@ PrefabInstance:
 --- !u!1 &971960815 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3122338867580340687, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960816 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340246, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960817 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340259, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960818 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340694, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960819 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340269, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960820 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340281, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960821 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340287, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960822 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340276, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960823 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340234, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960824 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340224, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960825 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340230, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960826 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340251, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960827 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340241, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 971960814}
+  m_PrefabAsset: {fileID: 0}
+--- !u!153 &971960828 stripped
+ConfigurableJoint:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340703, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
   m_PrefabInstance: {fileID: 971960814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &974572570
