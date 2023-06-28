@@ -50,11 +50,6 @@ public class PlayerController : MonoBehaviour
     [Header("Step Prediction Dependancies")]
     [SerializeField] StepPrediction stepPrediction;
 
-    [Header("Hand Dependancies")]
-    //Hand Controller Scripts & dependancies
-    public HandContactController grabRight;
-    public HandContactController grabLeft;
-
     [Header("Input on this player")]
     //Enable controls
     public bool useControls = true;
@@ -79,16 +74,18 @@ public class PlayerController : MonoBehaviour
 
     [Header("Balance Properties")]
     //Balance
-    public bool autoGetUpWhenPossible = true,
-        useStepPrediction = true;
+    public bool autoGetUpWhenPossible = true;
+    public bool useStepPrediction = true;
+
     public float balanceHeight = 2.5f;
     public float balanceStrength = 5000f;
     public float coreStrength = 1500f;
     public float limbStrength = 500f;
+
     //Walking
-    public float stepDuration = 0.2f,
-        stepHeight = 1.7f,
-        feetMountForce = 25f;
+    public float stepDuration = 0.2f;
+    public float stepHeight = 1.7f;
+    public float feetMountForce = 25f;
 
     [Header("Reach Properties")]
     //Reach
