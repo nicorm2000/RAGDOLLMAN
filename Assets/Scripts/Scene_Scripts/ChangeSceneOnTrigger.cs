@@ -3,8 +3,8 @@ using UnityEngine;
 public class ChangeSceneOnTrigger : MonoBehaviour
 {
     [Header("Scene Configuration")]
-    [SerializeField] int sceneToChangeTo;
-    [SerializeField] LayerMask playerLayer;
+    [SerializeField] private int sceneToChangeTo;
+    [SerializeField] private LayerMask playerLayer;
 
     /// <summary>
     /// Triggered when the collider of this object collides with another collider.

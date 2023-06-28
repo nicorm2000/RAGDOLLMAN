@@ -4,9 +4,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [Header("Scene Configuration")]
-    [SerializeField] int sceneToChangeTo;
-    [SerializeField] int creditsScene;
-    [SerializeField] int menuScene;
+    [SerializeField] private int sceneToChangeTo;
+    [SerializeField] private int creditsScene;
+    [SerializeField] private int menuScene;
 
     /// <summary>
     /// Loads the scene specified by sceneToChangeTo when a button is clicked.

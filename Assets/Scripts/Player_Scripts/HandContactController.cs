@@ -2,13 +2,15 @@
 
 public class HandContactController : MonoBehaviour
 {
-    [SerializeField] PlayerController playerController;
+    [Header("Player Controller Dependencies")]
+    [SerializeField] private PlayerController playerController;
 
+    [Header("Decide Hand")]
     //Is left or right hand
-    [SerializeField] bool Left;
+    [SerializeField] private bool Left;
 
     //Have joint/grabbed
-    [SerializeField] bool hasJoint;
+    private bool hasJoint;
 
     void Update()
     {

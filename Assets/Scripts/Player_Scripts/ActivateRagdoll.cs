@@ -16,7 +16,7 @@ public class ActivateRagdoll : MonoBehaviour
         ref bool isRagdoll,
         bool reachRightAxisUsed,
         bool reachLeftAxisUsed,
-        GameObject[] playerParts,
+        ConfigurableJoint[] playerParts,
         JointDrive DriveOff)
     {
         // To start being a ragdoll, the balance and pose are set OFF, using DriveOff.

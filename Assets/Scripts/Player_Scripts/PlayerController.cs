@@ -3,55 +3,49 @@
 public class PlayerController : MonoBehaviour
 {
     //Active Ragdoll Player parts
-    [SerializeField]
-    public ConfigurableJoint Root,
-        Body,
-        Head,
-        UpperRightArm,
-        LowerRightArm,
-        UpperLeftArm,
-        LowerLeftArm,
-        UpperRightLeg,
-        LowerRightLeg,
-        UpperLeftLeg,
-        LowerLeftLeg,
-        RightFoot,
-        LeftFoot;
+    public ConfigurableJoint Root;
+    public ConfigurableJoint Body;
+    public ConfigurableJoint Head;
+    public ConfigurableJoint UpperRightArm;
+    public ConfigurableJoint LowerRightArm;
+    public ConfigurableJoint UpperLeftArm;
+    public ConfigurableJoint LowerLeftArm;
+    public ConfigurableJoint UpperRightLeg;
+    public ConfigurableJoint LowerRightLeg;
+    public ConfigurableJoint UpperLeftLeg;
+    public ConfigurableJoint LowerLeftLeg;
+    public ConfigurableJoint RightFoot;
+    public ConfigurableJoint LeftFoot;
 
     //Center of mass point
-    [SerializeField] public Transform COMP;
-
-    //Rigidbody Hands
-    [SerializeField]
-    Rigidbody RightHand;
-    Rigidbody LeftHand;
+    public Transform COMP;
 
     [Header("Ground Dependancies")]
-    [SerializeField] CheckerGround groundCheck;
+    [SerializeField] private CheckerGround groundCheck;
 
     [Header("Ragdoll Activator Dependancies")]
-    [SerializeField] ActivateRagdoll activateRagdoll;
+    [SerializeField] private ActivateRagdoll activateRagdoll;
 
     [Header("Ragdoll Deactivator Dependancies")]
-    [SerializeField] DeactivateRagdoll deactivateRagdoll;
+    [SerializeField] private DeactivateRagdoll deactivateRagdoll;
 
     [Header("Center of Mass Dependancies")]
-    [SerializeField] CenterOfMass centerOfMass;
+    [SerializeField] private CenterOfMass centerOfMass;
 
     [Header("Rotation Dependancies")]
-    [SerializeField] PlayerRotation playerRotation;
+    [SerializeField] private PlayerRotation playerRotation;
 
     [Header("Reset Player's Pose Dependancies")]
-    [SerializeField] ResetPlayerPose resetPlayerPose;
+    [SerializeField] private ResetPlayerPose resetPlayerPose;
 
     [Header("Reset Walk Cycle Dependancies")]
-    [SerializeField] ResetWalkCycle resetWalkCycle;
+    [SerializeField] private ResetWalkCycle resetWalkCycle;
 
     [Header("Ragdoll Check Dependancies")]
-    [SerializeField] RagdollCheck ragdollCheck;
+    [SerializeField] private RagdollCheck ragdollCheck;
 
     [Header("Player Setup Dependancies")]
-    [SerializeField] PlayerSetup playerSetup;
+    [SerializeField] private PlayerSetup playerSetup;
 
     [Header("Step Prediction Dependancies")]
     [SerializeField] StepPrediction stepPrediction;
@@ -132,8 +126,8 @@ public class PlayerController : MonoBehaviour
     public Camera cam;
 
     [HideInInspector]
-    public Vector3 direction,
-        centerOfMassPoint;
+    public Vector3 direction;
+    public Vector3 centerOfMassPoint;
 
     [HideInInspector]
     //Player Parts Array
@@ -144,24 +138,24 @@ public class PlayerController : MonoBehaviour
     //This can help create realistic and stable movements in your physics simulations.
     //Joint Drives on & off
     [HideInInspector]
-    public JointDrive BalanceOn,
-        PoseOn,
-        CoreStiffness,
-        ReachStiffness,
-        DriveOff;
+    public JointDrive BalanceOn;
+    public JointDrive PoseOn;
+    public JointDrive CoreStiffness;
+    public JointDrive ReachStiffness;
+    public JointDrive DriveOff;
 
     //Original pose target rotation
     [HideInInspector]
-    public Quaternion HeadTarget,
-        BodyTarget,
-        UpperRightArmTarget,
-        LowerRightArmTarget,
-        UpperLeftArmTarget,
-        LowerLeftArmTarget,
-        UpperRightLegTarget,
-        LowerRightLegTarget,
-        UpperLeftLegTarget,
-        LowerLeftLegTarget;
+    public Quaternion HeadTarget;
+    public Quaternion BodyTarget;
+    public Quaternion UpperRightArmTarget;
+    public Quaternion LowerRightArmTarget;
+    public Quaternion UpperLeftArmTarget;
+    public Quaternion LowerLeftArmTarget;
+    public Quaternion UpperRightLegTarget;
+    public Quaternion LowerRightLegTarget;
+    public Quaternion UpperLeftLegTarget;
+    public Quaternion LowerLeftLegTarget;
 
     private void Awake()
     {
@@ -311,7 +305,14 @@ public class PlayerController : MonoBehaviour
 
                 else if (!balanced)
                 {
-                    deactivateRagdoll.RagdollDeactivator(ref balanced, ref isRagdoll, reachRightAxisUsed, reachLeftAxisUsed, ref resetPose, playerParts, BalanceOn, PoseOn);
+                    deactivateRagdoll.RagdollDeactivator(ref balanced, 
+                        ref isRagdoll, 
+                        reachRightAxisUsed, 
+                        reachLeftAxisUsed, 
+                        ref resetPose, 
+                        playerParts, 
+                        BalanceOn, 
+                        PoseOn);
                 }
             }
 
@@ -346,7 +347,9 @@ public class PlayerController : MonoBehaviour
                 timer = 0.0f;
 
                 jumping = false;
+                
                 isJumping = false;
+
                 inAir = true;
             }
         }
@@ -374,7 +377,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //Set the targetRotation of the ConfigurableJoint attached to playerParts[1] to a new quaternion that represents the rotation of the torso. 
-            playerParts[1].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(MouseYAxisBody, 0, 0, 1);
+            playerParts[1].targetRotation = new Quaternion(MouseYAxisBody, 0, 0, 1);
         }
 
         //Handle player's left reach
@@ -383,14 +386,14 @@ public class PlayerController : MonoBehaviour
             if (!reachLeftAxisUsed)
             {
                 //Adjust Left Arm joint strength
-                playerParts[5].GetComponent<ConfigurableJoint>().angularXDrive = ReachStiffness;
-                playerParts[5].GetComponent<ConfigurableJoint>().angularYZDrive = ReachStiffness;
-                playerParts[6].GetComponent<ConfigurableJoint>().angularXDrive = ReachStiffness;
-                playerParts[6].GetComponent<ConfigurableJoint>().angularYZDrive = ReachStiffness;
+                playerParts[5].angularXDrive = ReachStiffness;
+                playerParts[5].angularYZDrive = ReachStiffness;
+                playerParts[6].angularXDrive = ReachStiffness;
+                playerParts[6].angularYZDrive = ReachStiffness;
 
                 //Adjust body joint strength
-                playerParts[1].GetComponent<ConfigurableJoint>().angularXDrive = CoreStiffness;
-                playerParts[1].GetComponent<ConfigurableJoint>().angularYZDrive = CoreStiffness;
+                playerParts[1].angularXDrive = CoreStiffness;
+                playerParts[1].angularYZDrive = CoreStiffness;
 
                 reachLeftAxisUsed = true;
             }
@@ -409,7 +412,7 @@ public class PlayerController : MonoBehaviour
             }
 
             //Upper  left arm pose
-            playerParts[5].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(-0.58f - (MouseYAxisArms), -0.88f - (MouseYAxisArms), -0.8f, 1);
+            playerParts[5].targetRotation = new Quaternion(-0.58f - (MouseYAxisArms), -0.88f - (MouseYAxisArms), -0.8f, 1);
         }
 
         if (Input.GetAxisRaw(reachLeft) == 0)
@@ -420,20 +423,20 @@ public class PlayerController : MonoBehaviour
             {
                 if (balanced)
                 {
-                    playerParts[5].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-                    playerParts[5].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-                    playerParts[6].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-                    playerParts[6].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+                    playerParts[5].angularXDrive = PoseOn;
+                    playerParts[5].angularYZDrive = PoseOn;
+                    playerParts[6].angularXDrive = PoseOn;
+                    playerParts[6].angularYZDrive = PoseOn;
 
-                    playerParts[1].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-                    playerParts[1].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+                    playerParts[1].angularXDrive = PoseOn;
+                    playerParts[1].angularYZDrive = PoseOn;
                 }
                 else if (!balanced)
                 {
-                    playerParts[5].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-                    playerParts[5].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-                    playerParts[6].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-                    playerParts[6].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
+                    playerParts[5].angularXDrive = DriveOff;
+                    playerParts[5].angularYZDrive = DriveOff;
+                    playerParts[6].angularXDrive = DriveOff;
+                    playerParts[6].angularYZDrive = DriveOff;
                 }
 
                 resetPose = true;
@@ -447,14 +450,14 @@ public class PlayerController : MonoBehaviour
             if (!reachRightAxisUsed)
             {
                 //Adjust Right Arm joint strength
-                playerParts[3].GetComponent<ConfigurableJoint>().angularXDrive = ReachStiffness;
-                playerParts[3].GetComponent<ConfigurableJoint>().angularYZDrive = ReachStiffness;
-                playerParts[4].GetComponent<ConfigurableJoint>().angularXDrive = ReachStiffness;
-                playerParts[4].GetComponent<ConfigurableJoint>().angularYZDrive = ReachStiffness;
+                playerParts[3].angularXDrive = ReachStiffness;
+                playerParts[3].angularYZDrive = ReachStiffness;
+                playerParts[4].angularXDrive = ReachStiffness;
+                playerParts[4].angularYZDrive = ReachStiffness;
 
                 //Adjust body joint strength
-                playerParts[1].GetComponent<ConfigurableJoint>().angularXDrive = CoreStiffness;
-                playerParts[1].GetComponent<ConfigurableJoint>().angularYZDrive = CoreStiffness;
+                playerParts[1].angularXDrive = CoreStiffness;
+                playerParts[1].angularYZDrive = CoreStiffness;
 
                 reachRightAxisUsed = true;
             }
@@ -484,21 +487,21 @@ public class PlayerController : MonoBehaviour
             {
                 if (balanced)
                 {
-                    playerParts[3].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-                    playerParts[3].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
-                    playerParts[4].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-                    playerParts[4].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+                    playerParts[3].angularXDrive = PoseOn;
+                    playerParts[3].angularYZDrive = PoseOn;
+                    playerParts[4].angularXDrive = PoseOn;
+                    playerParts[4].angularYZDrive = PoseOn;
 
-                    playerParts[1].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
-                    playerParts[1].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+                    playerParts[1].angularXDrive = PoseOn;
+                    playerParts[1].angularYZDrive = PoseOn;
                 }
                 else if (!balanced)
                 {
-                    playerParts[3].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-                    playerParts[3].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-                    playerParts[4].GetComponent<ConfigurableJoint>().angularXDrive = DriveOff;
-                    playerParts[4].GetComponent<ConfigurableJoint>().angularYZDrive = DriveOff;
-                }
+                    playerParts[3].angularXDrive = DriveOff;
+                    playerParts[3].angularYZDrive = DriveOff;
+                    playerParts[4].angularXDrive = DriveOff;
+                    playerParts[4].angularYZDrive = DriveOff;
+                }                 
 
                 resetPose = true;
                 reachRightAxisUsed = false;
@@ -565,9 +568,9 @@ public class PlayerController : MonoBehaviour
                 //whose x, y, and z component values are gradually incremented or decremented by constants scaled by stepHeight.
                 if (walkForward)
                 {
-                    playerParts[7].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.x + 0.09f * stepHeight, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[8].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.x - 0.09f * stepHeight * 2, playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[9].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.x - 0.12f * stepHeight / 2, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.w);
+                    playerParts[7].targetRotation = new Quaternion(playerParts[7].targetRotation.x + 0.09f * stepHeight, playerParts[7].targetRotation.y, playerParts[7].targetRotation.z, playerParts[7].targetRotation.w);
+                    playerParts[8].targetRotation = new Quaternion(playerParts[8].targetRotation.x - 0.09f * stepHeight * 2, playerParts[8].targetRotation.y, playerParts[8].targetRotation.z, playerParts[8].targetRotation.w);
+                    playerParts[9].targetRotation = new Quaternion(playerParts[9].targetRotation.x - 0.12f * stepHeight / 2, playerParts[9].targetRotation.y, playerParts[9].targetRotation.z, playerParts[9].targetRotation.w);
                 }
 
                 //Simulates the walking motion of the character by setting the targetRotation of the ConfigurableJoint components attached to
@@ -575,9 +578,9 @@ public class PlayerController : MonoBehaviour
                 //whose x, y, and z component values are multiplied or divided by constants scaled by stepHeight.
                 if (walkBackward)
                 {
-                    playerParts[7].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.x - 0.00f * stepHeight, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[8].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.x - 0.07f * stepHeight * 2, playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[8].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[9].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.x + 0.02f * stepHeight / 2, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.w);
+                    playerParts[7].targetRotation = new Quaternion(playerParts[7].targetRotation.x - 0.00f * stepHeight, playerParts[7].targetRotation.y, playerParts[7].targetRotation.z, playerParts[7].targetRotation.w);
+                    playerParts[8].targetRotation = new Quaternion(playerParts[8].targetRotation.x - 0.07f * stepHeight * 2, playerParts[8].targetRotation.y, playerParts[8].targetRotation.z, playerParts[8].targetRotation.w);
+                    playerParts[9].targetRotation = new Quaternion(playerParts[9].targetRotation.x + 0.02f * stepHeight / 2, playerParts[9].targetRotation.y, playerParts[9].targetRotation.z, playerParts[9].targetRotation.w);
                 }
 
                 //Checks if the step_R_timer is greater than stepDuration, and if so, it sets step_R_timer back to zero,
@@ -599,8 +602,8 @@ public class PlayerController : MonoBehaviour
                 //Reset to idle
                 //Resets the targetRotation of the ConfigurableJoint components attached to playerParts[7] and playerParts[8] to quaternion values,
                 //that gradually interpolate back to their default values, scaled by specified time deltas. 
-                playerParts[7].GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Lerp(playerParts[7].GetComponent<ConfigurableJoint>().targetRotation, UpperRightLegTarget, (8f) * Time.fixedDeltaTime);
-                playerParts[8].GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Lerp(playerParts[8].GetComponent<ConfigurableJoint>().targetRotation, LowerRightLegTarget, (17f) * Time.fixedDeltaTime);
+                playerParts[7].targetRotation = Quaternion.Lerp(playerParts[7].targetRotation, UpperRightLegTarget, (8f) * Time.fixedDeltaTime);
+                playerParts[8].targetRotation = Quaternion.Lerp(playerParts[8].targetRotation, LowerRightLegTarget, (17f) * Time.fixedDeltaTime);
 
                 //Simulates the feet being firmly planted on the ground by calling AddForce() on the Rigidbody components attached to playerParts[11] and playerParts[12]
                 //with a negative Vector3.up value, scaled by feetMountForce and Time.deltaTime.
@@ -623,9 +626,9 @@ public class PlayerController : MonoBehaviour
                 //whose x, y, and z component values are gradually incremented or decremented by constants scaled by stepHeight.
                 if (walkForward)
                 {
-                    playerParts[9].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.x + 0.09f * stepHeight, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[10].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.x - 0.09f * stepHeight * 2, playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[7].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.x - 0.12f * stepHeight / 2, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.w);
+                    playerParts[9].targetRotation = new Quaternion(playerParts[9].targetRotation.x + 0.09f * stepHeight, playerParts[9].targetRotation.y, playerParts[9].targetRotation.z, playerParts[9].targetRotation.w);
+                    playerParts[10].targetRotation = new Quaternion(playerParts[10].targetRotation.x - 0.09f * stepHeight * 2, playerParts[10].targetRotation.y, playerParts[10].targetRotation.z, playerParts[10].targetRotation.w);
+                    playerParts[7].targetRotation = new Quaternion(playerParts[7].targetRotation.x - 0.12f * stepHeight / 2, playerParts[7].targetRotation.y, playerParts[7].targetRotation.z, playerParts[7].targetRotation.w);
                 }
 
                 //Simulates the walking motion of the character by setting the targetRotation of the ConfigurableJoint components attached to
@@ -633,9 +636,9 @@ public class PlayerController : MonoBehaviour
                 //whose x, y, and z component values are multiplied or divided by constants scaled by stepHeight.
                 if (walkBackward)
                 {
-                    playerParts[9].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.x - 0.00f * stepHeight, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[9].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[10].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.x - 0.07f * stepHeight * 2, playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[10].GetComponent<ConfigurableJoint>().targetRotation.w);
-                    playerParts[7].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.x + 0.02f * stepHeight / 2, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.y, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.z, playerParts[7].GetComponent<ConfigurableJoint>().targetRotation.w);
+                    playerParts[9].targetRotation = new Quaternion(playerParts[9].targetRotation.x - 0.00f * stepHeight, playerParts[9].targetRotation.y, playerParts[9].targetRotation.z, playerParts[9].targetRotation.w);
+                    playerParts[10].targetRotation = new Quaternion(playerParts[10].targetRotation.x - 0.07f * stepHeight * 2, playerParts[10].targetRotation.y, playerParts[10].targetRotation.z, playerParts[10].targetRotation.w);
+                    playerParts[7].targetRotation = new Quaternion(playerParts[7].targetRotation.x + 0.02f * stepHeight / 2, playerParts[7].targetRotation.y, playerParts[7].targetRotation.z, playerParts[7].targetRotation.w);
                 }
 
                 //Checks if the step_R_timer is greater than stepDuration, and if so, it sets step_R_timer back to zero,
@@ -657,8 +660,8 @@ public class PlayerController : MonoBehaviour
                 //Reset to idle
                 //Resets the targetRotation of the ConfigurableJoint components attached to playerParts[9] and playerParts[10] to quaternion values,
                 //that gradually interpolate back to their default values, scaled by specified time deltas. 
-                playerParts[9].GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Lerp(playerParts[9].GetComponent<ConfigurableJoint>().targetRotation, UpperLeftLegTarget, (7f) * Time.fixedDeltaTime);
-                playerParts[10].GetComponent<ConfigurableJoint>().targetRotation = Quaternion.Lerp(playerParts[10].GetComponent<ConfigurableJoint>().targetRotation, LowerLeftLegTarget, (18f) * Time.fixedDeltaTime);
+                playerParts[9].targetRotation = Quaternion.Lerp(playerParts[9].targetRotation, UpperLeftLegTarget, (7f) * Time.fixedDeltaTime);
+                playerParts[10].targetRotation = Quaternion.Lerp(playerParts[10].targetRotation, LowerLeftLegTarget, (18f) * Time.fixedDeltaTime);
 
                 //Simulates the feet being firmly planted on the ground by calling AddForce() on the Rigidbody components attached to playerParts[11] and playerParts[12]
                 //with a negative Vector3.up value, scaled by feetMountForce and Time.deltaTime.

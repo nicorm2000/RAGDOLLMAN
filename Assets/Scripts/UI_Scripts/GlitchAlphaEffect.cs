@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class GlitchAlphaEffect : MonoBehaviour
 {
     [Header("Image Values")]
-    [SerializeField] Image glitchImage;
-    [SerializeField] float glitchImageMin;
-    [SerializeField] float glitchImageMax;
+    [SerializeField] private Image glitchImage;
+    [SerializeField] private float glitchImageMin;
+    [SerializeField] private float glitchImageMax;
 
     [Header("Time value")]
     [SerializeField] float speed;

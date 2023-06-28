@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSetup : MonoBehaviour
 {
     [Header("Player Controller Dependancies")]
-    [SerializeField] PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     /// <summary>
     /// Sets up the Player and its components(camera, joint drives, body parts target rotations to each body part).

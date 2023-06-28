@@ -3,12 +3,12 @@ using UnityEngine;
 public class RespawnPlayer : MonoBehaviour
 {
     [Header("Player Dependencies")]
-    [SerializeField] GameObject player;
-    [SerializeField] GameObject playerRoot;
-    [SerializeField] Transform playerSpawn;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerRoot;
+    [SerializeField] private Transform playerSpawn;
 
     [Header("Camera Settings")]
-    [SerializeField] bool instantCameraUpdate = false;
+    [SerializeField] private bool instantCameraUpdate = false;
 
     private Camera cam;
     private Rigidbody[] playerPhysics;

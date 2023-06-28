@@ -4,12 +4,12 @@ using UnityEngine;
 public class LerpingController : MonoBehaviour
 {
     [Header("Game Objects")]
-    [SerializeField] Transform pointA;
-    [SerializeField] Transform pointB;
+    [SerializeField] private Transform pointA;
+    [SerializeField] private Transform pointB;
 
     [Header("Lerping Settings")]
-    [SerializeField] float lerpDuration = 1f;
-    [SerializeField] float waitTime = 3f;
+    [SerializeField] private float lerpDuration = 1f;
+    [SerializeField] private float waitTime = 3f;
 
     private IEnumerator currentLerpCoroutine;
 

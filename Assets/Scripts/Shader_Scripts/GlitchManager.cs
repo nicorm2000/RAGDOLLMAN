@@ -4,7 +4,7 @@ using UnityEngine;
 public class GlitchManager : MonoBehaviour
 {
     [Header("Camera Selector")]
-    [SerializeField] GlitchEffect glitchCamera;
+    [SerializeField] private GlitchEffect glitchCamera;
 
     [Header("Player Configuration")]
     [SerializeField] private Transform playerHips;

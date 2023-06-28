@@ -17,8 +17,8 @@ public class DeactivateRagdoll : MonoBehaviour
         ref bool isRagdoll, 
         bool reachRightAxisUsed, 
         bool reachLeftAxisUsed, 
-        ref bool resetPose, 
-        GameObject[] playerParts, 
+        ref bool resetPose,
+        ConfigurableJoint[] playerParts, 
         JointDrive BalanceOn, 
         JointDrive PoseOn)
     {
@@ -26,24 +26,24 @@ public class DeactivateRagdoll : MonoBehaviour
         isRagdoll = false;
         balanced = true;
 
-        playerParts[0].GetComponent<ConfigurableJoint>().angularXDrive = BalanceOn;
+        playerParts[0].angularXDrive = BalanceOn;
 
-        playerParts[0].GetComponent<ConfigurableJoint>().angularYZDrive = BalanceOn;
+        playerParts[0].angularYZDrive = BalanceOn;
 
         for (int i = 2; i < playerParts.Length; i++)
         {
-            playerParts[i].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
+            playerParts[i].angularXDrive = PoseOn;
 
-            playerParts[i].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+            playerParts[i].angularYZDrive = PoseOn;
         }
 
         if (!reachRightAxisUsed)
         {
             for (int i = 3; i <= 4; i++)
             {
-                playerParts[i].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
+                playerParts[i].angularXDrive = PoseOn;
 
-                playerParts[i].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+                playerParts[i].angularYZDrive = PoseOn;
             }
         }
 
@@ -51,9 +51,9 @@ public class DeactivateRagdoll : MonoBehaviour
         {
             for (int i = 5; i <= 6; i++)
             {
-                playerParts[i].GetComponent<ConfigurableJoint>().angularXDrive = PoseOn;
+                playerParts[i].angularXDrive = PoseOn;
 
-                playerParts[i].GetComponent<ConfigurableJoint>().angularYZDrive = PoseOn;
+                playerParts[i].angularYZDrive = PoseOn;
             }
         }
 

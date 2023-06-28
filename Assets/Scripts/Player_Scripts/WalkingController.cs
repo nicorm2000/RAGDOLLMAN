@@ -25,7 +25,6 @@ public class WalkingController : MonoBehaviour
     /// </summary>
     private void Walking()
     {
-
         WalkConfig prevConfig;
         WalkConfig newConfig;
         if (!playerController.inAir)

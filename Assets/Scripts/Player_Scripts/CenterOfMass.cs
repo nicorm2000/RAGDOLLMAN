@@ -46,7 +46,7 @@ public class CenterOfMass : MonoBehaviour
     /// <returns>A vector representing the dividend calculation for a single rigid body part.</returns>
     private Vector3 CenterOfMassPointDividend(int arrayPosition, 
         Vector3 centerOfMassPoint, 
-        GameObject[] playerParts)
+        Joint[] playerParts)
     {
         centerOfMassPoint = playerParts[arrayPosition].GetComponent<Rigidbody>().mass * playerParts[arrayPosition].transform.position;
 
@@ -60,7 +60,7 @@ public class CenterOfMass : MonoBehaviour
     /// <param name="playerParts">An array of 13 GameObjects representing the 13 parts of the rigid body.</param>
     /// <returns>The mass of a single rigid body part.</returns>
     private float CenterOfMassPointDivisor(int arrayPosition, 
-        GameObject[] playerParts)
+        Joint[] playerParts)
     {
         float centerOfMassPoint = playerParts[arrayPosition].GetComponent<Rigidbody>().mass;
 

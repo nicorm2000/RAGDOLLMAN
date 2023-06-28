@@ -8,6 +8,7 @@ public class Door : MonoBehaviour
 
     [SerializeField] private DoorAnimator doorAnimator;
 
+    [HideInInspector]
     public bool isDoorOpen = false;
 
     // The list of pressure switches currently active on the door

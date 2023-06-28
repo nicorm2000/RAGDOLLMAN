@@ -3,11 +3,11 @@ using UnityEngine;
 public class TriggerPanelController : MonoBehaviour
 {
     [Header("Panel Dependencies")]
-    [SerializeField] GameObject panel1; // Reference to the panel object in your Canvas
-    [SerializeField] GameObject panel2; // Reference to the panel object in your Canvas
+    [SerializeField] private GameObject panel1; // Reference to the panel object in your Canvas
+    [SerializeField] private GameObject panel2; // Reference to the panel object in your Canvas
 
     [Header("Layer Dependencies")]
-    [SerializeField] LayerMask playerLayer; // Layer mask representing the player
+    [SerializeField] private LayerMask playerLayer; // Layer mask representing the player
 
     /// <summary>
     /// Called when a GameObject enters the trigger collider.

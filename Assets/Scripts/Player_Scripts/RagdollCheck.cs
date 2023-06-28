@@ -3,13 +3,13 @@ using UnityEngine;
 public class RagdollCheck : MonoBehaviour
 {
     [Header("Player Controller Dependancies")]
-    [SerializeField] PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     [Header("Ragdoll Activator Dependancies")]
-    [SerializeField] ActivateRagdoll activateRagdoll;
+    [SerializeField] private ActivateRagdoll activateRagdoll;
 
     [Header("Ragdoll Deactivator Dependancies")]
-    [SerializeField] DeactivateRagdoll deactivateRagdoll;
+    [SerializeField] private DeactivateRagdoll deactivateRagdoll;
 
     /// <summary>
     /// Checks if the player is balanced and if they're currently in ragdoll mode. If both are true, calls `RagdollDeactivator` to deactivate the ragdoll and reset the player's pose. If both are false, calls `RagdollActivator` to activate the ragdoll.
