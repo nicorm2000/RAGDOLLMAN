@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -7,6 +9,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private int sceneToChangeTo;
     [SerializeField] private int creditsScene;
     [SerializeField] private int menuScene;
+    [SerializeField] private Button pauseButton;
+
+    private void Start()
+    {
+        pauseButton?.onClick.AddListener(ClickToMenu);
+        //EventSystem.current.currentSelectedGameObject = pauseButton.gameObject;
+    }
 
     /// <summary>
     /// Loads the scene specified by sceneToChangeTo when a button is clicked.
