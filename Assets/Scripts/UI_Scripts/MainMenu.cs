@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         pauseButton?.onClick.AddListener(ClickToMenu);
-        //EventSystem.current.currentSelectedGameObject = pauseButton.gameObject;
     }
 
     /// <summary>
