@@ -3,7 +3,7 @@ using UnityEngine;
 public class WalkingController : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]
-    [SerializeField] public PlayerController playerController;
+    [SerializeField] private PlayerController playerController;
 
     /// <summary>
     /// Handles the player's walking.

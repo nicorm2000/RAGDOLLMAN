@@ -44,8 +44,8 @@ public class CameraController : MonoBehaviour
     /// </summary>
     void Update()
     {
-        currentX = currentX + Input.GetAxis("Mouse X") * rotateSpeed;
-        currentY = currentY + Input.GetAxis("Mouse Y") * rotateSpeed;
+        currentX += Input.GetAxis("Mouse X") * rotateSpeed;
+        currentY += Input.GetAxis("Mouse Y") * rotateSpeed;
 
         currentY = Mathf.Clamp(currentY, minAngle, maxAngle);
     }

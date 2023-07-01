@@ -31133,6 +31133,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1609911531}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: autoGetUpWhenPossible
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: forwardIsCameraDirection
       value: 1
       objectReference: {fileID: 0}

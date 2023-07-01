@@ -48,23 +48,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerSetup playerSetup;
 
     [Header("Step Prediction Dependancies")]
-    [SerializeField] StepPrediction stepPrediction;
-    
+    [SerializeField] private StepPrediction stepPrediction;
+
     [Header("Walking Dependancies")]
-    [SerializeField] WalkingController walkingController;
+    [SerializeField] private WalkingController walkingController;
 
     [Header("Movement Dependancies")]
-    [SerializeField] PlayerMovement playerMovement;
+    [SerializeField] private PlayerMovement playerMovement;
 
     [Header("Get Up Dependancies")]
-    [SerializeField] GetUpByJumping getUp;
+    [SerializeField] private GetUpByJumping getUp;
 
     [Header("Hands Reach Dependancies")]
-    [SerializeField] PlayerReach handsReach;
-
-    [Header("Input on this player")]
-    //Enable controls
-    public bool useControls = true;
+    [SerializeField] private PlayerReach handsReach;
 
     [Header("Player Input Axis")]
     //Player Axis controls
@@ -166,15 +162,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (useControls && !inAir)
+        if (!inAir)
         {
             playerMovement.Movement();
         }
 
-        if (useControls)
-        {
-            handsReach.ReachHands();
-        }
+        handsReach.ReachHands();
 
         if (balanced && useStepPrediction)
         {
@@ -188,11 +181,11 @@ public class PlayerController : MonoBehaviour
 
         groundCheck.GroundChecker();
 
-        ragdollCheck.RagdollChecker(balanced, 
+        ragdollCheck.RagdollChecker(balanced,
             isRagdoll);
 
-        centerOfMass.CenterOfMassCalculation(COMP, 
-            centerOfMassPoint, 
+        centerOfMass.CenterOfMassCalculation(COMP,
+            centerOfMassPoint,
             playerParts);
     }
 
@@ -200,15 +193,12 @@ public class PlayerController : MonoBehaviour
     {
         walkingController.Walking();
 
-        if (useControls)
-        {
-            playerRotation.PlayerRotationCalculation(cam, 
-                playerParts[0], 
-                turnSpeed);
+        playerRotation.PlayerRotationCalculation(cam,
+            playerParts[0],
+            turnSpeed);
 
-            resetPlayerPose.PlayerPoseReset();
+        resetPlayerPose.PlayerPoseReset();
 
-            getUp.PlayerGetUpJumping();
-        }
+        getUp.PlayerGetUpJumping();
     }
 }

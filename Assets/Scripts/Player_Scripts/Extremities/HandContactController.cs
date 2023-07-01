@@ -14,40 +14,37 @@ public class HandContactController : MonoBehaviour
 
     void Update()
     {
-        if (playerController.useControls)
+        //Left Hand
+        //On input release destroy joint
+        if (Left)
         {
-            //Left Hand
-            //On input release destroy joint
-            if (Left)
+            if (hasJoint && Input.GetAxisRaw(playerController.reachLeft) == 0)
             {
-                if (hasJoint && Input.GetAxisRaw(playerController.reachLeft) == 0)
-                {
-                    gameObject.GetComponent<FixedJoint>().breakForce = 0;
+                gameObject.GetComponent<FixedJoint>().breakForce = 0;
 
-                    hasJoint = false;
-                }
-
-                if (hasJoint && gameObject.GetComponent<FixedJoint>() == null)
-                {
-                    hasJoint = false;
-                }
+                hasJoint = false;
             }
 
-            //Right Hand
-            //On input release destroy joint
-            if (!Left)
+            if (hasJoint && gameObject.GetComponent<FixedJoint>() == null)
             {
-                if (hasJoint && Input.GetAxisRaw(playerController.reachRight) == 0)
-                {
-                    gameObject.GetComponent<FixedJoint>().breakForce = 0;
+                hasJoint = false;
+            }
+        }
 
-                    hasJoint = false;
-                }
+        //Right Hand
+        //On input release destroy joint
+        if (!Left)
+        {
+            if (hasJoint && Input.GetAxisRaw(playerController.reachRight) == 0)
+            {
+                gameObject.GetComponent<FixedJoint>().breakForce = 0;
 
-                if (hasJoint && gameObject.GetComponent<FixedJoint>() == null)
-                {
-                    hasJoint = false;
-                }
+                hasJoint = false;
+            }
+
+            if (hasJoint && gameObject.GetComponent<FixedJoint>() == null)
+            {
+                hasJoint = false;
             }
         }
     }
@@ -58,37 +55,34 @@ public class HandContactController : MonoBehaviour
     /// <param name="col">The Collision object representing the collision that occurred.</param>
     void OnCollisionEnter(Collision col)
     {
-        if (playerController.useControls)
+        //Left Hand
+        if (Left)
         {
-            //Left Hand
-            if (Left)
+            if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
             {
-                if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
+                if (Input.GetAxisRaw(playerController.reachLeft) != 0 && !hasJoint && !playerController.punchingLeft)
                 {
-                    if (Input.GetAxisRaw(playerController.reachLeft) != 0 && !hasJoint && !playerController.punchingLeft)
-                    {
-                        hasJoint = true;
+                    hasJoint = true;
 
-                        gameObject.AddComponent<FixedJoint>();
-                        gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
-                        gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
-                    }
+                    gameObject.AddComponent<FixedJoint>();
+                    gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
+                    gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
                 }
             }
+        }
 
-            //Right Hand
-            if (!Left)
+        //Right Hand
+        if (!Left)
+        {
+            if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
             {
-                if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
+                if (Input.GetAxisRaw(playerController.reachRight) != 0 && !hasJoint && !playerController.punchingRight)
                 {
-                    if (Input.GetAxisRaw(playerController.reachRight) != 0 && !hasJoint && !playerController.punchingRight)
-                    {
-                        hasJoint = true;
+                    hasJoint = true;
 
-                        gameObject.AddComponent<FixedJoint>();
-                        gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
-                        gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
-                    }
+                    gameObject.AddComponent<FixedJoint>();
+                    gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
+                    gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
                 }
             }
         }
