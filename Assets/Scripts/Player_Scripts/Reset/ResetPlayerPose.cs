@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ResetPlayerPose : MonoBehaviour
 {
+    [Header("Player Controller Dependencies")]
+    [SerializeField] private PlayerController playerController;
+
     /// <summary>
     /// Resets the pose of the player if the resetPose boolean is true and the player is not jumping.
     /// </summary>
@@ -14,27 +17,19 @@ public class ResetPlayerPose : MonoBehaviour
     /// <param name="LowerRightArmTarget">A Quaternion representing the target rotation for the player's lower right arm.</param>
     /// <param name="UpperLeftArmTarget">A Quaternion representing the target rotation for the player's upper left arm.</param>
     /// <param name="LowerLeftArmTarget">A Quaternion representing the target rotation for the player's lower left arm.</param>
-    public void PlayerPoseReset(ref bool resetPose, 
-        bool jumping, 
-        ref float MouseYAxisArms, 
-        Joint[] playerParts, 
-        Quaternion BodyTarget, 
-        Quaternion UpperRightArmTarget, 
-        Quaternion LowerRightArmTarget, 
-        Quaternion UpperLeftArmTarget, 
-        Quaternion LowerLeftArmTarget)
+    public void PlayerPoseReset()
     {
-        if (resetPose && !jumping)
+        if (playerController.resetPose && !playerController.jumping)
         {
-            playerParts[1].GetComponent<ConfigurableJoint>().targetRotation = BodyTarget;
-            playerParts[3].GetComponent<ConfigurableJoint>().targetRotation = UpperRightArmTarget;
-            playerParts[4].GetComponent<ConfigurableJoint>().targetRotation = LowerRightArmTarget;
-            playerParts[5].GetComponent<ConfigurableJoint>().targetRotation = UpperLeftArmTarget;
-            playerParts[6].GetComponent<ConfigurableJoint>().targetRotation = LowerLeftArmTarget;
+            playerController.playerParts[1].GetComponent<ConfigurableJoint>().targetRotation = playerController.BodyTarget;
+            playerController.playerParts[3].GetComponent<ConfigurableJoint>().targetRotation = playerController.UpperRightArmTarget;
+            playerController.playerParts[4].GetComponent<ConfigurableJoint>().targetRotation = playerController.LowerRightArmTarget;
+            playerController.playerParts[5].GetComponent<ConfigurableJoint>().targetRotation = playerController.UpperLeftArmTarget;
+            playerController.playerParts[6].GetComponent<ConfigurableJoint>().targetRotation = playerController.LowerLeftArmTarget;
 
-            MouseYAxisArms = 0;
+            playerController.MouseYAxisArms = 0;
 
-            resetPose = false;
+            playerController.resetPose = false;
         }
     }
 }

@@ -10,7 +10,7 @@ public class CheckerGround : MonoBehaviour
     /// <param name="reachRightAxisUsed">Indicates if the character's right axis is being used.</param>
     /// <param name="reachLeftAxisUsed">Indicates if the character's left axis is being used.</param>
     /// <returns>Returns true if the character is idle; otherwise, returns false.</returns>
-    bool IsIdle(bool inAir, 
+    private bool IsIdle(bool inAir, 
         bool isJumping, 
         bool reachRightAxisUsed, 
         bool reachLeftAxisUsed)
@@ -28,7 +28,7 @@ public class CheckerGround : MonoBehaviour
     /// <summary>
     /// Checks if the character is grounded and adjusts balance accordingly.
     /// </summary>
-    /// <param name="playerPart">The GameObject representing a part of the player.</param>
+    /// <param name="playerParts">The GameObject representing a part of the player.</param>
     /// <param name="balanceHeight">The height at which balance is maintained.</param>
     /// <param name="inAir">Indicates if the character is in the air.</param>
     /// <param name="isJumping">Indicates if the character is currently jumping.</param>
@@ -36,7 +36,7 @@ public class CheckerGround : MonoBehaviour
     /// <param name="reachLeftAxisUsed">Indicates if the character's left axis is being used.</param>
     /// <param name="balanced">A reference to the balance state of the character.</param>
     /// <param name="autoGetUpWhenPossible">Indicates if the character should automatically get up when possible.</param>
-    public void GroundChecker(Joint playerPart,
+    public void GroundChecker(Joint playerParts,
         float balanceHeight,
         bool inAir,
         bool isJumping,
@@ -45,7 +45,7 @@ public class CheckerGround : MonoBehaviour
         ref bool balanced,
         bool autoGetUpWhenPossible)
     {
-        Ray ray = new Ray(playerPart.transform.position, -playerPart.transform.up);
+        Ray ray = new Ray(playerParts.transform.position, -playerParts.transform.up);
 
         RaycastHit hit;
 
@@ -60,7 +60,7 @@ public class CheckerGround : MonoBehaviour
             reachRightAxisUsed, 
             reachLeftAxisUsed))
         {
-            if (!balanced && playerPart.GetComponent<Rigidbody>().velocity.magnitude < 1f)
+            if (!balanced && playerParts.GetComponent<Rigidbody>().velocity.magnitude < 1f)
             {
                 if (autoGetUpWhenPossible)
                 {

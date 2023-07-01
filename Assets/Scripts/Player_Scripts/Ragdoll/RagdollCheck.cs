@@ -22,23 +22,11 @@ public class RagdollCheck : MonoBehaviour
         //Balance on/off
         if (balanced && isRagdoll)
         {
-            deactivateRagdoll.RagdollDeactivator(ref balanced, 
-                ref playerController.isRagdoll, 
-                playerController.reachRightAxisUsed, 
-                playerController.reachLeftAxisUsed, 
-                ref playerController.resetPose, 
-                playerController.playerParts, 
-                playerController.BalanceOn, 
-                playerController.PoseOn);
+            deactivateRagdoll.RagdollDeactivator();
         }
         else if (!balanced && !isRagdoll)
         {
-            activateRagdoll.RagdollActivator(ref balanced,
-                ref playerController.isRagdoll,
-                playerController.reachRightAxisUsed,
-                playerController.reachLeftAxisUsed,
-                playerController.playerParts,
-                playerController.DriveOff);
+            activateRagdoll.RagdollActivator();
         }
     }
 }
