@@ -59,6 +59,9 @@ public class PlayerController : MonoBehaviour
     [Header("Get Up Dependancies")]
     [SerializeField] GetUpByJumping getUp;
 
+    [Header("Hands Reach Dependancies")]
+    [SerializeField] PlayerReach handsReach;
+
     [Header("Input on this player")]
     //Enable controls
     public bool useControls = true;
@@ -170,7 +173,7 @@ public class PlayerController : MonoBehaviour
 
         if (useControls)
         {
-            PlayerReach();
+            handsReach.ReachHands();
         }
 
         if (balanced && useStepPrediction)
@@ -183,14 +186,7 @@ public class PlayerController : MonoBehaviour
             resetWalkCycle.WalkCycleReset();
         }
 
-        groundCheck.GroundChecker(playerParts[0], 
-            balanceHeight, 
-            inAir, 
-            isJumping, 
-            reachRightAxisUsed, 
-            reachLeftAxisUsed, 
-            ref balanced, 
-            autoGetUpWhenPossible);
+        groundCheck.GroundChecker();
 
         ragdollCheck.RagdollChecker(balanced, 
             isRagdoll);
@@ -213,160 +209,6 @@ public class PlayerController : MonoBehaviour
             resetPlayerPose.PlayerPoseReset();
 
             getUp.PlayerGetUpJumping();
-        }
-    }
-
-    /// <summary>
-    /// Handles the player's reach with both hands.
-    /// </summary>
-    private void PlayerReach()
-    {
-        //Simulates body bending by allowing the player to move the mouse up and down to control the rotation of a ConfigurableJoint component attached to playerParts[1]
-        if (1 == 1)
-        {
-            if (MouseYAxisBody <= 0.9f && MouseYAxisBody >= -0.9f)
-            {
-                MouseYAxisBody = MouseYAxisBody + (Input.GetAxis("Mouse Y") / reachSensitivity);
-            }
-            else if (MouseYAxisBody > 0.9f)
-            {
-                MouseYAxisBody = 0.9f;
-            }
-            else if (MouseYAxisBody < -0.9f)
-            {
-                MouseYAxisBody = -0.9f;
-            }
-
-            //Set the targetRotation of the ConfigurableJoint attached to playerParts[1] to a new quaternion that represents the rotation of the torso. 
-            playerParts[1].targetRotation = new Quaternion(MouseYAxisBody, 0, 0, 1);
-        }
-
-        //Handle player's left reach
-        if (Input.GetAxisRaw(reachLeft) != 0)
-        {
-            if (!reachLeftAxisUsed)
-            {
-                //Adjust Left Arm joint strength
-                playerParts[5].angularXDrive = ReachStiffness;
-                playerParts[5].angularYZDrive = ReachStiffness;
-                playerParts[6].angularXDrive = ReachStiffness;
-                playerParts[6].angularYZDrive = ReachStiffness;
-
-                //Adjust body joint strength
-                playerParts[1].angularXDrive = CoreStiffness;
-                playerParts[1].angularYZDrive = CoreStiffness;
-
-                reachLeftAxisUsed = true;
-            }
-
-            if (MouseYAxisArms <= 1.2f && MouseYAxisArms >= -1.2f)
-            {
-                MouseYAxisArms = MouseYAxisArms + (Input.GetAxis("Mouse Y") / reachSensitivity);
-            }
-            else if (MouseYAxisArms > 1.2f)
-            {
-                MouseYAxisArms = 1.2f;
-            }
-            else if (MouseYAxisArms < -1.2f)
-            {
-                MouseYAxisArms = -1.2f;
-            }
-
-            //Upper  left arm pose
-            playerParts[5].targetRotation = new Quaternion(-0.58f - (MouseYAxisArms), -0.88f - (MouseYAxisArms), -0.8f, 1);
-        }
-
-        if (Input.GetAxisRaw(reachLeft) == 0)
-        {
-            //Sets the left reach input is not being used (specified by the reachLeft variable), and if so,
-            //it resets the stiffness of the ConfigurableJoint components attached to playerParts[5], playerParts[6], and playerParts[1]
-            if (reachLeftAxisUsed)
-            {
-                if (balanced)
-                {
-                    playerParts[5].angularXDrive = PoseOn;
-                    playerParts[5].angularYZDrive = PoseOn;
-                    playerParts[6].angularXDrive = PoseOn;
-                    playerParts[6].angularYZDrive = PoseOn;
-
-                    playerParts[1].angularXDrive = PoseOn;
-                    playerParts[1].angularYZDrive = PoseOn;
-                }
-                else if (!balanced)
-                {
-                    playerParts[5].angularXDrive = DriveOff;
-                    playerParts[5].angularYZDrive = DriveOff;
-                    playerParts[6].angularXDrive = DriveOff;
-                    playerParts[6].angularYZDrive = DriveOff;
-                }
-
-                resetPose = true;
-                reachLeftAxisUsed = false;
-            }
-        }
-
-        //Handle player's right reach
-        if (Input.GetAxisRaw(reachRight) != 0)
-        {
-            if (!reachRightAxisUsed)
-            {
-                //Adjust Right Arm joint strength
-                playerParts[3].angularXDrive = ReachStiffness;
-                playerParts[3].angularYZDrive = ReachStiffness;
-                playerParts[4].angularXDrive = ReachStiffness;
-                playerParts[4].angularYZDrive = ReachStiffness;
-
-                //Adjust body joint strength
-                playerParts[1].angularXDrive = CoreStiffness;
-                playerParts[1].angularYZDrive = CoreStiffness;
-
-                reachRightAxisUsed = true;
-            }
-
-            if (MouseYAxisArms <= 1.2f && MouseYAxisArms >= -1.2f)
-            {
-                MouseYAxisArms = MouseYAxisArms + (Input.GetAxis("Mouse Y") / reachSensitivity);
-            }
-            else if (MouseYAxisArms > 1.2f)
-            {
-                MouseYAxisArms = 1.2f;
-            }
-            else if (MouseYAxisArms < -1.2f)
-            {
-                MouseYAxisArms = -1.2f;
-            }
-
-            //Upper right arm pose
-            playerParts[3].GetComponent<ConfigurableJoint>().targetRotation = new Quaternion(0.58f + (MouseYAxisArms), -0.88f - (MouseYAxisArms), 0.8f, 1);
-        }
-
-        if (Input.GetAxisRaw(reachRight) == 0)
-        {
-            //Sets the right reach input is not being used (specified by the reachRight variable), and if so,
-            //it resets the stiffness of the ConfigurableJoint components attached to playerParts[3], playerParts[4], and playerParts[1]
-            if (reachRightAxisUsed)
-            {
-                if (balanced)
-                {
-                    playerParts[3].angularXDrive = PoseOn;
-                    playerParts[3].angularYZDrive = PoseOn;
-                    playerParts[4].angularXDrive = PoseOn;
-                    playerParts[4].angularYZDrive = PoseOn;
-
-                    playerParts[1].angularXDrive = PoseOn;
-                    playerParts[1].angularYZDrive = PoseOn;
-                }
-                else if (!balanced)
-                {
-                    playerParts[3].angularXDrive = DriveOff;
-                    playerParts[3].angularYZDrive = DriveOff;
-                    playerParts[4].angularXDrive = DriveOff;
-                    playerParts[4].angularYZDrive = DriveOff;
-                }                 
-
-                resetPose = true;
-                reachRightAxisUsed = false;
-            }
         }
     }
 }

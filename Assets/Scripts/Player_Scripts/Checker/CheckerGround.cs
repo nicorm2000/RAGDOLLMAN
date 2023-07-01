@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CheckerGround : MonoBehaviour
 {
+    [Header("Player Controller Dependencies")]
+    [SerializeField] private PlayerController playerController;
+
     /// <summary>
     /// Determines if the character is in an idle state.
     /// </summary>
@@ -15,68 +18,37 @@ public class CheckerGround : MonoBehaviour
         bool reachRightAxisUsed, 
         bool reachLeftAxisUsed)
     {
-        if (!inAir && !isJumping && !reachRightAxisUsed && !reachLeftAxisUsed)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return !inAir && !isJumping && !reachRightAxisUsed && !reachLeftAxisUsed;
     }
 
     /// <summary>
     /// Checks if the character is grounded and adjusts balance accordingly.
     /// </summary>
-    /// <param name="playerParts">The GameObject representing a part of the player.</param>
-    /// <param name="balanceHeight">The height at which balance is maintained.</param>
-    /// <param name="inAir">Indicates if the character is in the air.</param>
-    /// <param name="isJumping">Indicates if the character is currently jumping.</param>
-    /// <param name="reachRightAxisUsed">Indicates if the character's right axis is being used.</param>
-    /// <param name="reachLeftAxisUsed">Indicates if the character's left axis is being used.</param>
-    /// <param name="balanced">A reference to the balance state of the character.</param>
-    /// <param name="autoGetUpWhenPossible">Indicates if the character should automatically get up when possible.</param>
-    public void GroundChecker(Joint playerParts,
-        float balanceHeight,
-        bool inAir,
-        bool isJumping,
-        bool reachRightAxisUsed,
-        bool reachLeftAxisUsed,
-        ref bool balanced,
-        bool autoGetUpWhenPossible)
+    public void GroundChecker()
     {
-        Ray ray = new Ray(playerParts.transform.position, -playerParts.transform.up);
+        Transform playerTransform = playerController.playerParts[0].transform;
+        Rigidbody playerRigidbody = playerController.playerParts[0].GetComponent<Rigidbody>();
 
+        Ray ray = new Ray(playerTransform.position, -playerTransform.up);
         RaycastHit hit;
 
-        //Balance when ground is detected
-        //1 << LayerMask.NameToLayer("Ground") -> Creates a bit mask with a 1 in the binary position of the layer "Ground".
-        //Bit mask can be used to check if a layer is on or off in the Physics.Raycast function.
-        if (Physics.Raycast(ray,
-            out hit,
-            balanceHeight,
-            1 << LayerMask.NameToLayer("Ground")) && IsIdle(inAir, 
-            isJumping, 
-            reachRightAxisUsed, 
-            reachLeftAxisUsed))
+        LayerMask groundLayer = 1 << LayerMask.NameToLayer("Ground");
+
+        if (Physics.Raycast(ray, out hit, playerController.balanceHeight, groundLayer) && IsIdle(playerController.inAir,
+            playerController.isJumping,
+            playerController.reachRightAxisUsed,
+            playerController.reachLeftAxisUsed))
         {
-            if (!balanced && playerParts.GetComponent<Rigidbody>().velocity.magnitude < 1f)
+            if (!playerController.balanced && playerRigidbody.velocity.magnitude < 1f && playerController.autoGetUpWhenPossible)
             {
-                if (autoGetUpWhenPossible)
-                {
-                    balanced = true;
-                }
+                playerController.balanced = true;
             }
         }
-        //Fall over when ground is not detected
-        else if (!Physics.Raycast(ray, 
-            out hit, 
-            balanceHeight, 
-            1 << LayerMask.NameToLayer("Ground")))
+        else if (!Physics.Raycast(ray, out hit, playerController.balanceHeight, groundLayer))
         {
-            if (balanced)
+            if (playerController.balanced)
             {
-                balanced = false;
+                playerController.balanced = false;
             }
         }
     }

@@ -12604,7 +12604,7 @@ GameObject:
   - component: {fileID: 648091995}
   - component: {fileID: 648091998}
   - component: {fileID: 648091997}
-  - component: {fileID: 648091996}
+  - component: {fileID: 648091999}
   m_Layer: 14
   m_Name: Main Area
   m_TagString: Untagged
@@ -12627,20 +12627,6 @@ Transform:
   m_Father: {fileID: 484618785}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &648091996
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648091994}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &648091997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12690,6 +12676,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 648091994}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &648091999
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648091994}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &650926032
 PrefabInstance:
@@ -31041,6 +31041,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: handsReach
+      value: 
+      objectReference: {fileID: 1609911536}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1609911530}
@@ -31340,6 +31344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32af246f97af7840a44b499235a965f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerController: {fileID: 1609911516}
 --- !u!114 &1609911531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31380,6 +31385,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1609911516}
   deactivateRagdoll: {fileID: 1609911528}
+--- !u!114 &1609911536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609911519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bb04c75c1c463498a7e21e8670e688, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1609911516}
 --- !u!1 &1614126268
 GameObject:
   m_ObjectHideFlags: 0
