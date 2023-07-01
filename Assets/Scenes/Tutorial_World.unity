@@ -31117,6 +31117,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1609911528}
     - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: walkingController
+      value: 
+      objectReference: {fileID: 1609911531}
+    - target: {fileID: 3122338867580340672, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: forwardIsCameraDirection
       value: 1
       objectReference: {fileID: 0}
@@ -31323,6 +31327,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32af246f97af7840a44b499235a965f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1609911531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609911519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c43bf36460b3a645bb84f9d7f268cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1609911516}
+  stepHeightModifier: 2
+  xRotationModifier1: 0.09
+  xRotationModifier2: 9
+  xRotationModifier3: 0.12
+  xRotationModifier4: 0
+  xRotationModifier5: 0.07
+  xRotationModifier6: 0.02
+  legTarget1: 8
+  legTarget2: 17
+  legTarget3: 7
+  legTarget4: 18
 --- !u!1 &1614126268
 GameObject:
   m_ObjectHideFlags: 0
