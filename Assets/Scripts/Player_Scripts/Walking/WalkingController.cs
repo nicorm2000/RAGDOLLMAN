@@ -4,35 +4,8 @@ using UnityEngine;
 
 public class WalkingController : MonoBehaviour
 {
-    public struct Step
-    {
-        bool shouldAlertLeg;
-
-        Vector3 legPosition;
-    }
-
-    public struct WalkConfig
-    {
-        Step right;
-
-        Step left;
-    }
-
     [Header("Player Controller Dependencies")]
     [SerializeField] public PlayerController playerController;
-
-    [Header("Walking Modifiers")]
-    [SerializeField] private float stepHeightModifier = 2.0f;
-    [SerializeField] private float xRotationModifier1 = 0.09f;
-    [SerializeField] private float xRotationModifier2 = 0.09f;
-    [SerializeField] private float xRotationModifier3 = 0.12f;
-    [SerializeField] private float xRotationModifier4 = 0.00f;
-    [SerializeField] private float xRotationModifier5 = 0.07f;
-    [SerializeField] private float xRotationModifier6 = 0.02f;
-    [SerializeField] private float legTarget1 = 8f;
-    [SerializeField] private float legTarget2 = 17f;
-    [SerializeField] private float legTarget3 = 7f;
-    [SerializeField] private float legTarget4 = 18f;
 
     /// <summary>
     /// Handles the player's walking.
@@ -43,40 +16,16 @@ public class WalkingController : MonoBehaviour
         {
             if (playerController.walkForward)
             {
-                //Checks if the right leg is behind
-                if (playerController.playerParts[11].transform.position.z
-                    < playerController.playerParts[12].transform.position.z
-                    && !playerController.stepLeft && !playerController.alertLegRight)
-                {
-                    ShouldMoveLegRight();
-                }
-
-                //Checks if the left leg is behind
-                if (playerController.playerParts[11].transform.position.z
-                    > playerController.playerParts[12].transform.position.z
-                    && !playerController.stepRight && !playerController.alertLegLeft)
-                {
-                    ShouldMoveLegLeft();
-                }
+                CheckLegPosition(playerController.playerParts[11].transform.position.z,
+                    playerController.playerParts[12].transform.position.z,
+                    playerController.stepLeft, playerController.alertLegRight, true);
             }
 
             if (playerController.walkBackward)
             {
-                //Checks if the right leg is ahead
-                if (playerController.playerParts[11].transform.position.z
-                    > playerController.playerParts[12].transform.position.z
-                    && !playerController.stepLeft && !playerController.alertLegRight)
-                {
-                    ShouldMoveLegRight();
-                }
-
-                //Checks if the left leg is ahead
-                if (playerController.playerParts[11].transform.position.z
-                    < playerController.playerParts[12].transform.position.z && !playerController.stepRight
-                    && !playerController.alertLegLeft)
-                {
-                    ShouldMoveLegLeft();
-                }
+                CheckLegPosition(playerController.playerParts[11].transform.position.z,
+                    playerController.playerParts[12].transform.position.z,
+                    playerController.stepRight, playerController.alertLegLeft, false);
             }
 
             //step right
@@ -226,7 +175,31 @@ public class WalkingController : MonoBehaviour
         }
     }
 
-    public void ResetStepLeft()
+    /// <summary>
+    /// Checks specified conditions and moves the leg accordingly.
+    /// </summary>
+    /// <param name="leg11PositionZ">The Z position of leg 11.</param>
+    /// <param name="leg12PositionZ">The Z position of leg 12.</param>
+    /// <param name="stepOpposite">Whether the step is in the opposite direction.</param>
+    /// <param name="alertLeg">Whether the leg is in alert mode.</param>
+    /// <param name="shouldMoveRight">Whether the leg should move to the right.</param>
+    private void CheckLegPosition(float leg11PositionZ, float leg12PositionZ, bool stepOpposite, bool alertLeg, bool shouldMoveRight)
+    {
+        if (shouldMoveRight && leg11PositionZ < leg12PositionZ && !stepOpposite && !alertLeg)
+        {
+            ShouldMoveLegRight();
+        }
+
+        if (!shouldMoveRight && leg11PositionZ > leg12PositionZ && !stepOpposite && !alertLeg)
+        {
+            ShouldMoveLegLeft();
+        }
+    }
+
+    /// <summary>
+    /// Resets the left step by setting the stepTimerLeft to 0, stepLeft to false, and if walking forward or backward, sets stepRight to true.
+    /// </summary>
+    private void ResetStepLeft()
     {
         playerController.stepTimerLeft = 0;
 
@@ -238,7 +211,10 @@ public class WalkingController : MonoBehaviour
         }
     }
 
-    public void ResetStepRight()
+    /// <summary>
+    /// Resets the right step by setting the stepTimerRight to 0, stepRight to false, and if walking forward or backward, sets stepLeft to true.
+    /// </summary>
+    private void ResetStepRight()
     {
         playerController.stepTimerRight = 0;
 
@@ -250,14 +226,20 @@ public class WalkingController : MonoBehaviour
         }
     }
 
-    public void ShouldMoveLegLeft()
+    /// <summary>
+    /// Sets stepLeft, alertLegLeft, and alertLegRight to true, indicating that the leg should move left.
+    /// </summary>
+    private void ShouldMoveLegLeft()
     {
         playerController.stepLeft = true;
         playerController.alertLegLeft = true;
         playerController.alertLegRight = true;
     }
 
-    public void ShouldMoveLegRight()
+    /// <summary>
+    /// Sets stepRight, alertLegRight, and alertLegLeft to true, indicating that the leg should move right.
+    /// </summary>
+    private void ShouldMoveLegRight()
     {
         playerController.stepRight = true;
         playerController.alertLegRight = true;
