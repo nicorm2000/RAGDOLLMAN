@@ -73,20 +73,20 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MouseX"",
+                    ""name"": ""MouseCamera"",
                     ""type"": ""Value"",
-                    ""id"": ""6d3f63a3-f271-40a9-bfc2-a06cd2474359"",
-                    ""expectedControlType"": ""Axis"",
+                    ""id"": ""4fed8174-05ac-496c-847b-788977ca47a0"",
+                    ""expectedControlType"": ""Delta"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""MouseY"",
+                    ""name"": ""ControllerCamera"",
                     ""type"": ""Value"",
-                    ""id"": ""edd01eb8-2e71-46e5-926a-805277558c34"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
+                    ""id"": ""9c6e3627-cc4a-4e98-82c7-e9f255c51fdf"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": ""ScaleVector2(x=10,y=10)"",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 }
@@ -226,34 +226,23 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""6e143a7b-b58e-451b-a1e8-dc487e8d9194"",
-                    ""path"": """",
+                    ""id"": ""3fc1853b-6fa2-47cc-9bc5-aae1702611bc"",
+                    ""path"": ""<Mouse>/delta"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MouseCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8cc74136-c15e-48aa-ad37-cb8dcac58f86"",
-                    ""path"": ""<Mouse>/delta/x"",
+                    ""id"": ""253d8b34-aa2c-4a1e-ba81-23c9826420c3"",
+                    ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""MouseX"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f4573881-cfd6-4fd5-9420-2daf70c4701c"",
-                    ""path"": ""<Mouse>/delta/y"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MouseY"",
+                    ""action"": ""ControllerCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -785,8 +774,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_ReachLeft = m_Player.FindAction("ReachLeft", throwIfNotFound: true);
         m_Player_ReachRight = m_Player.FindAction("ReachRight", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_MouseX = m_Player.FindAction("MouseX", throwIfNotFound: true);
-        m_Player_MouseY = m_Player.FindAction("MouseY", throwIfNotFound: true);
+        m_Player_MouseCamera = m_Player.FindAction("MouseCamera", throwIfNotFound: true);
+        m_Player_ControllerCamera = m_Player.FindAction("ControllerCamera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -865,8 +854,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_ReachLeft;
     private readonly InputAction m_Player_ReachRight;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_MouseX;
-    private readonly InputAction m_Player_MouseY;
+    private readonly InputAction m_Player_MouseCamera;
+    private readonly InputAction m_Player_ControllerCamera;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -876,8 +865,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @ReachLeft => m_Wrapper.m_Player_ReachLeft;
         public InputAction @ReachRight => m_Wrapper.m_Player_ReachRight;
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @MouseX => m_Wrapper.m_Player_MouseX;
-        public InputAction @MouseY => m_Wrapper.m_Player_MouseY;
+        public InputAction @MouseCamera => m_Wrapper.m_Player_MouseCamera;
+        public InputAction @ControllerCamera => m_Wrapper.m_Player_ControllerCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -902,12 +891,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started += instance.OnMove;
             @Move.performed += instance.OnMove;
             @Move.canceled += instance.OnMove;
-            @MouseX.started += instance.OnMouseX;
-            @MouseX.performed += instance.OnMouseX;
-            @MouseX.canceled += instance.OnMouseX;
-            @MouseY.started += instance.OnMouseY;
-            @MouseY.performed += instance.OnMouseY;
-            @MouseY.canceled += instance.OnMouseY;
+            @MouseCamera.started += instance.OnMouseCamera;
+            @MouseCamera.performed += instance.OnMouseCamera;
+            @MouseCamera.canceled += instance.OnMouseCamera;
+            @ControllerCamera.started += instance.OnControllerCamera;
+            @ControllerCamera.performed += instance.OnControllerCamera;
+            @ControllerCamera.canceled += instance.OnControllerCamera;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -927,12 +916,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Move.started -= instance.OnMove;
             @Move.performed -= instance.OnMove;
             @Move.canceled -= instance.OnMove;
-            @MouseX.started -= instance.OnMouseX;
-            @MouseX.performed -= instance.OnMouseX;
-            @MouseX.canceled -= instance.OnMouseX;
-            @MouseY.started -= instance.OnMouseY;
-            @MouseY.performed -= instance.OnMouseY;
-            @MouseY.canceled -= instance.OnMouseY;
+            @MouseCamera.started -= instance.OnMouseCamera;
+            @MouseCamera.performed -= instance.OnMouseCamera;
+            @MouseCamera.canceled -= instance.OnMouseCamera;
+            @ControllerCamera.started -= instance.OnControllerCamera;
+            @ControllerCamera.performed -= instance.OnControllerCamera;
+            @ControllerCamera.canceled -= instance.OnControllerCamera;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1075,8 +1064,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnReachLeft(InputAction.CallbackContext context);
         void OnReachRight(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnMouseX(InputAction.CallbackContext context);
-        void OnMouseY(InputAction.CallbackContext context);
+        void OnMouseCamera(InputAction.CallbackContext context);
+        void OnControllerCamera(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

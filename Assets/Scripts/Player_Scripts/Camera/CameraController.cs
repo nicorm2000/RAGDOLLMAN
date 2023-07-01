@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
@@ -40,25 +41,54 @@ public class CameraController : MonoBehaviour
     }
 
     /// <summary>
-    /// Updates the current X and Y position based on input and clamps Y position.
-    /// </summary>
-    void Update()
-    {
-        currentX += Input.GetAxis("Mouse X") * rotateSpeed;
-        currentY += Input.GetAxis("Mouse Y") * rotateSpeed;
-
-        currentY = Mathf.Clamp(currentY, minAngle, maxAngle);
-    }
-
-    /// <summary>
     /// If rotateCamera is true, rotates camera to look at APRRoot and moves it based on current X, Y, and distance. 
     /// If rotateCamera is false, faces the camera towards APRRoot and moves the camera to a fixed offset position.
     /// </summary>
     void FixedUpdate()
     {
+        currentY = Mathf.Clamp(currentY, minAngle, maxAngle);
+
         dir = new Vector3(0, -distanceY, -distanceZ);
+
         rotation = Quaternion.Euler(-currentY, currentX, 0);
+
         cam.transform.position = Vector3.Lerp(cam.transform.position, APRRoot.position + rotation * dir, smoothness);
         cam.transform.LookAt(APRRoot.position);
+    }
+
+    /// <summary>
+    /// Callback function for mouse camera movement input.
+    /// </summary>
+    /// <param name="context">The input action callback context.</param>
+    public void OnMouseCameraMove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            currentX += context.ReadValue<Vector2>().x * rotateSpeed * Time.deltaTime;
+            currentY += context.ReadValue<Vector2>().y * rotateSpeed * Time.deltaTime;
+        }
+        else
+        {
+            currentX += 0;
+            currentY += 0;
+        }
+    }
+
+    /// <summary>
+    /// Callback function for controller camera movement input.
+    /// </summary>
+    /// <param name="context">The input action callback context.</param>
+    public void OnControllerCameraMove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            currentX += context.ReadValue<Vector2>().x * rotateSpeed * 10 * Time.deltaTime;
+            currentY -= context.ReadValue<Vector2>().y * rotateSpeed * 10 * Time.deltaTime;
+        }
+        else
+        {
+            currentX += 0;
+            currentY += 0;
+        }
     }
 }

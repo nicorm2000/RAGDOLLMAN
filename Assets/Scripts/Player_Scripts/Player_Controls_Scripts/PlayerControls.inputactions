@@ -51,20 +51,20 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseX",
+                    "name": "MouseCamera",
                     "type": "Value",
-                    "id": "6d3f63a3-f271-40a9-bfc2-a06cd2474359",
-                    "expectedControlType": "Axis",
+                    "id": "4fed8174-05ac-496c-847b-788977ca47a0",
+                    "expectedControlType": "Delta",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
                 },
                 {
-                    "name": "MouseY",
+                    "name": "ControllerCamera",
                     "type": "Value",
-                    "id": "edd01eb8-2e71-46e5-926a-805277558c34",
-                    "expectedControlType": "Axis",
-                    "processors": "",
+                    "id": "9c6e3627-cc4a-4e98-82c7-e9f255c51fdf",
+                    "expectedControlType": "Vector2",
+                    "processors": "ScaleVector2(x=10,y=10)",
                     "interactions": "",
                     "initialStateCheck": true
                 }
@@ -204,34 +204,23 @@
                 },
                 {
                     "name": "",
-                    "id": "6e143a7b-b58e-451b-a1e8-dc487e8d9194",
-                    "path": "",
+                    "id": "3fc1853b-6fa2-47cc-9bc5-aae1702611bc",
+                    "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MouseCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "8cc74136-c15e-48aa-ad37-cb8dcac58f86",
-                    "path": "<Mouse>/delta/x",
+                    "id": "253d8b34-aa2c-4a1e-ba81-23c9826420c3",
+                    "path": "<Gamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "MouseX",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f4573881-cfd6-4fd5-9420-2daf70c4701c",
-                    "path": "<Mouse>/delta/y",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MouseY",
+                    "action": "ControllerCamera",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
