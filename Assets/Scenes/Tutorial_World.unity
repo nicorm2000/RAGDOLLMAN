@@ -20413,9 +20413,15 @@ MonoBehaviour:
   distanceY: 0
   distanceZ: 5
   smoothness: 0.15
-  rotateSpeed: 2.5
+  rotateSpeed: 10
   minAngle: -90
   maxAngle: 25
+  cam: {fileID: 0}
+  currentX: 0
+  currentY: 0
+  rotation: {x: 0, y: 0, z: 0, w: 0}
+  dir: {x: 0, y: 0, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1062999462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39595,6 +39601,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020219439}
   - component: {fileID: 2020219440}
+  - component: {fileID: 2020219441}
   m_Layer: 0
   m_Name: Input Manager
   m_TagString: Untagged
@@ -39660,8 +39667,8 @@ MonoBehaviour:
     m_ActionName: Player/Pause[/Keyboard/escape,/DualShock4GamepadHID/start]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1609911534}
-        m_TargetAssemblyTypeName: GetUpByJumping, Assembly-CSharp
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnJump
         m_Mode: 0
         m_Arguments:
@@ -39684,8 +39691,8 @@ MonoBehaviour:
     m_ActionName: Player/ReachRight[/Mouse/rightButton,/DualShock4GamepadHID/rightTrigger]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062999461}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnMouseCameraMove
         m_Mode: 0
         m_Arguments:
@@ -39700,8 +39707,8 @@ MonoBehaviour:
     m_ActionName: Player/MouseCamera[/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1062999461}
-        m_TargetAssemblyTypeName: CameraController, Assembly-CSharp
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
         m_MethodName: OnControllerCameraMove
         m_Mode: 0
         m_Arguments:
@@ -39754,11 +39761,42 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: be9c5ac6-9a79-44cd-8c42-19fe8c81fd0a
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: fd38e37b-4417-4ffb-a2e9-4e5c2d13745b
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1062999464}
+--- !u!114 &2020219441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020219438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5b3dbb0896fa3d4cae8ee7e940a89b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraController: {fileID: 1062999461}
+  getUpController: {fileID: 1609911534}
+  playerMovement: {fileID: 0}
 --- !u!1001 &2020933870
 PrefabInstance:
   m_ObjectHideFlags: 0

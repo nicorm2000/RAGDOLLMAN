@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour
     //Player Axis controls
     public string forwardBackward = "Vertical";
     public string horizontal = "Horizontal";
-    public string jump = "Jump";
     public string reachLeft = "Fire1";
     public string reachRight = "Fire2";
 
@@ -162,11 +161,6 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (!inAir)
-        {
-            playerMovement.Movement();
-        }
-
         handsReach.ReachHands();
 
         if (balanced && useStepPrediction)

@@ -5,15 +5,44 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
+    private Vector2 movementValue = Vector2.zero;
+
+    private void FixedUpdate()
+    {
+        ProcessMovementValue(movementValue);
+    }
+
     /// <summary>
-    /// Handles the movement of the player character.
+    /// Sets the player's walkForward, moveAxisUsed, and isKeyDown variables to true, indicating movement in the forward direction.
     /// </summary>
-    public void Movement()
+    private void MovementTrue()
+    {
+        playerController.walkForward = true;
+
+        playerController.moveAxisUsed = true;
+
+        playerController.isKeyDown = true;
+    }
+
+    /// <summary>
+    /// Sets the player's walkForward, moveAxisUsed, and isKeyDown variables to false, indicating no movement in the forward direction.
+    /// </summary>
+    private void MovementFalse()
+    {
+        playerController.walkForward = false;
+
+        playerController.moveAxisUsed = false;
+
+        playerController.isKeyDown = false;
+    }
+
+    private void ProcessMovementValue(Vector2 input)
     {
         var parts0Transform = playerController.playerParts[0].transform;
         var parts0Rigidbody = parts0Transform.GetComponent<Rigidbody>();
-        var horizontalInput = Input.GetAxisRaw(playerController.horizontal);
-        var forwardInput = Input.GetAxisRaw(playerController.forwardBackward);
+
+        var horizontalInput = input.x;
+        var forwardInput = input.y;
 
         // Move in camera direction
         playerController.direction = parts0Transform.rotation * new Vector3(horizontalInput, 0.0f, forwardInput);
@@ -40,27 +69,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Sets the player's walkForward, moveAxisUsed, and isKeyDown variables to true, indicating movement in the forward direction.
-    /// </summary>
-    private void MovementTrue()
-    {
-        playerController.walkForward = true;
-
-        playerController.moveAxisUsed = true;
-
-        playerController.isKeyDown = true;
-    }
-
-    /// <summary>
-    /// Sets the player's walkForward, moveAxisUsed, and isKeyDown variables to false, indicating no movement in the forward direction.
-    /// </summary>
-    private void MovementFalse()
-    {
-        playerController.walkForward = false;
-
-        playerController.moveAxisUsed = false;
-
-        playerController.isKeyDown = false;
-    }
+    public void SetMovement(Vector2 normalizedMovement) => movementValue = normalizedMovement;
 }

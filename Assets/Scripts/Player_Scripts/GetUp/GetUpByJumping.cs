@@ -4,10 +4,10 @@ using UnityEngine.InputSystem;
 public class GetUpByJumping : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]
-    [SerializeField] private PlayerController playerController;
+    public PlayerController playerController;
 
     [Header("Ragdoll Deactivator Dependancies")]
-    [SerializeField] private DeactivateRagdoll deactivateRagdoll;
+    public DeactivateRagdoll deactivateRagdoll;
 
     /// <summary>
     /// Handles the player character's getting up and jumping actions.
@@ -43,30 +43,6 @@ public class GetUpByJumping : MonoBehaviour
 
                 playerController.inAir = true;
             }
-        }
-    }
-
-    public void OnJump(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            if (!playerController.jumpAxisUsed)
-            {
-                if (playerController.balanced && !playerController.inAir)
-                {
-                    playerController.jumping = true;
-                }
-                else if (!playerController.balanced)
-                {
-                    deactivateRagdoll.RagdollDeactivator();
-                }
-            }
-
-            playerController.jumpAxisUsed = true;
-        }
-        else if (context.canceled)
-        {
-            playerController.jumpAxisUsed = false;
         }
     }
 }
