@@ -42,15 +42,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Move",
-                    "type": "Value",
-                    "id": "cc72646b-7db7-4a3e-b81b-62d217efa290",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "MouseCamera",
                     "type": "Value",
                     "id": "4fed8174-05ac-496c-847b-788977ca47a0",
@@ -217,6 +208,17 @@
                     "name": "",
                     "id": "253d8b34-aa2c-4a1e-ba81-23c9826420c3",
                     "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ControllerCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0cc43aab-f5b7-4647-934e-3a4ae8dfd29b",
+                    "path": "<DualShockGamepad>/rightStick",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

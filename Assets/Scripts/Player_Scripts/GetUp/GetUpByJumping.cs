@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GetUpByJumping : MonoBehaviour
 {
@@ -13,28 +14,6 @@ public class GetUpByJumping : MonoBehaviour
     /// </summary>
     public void PlayerGetUpJumping()
     {
-        if (Input.GetAxis(playerController.jump) > 0)
-        {
-            if (!playerController.jumpAxisUsed)
-            {
-                if (playerController.balanced && !playerController.inAir)
-                {
-                    playerController.jumping = true;
-                }
-
-                else if (!playerController.balanced)
-                {
-                    deactivateRagdoll.RagdollDeactivator();
-                }
-            }
-
-            playerController.jumpAxisUsed = true;
-        }
-        else
-        {
-            playerController.jumpAxisUsed = false;
-        }
-
         //Calculates the jump force by multiplying the transform.up vector of the Rigidbody attached to playerParts[0] by jumpForce,
         //and sets the x and z values of the vector to the respective values of the current velocity of the Rigidbody.
         if (playerController.jumping)
@@ -64,6 +43,30 @@ public class GetUpByJumping : MonoBehaviour
 
                 playerController.inAir = true;
             }
+        }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (!playerController.jumpAxisUsed)
+            {
+                if (playerController.balanced && !playerController.inAir)
+                {
+                    playerController.jumping = true;
+                }
+                else if (!playerController.balanced)
+                {
+                    deactivateRagdoll.RagdollDeactivator();
+                }
+            }
+
+            playerController.jumpAxisUsed = true;
+        }
+        else if (context.canceled)
+        {
+            playerController.jumpAxisUsed = false;
         }
     }
 }

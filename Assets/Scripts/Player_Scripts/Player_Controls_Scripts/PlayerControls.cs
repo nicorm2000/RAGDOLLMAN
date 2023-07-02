@@ -64,15 +64,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""cc72646b-7db7-4a3e-b81b-62d217efa290"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""MouseCamera"",
                     ""type"": ""Value"",
                     ""id"": ""4fed8174-05ac-496c-847b-788977ca47a0"",
@@ -239,6 +230,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""253d8b34-aa2c-4a1e-ba81-23c9826420c3"",
                     ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ControllerCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0cc43aab-f5b7-4647-934e-3a4ae8dfd29b"",
+                    ""path"": ""<DualShockGamepad>/rightStick"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -773,7 +775,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_ReachLeft = m_Player.FindAction("ReachLeft", throwIfNotFound: true);
         m_Player_ReachRight = m_Player.FindAction("ReachRight", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_MouseCamera = m_Player.FindAction("MouseCamera", throwIfNotFound: true);
         m_Player_ControllerCamera = m_Player.FindAction("ControllerCamera", throwIfNotFound: true);
         // UI
@@ -853,7 +854,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_ReachLeft;
     private readonly InputAction m_Player_ReachRight;
-    private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_MouseCamera;
     private readonly InputAction m_Player_ControllerCamera;
     public struct PlayerActions
@@ -864,7 +864,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @ReachLeft => m_Wrapper.m_Player_ReachLeft;
         public InputAction @ReachRight => m_Wrapper.m_Player_ReachRight;
-        public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @MouseCamera => m_Wrapper.m_Player_MouseCamera;
         public InputAction @ControllerCamera => m_Wrapper.m_Player_ControllerCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
@@ -888,9 +887,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ReachRight.started += instance.OnReachRight;
             @ReachRight.performed += instance.OnReachRight;
             @ReachRight.canceled += instance.OnReachRight;
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
             @MouseCamera.started += instance.OnMouseCamera;
             @MouseCamera.performed += instance.OnMouseCamera;
             @MouseCamera.canceled += instance.OnMouseCamera;
@@ -913,9 +909,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ReachRight.started -= instance.OnReachRight;
             @ReachRight.performed -= instance.OnReachRight;
             @ReachRight.canceled -= instance.OnReachRight;
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
             @MouseCamera.started -= instance.OnMouseCamera;
             @MouseCamera.performed -= instance.OnMouseCamera;
             @MouseCamera.canceled -= instance.OnMouseCamera;
@@ -1063,7 +1056,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnReachLeft(InputAction.CallbackContext context);
         void OnReachRight(InputAction.CallbackContext context);
-        void OnMove(InputAction.CallbackContext context);
         void OnMouseCamera(InputAction.CallbackContext context);
         void OnControllerCamera(InputAction.CallbackContext context);
     }
