@@ -8,12 +8,6 @@ public class PlayerReach : MonoBehaviour
     [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
-    [Header("Player Reach Clamp Values")]
-    [SerializeField] private float clampYValue = -0.9f;
-    [SerializeField] private float clampZValue = 0.9f;
-    [SerializeField] private float clampYValueIfIsReaching = -1.2f;
-    [SerializeField] private float clampZValueIfIsReaching = 1.2f;
-
     public bool IsReachingLeft { get; private set; }
     public bool IsReachingRight { get; private set; }
 
@@ -27,7 +21,7 @@ public class PlayerReach : MonoBehaviour
         //Simulates body bending by allowing the player to move the mouse up and down to control the rotation of a ConfigurableJoint component attached to playerParts[1]
         float newYAxis = playerController.MouseYAxisBody + (moveBodyValue / playerController.reachSensitivity);
 
-        newYAxis = Mathf.Clamp(newYAxis, clampYValue, clampZValue);
+        newYAxis = Mathf.Clamp(newYAxis, -0.9f, 0.9f);
 
         playerController.MouseYAxisBody = newYAxis;
 
@@ -48,7 +42,7 @@ public class PlayerReach : MonoBehaviour
 
             float newYAxisArms = playerController.MouseYAxisArms + (moveBodyValue / playerController.reachSensitivity);
 
-            newYAxisArms = Mathf.Clamp(newYAxisArms, clampYValueIfIsReaching, clampZValueIfIsReaching);
+            newYAxisArms = Mathf.Clamp(newYAxisArms, -1.2f, 1.2f);
             
             playerController.MouseYAxisArms = newYAxisArms;
 
@@ -83,7 +77,7 @@ public class PlayerReach : MonoBehaviour
 
             float newYAxisArms = playerController.MouseYAxisArms + (moveBodyValue / playerController.reachSensitivity);
 
-            newYAxisArms = Mathf.Clamp(newYAxisArms, clampYValueIfIsReaching, clampZValueIfIsReaching);
+            newYAxisArms = Mathf.Clamp(newYAxisArms, -1.2f, 1.2f);
 
             playerController.MouseYAxisArms = newYAxisArms;
 

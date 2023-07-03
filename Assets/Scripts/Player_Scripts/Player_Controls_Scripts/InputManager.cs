@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
 
     [Header("Player Controller Configuration")]
     [SerializeField] PlayerMovement playerMovement;
-    [SerializeField] float moveBodyValue = -10f;
+    [SerializeField] float moveBodyValue = -100f;
 
     [Header("Player Reach Dependencies")]
     [SerializeField] PlayerReach playerReach;
@@ -48,7 +48,7 @@ public class InputManager : MonoBehaviour
         if (context.performed)
         {
             cameraController.currentX += context.ReadValue<Vector2>().x * cameraController.rotateSpeed * xAxisValue * Time.deltaTime;
-            cameraController.currentY -= context.ReadValue<Vector2>().y * cameraController.rotateSpeed * yAxisValue * Time.deltaTime;
+            cameraController.currentY += context.ReadValue<Vector2>().y * cameraController.rotateSpeed * yAxisValue * Time.deltaTime;
         }
         else
         {
