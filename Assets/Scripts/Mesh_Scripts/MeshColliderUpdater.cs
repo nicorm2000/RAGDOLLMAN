@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEditor;
 
 public class MeshColliderUpdater : MonoBehaviour
 {
@@ -19,21 +18,5 @@ public class MeshColliderUpdater : MonoBehaviour
 
         // Assign the updated mesh to the MeshCollider
         meshCollider.sharedMesh = mesh;
-    }
-}
-
-[CustomEditor (typeof(MeshColliderUpdater))]
-public class CustomEditorMeshUpdate : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        base.OnInspectorGUI();
-
-        MeshColliderUpdater user = (MeshColliderUpdater)target;
-
-        if (GUILayout.Button("Button"))
-        {
-            user.RecalculateMesh();
-        }
     }
 }
