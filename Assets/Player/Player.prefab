@@ -1197,8 +1197,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.24491356
+  m_Center: {x: -0.00000025848072, y: -0.19782454, z: -0.00026071523}
 --- !u!54 &3122338867580340252
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1485,7 +1485,7 @@ GameObject:
   - component: {fileID: 3122338867580340246}
   m_Layer: 10
   m_Name: APR_Root
-  m_TagString: CanBeGrabbed
+  m_TagString: Player
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1804,8 +1804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad81a557255ce5f40a5543de21640a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 3122338867580340672}
   playerLanded: {fileID: 0}
+  layerToCheck: Ground
 --- !u!1 &3122338867580340724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1979,8 +1980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad81a557255ce5f40a5543de21640a80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 3122338867580340672}
   playerLanded: {fileID: 0}
+  layerToCheck: Ground
 --- !u!1 &3122338867580340725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2487,8 +2489,8 @@ Transform:
   m_GameObject: {fileID: 3122338867580340733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 4}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6837232358001534365}
   m_Father: {fileID: 0}
@@ -2506,22 +2508,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c20a6e1c3ec15cc4badfddc68720960c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Root: {fileID: 3122338867580340687}
-  Body: {fileID: 3122338867580340686}
-  Head: {fileID: 3122338867580340685}
-  UpperRightArm: {fileID: 3122338867580340684}
-  LowerRightArm: {fileID: 3122338867580340683}
-  UpperLeftArm: {fileID: 3122338867580340682}
-  LowerLeftArm: {fileID: 3122338867580340681}
-  UpperRightLeg: {fileID: 3122338867580340680}
-  LowerRightLeg: {fileID: 3122338867580340727}
-  UpperLeftLeg: {fileID: 3122338867580340726}
-  LowerLeftLeg: {fileID: 3122338867580340725}
-  RightFoot: {fileID: 3122338867580340724}
-  LeftFoot: {fileID: 3122338867580340723}
+  Root: {fileID: 3122338867580340246}
+  Body: {fileID: 3122338867580340241}
+  Head: {fileID: 3122338867580340251}
+  UpperRightArm: {fileID: 3122338867580340230}
+  LowerRightArm: {fileID: 3122338867580340224}
+  UpperLeftArm: {fileID: 3122338867580340234}
+  LowerLeftArm: {fileID: 3122338867580340276}
+  UpperRightLeg: {fileID: 3122338867580340287}
+  LowerRightLeg: {fileID: 3122338867580340281}
+  UpperLeftLeg: {fileID: 3122338867580340259}
+  LowerLeftLeg: {fileID: 3122338867580340269}
+  RightFoot: {fileID: 3122338867580340694}
+  LeftFoot: {fileID: 3122338867580340703}
   COMP: {fileID: 6703360756035188815}
-  RightHand: {fileID: 3122338867580340722}
-  LeftHand: {fileID: 3122338867580340721}
+  thisPlayerLayer: Player_1
+  moveSpeed: 10
+  turnSpeed: 6
+  jumpForce: 15
+  autoGetUpWhenPossible: 1
+  useStepPrediction: 1
+  balanceHeight: 2.5
+  balanceStrength: 5000
+  coreStrength: 1500
+  limbStrength: 500
+  stepDuration: 0.2
+  stepHeight: 1.7
+  feetMountForce: 25
+  reachSensitivity: 1000
+  armReachStiffness: 2000
   groundCheck: {fileID: 0}
   activateRagdoll: {fileID: 0}
   deactivateRagdoll: {fileID: 0}
@@ -2532,40 +2547,21 @@ MonoBehaviour:
   ragdollCheck: {fileID: 0}
   playerSetup: {fileID: 0}
   stepPrediction: {fileID: 0}
-  grabRight: {fileID: 0}
-  grabLeft: {fileID: 0}
-  useControls: 1
-  forwardBackward: Vertical
-  horizontal: Horizontal
-  jump: Jump
-  reachLeft: Fire1
-  reachRight: Fire2
-  thisPlayerLayer: Player_1
-  moveSpeed: 10
-  turnSpeed: 6
-  jumpForce: 18
-  autoGetUpWhenPossible: 1
-  useStepPrediction: 1
-  balanceHeight: 2.5
-  balanceStrength: 5000
-  coreStrength: 1500
-  limbStrength: 500
-  stepDuration: 0.2
-  stepHeight: 1.7
-  feetMountForce: 25
-  reachSensitivity: 25
-  armReachStiffness: 2000
+  walkingController: {fileID: 0}
+  playerMovement: {fileID: 0}
+  getUp: {fileID: 0}
+  handsReach: {fileID: 0}
   timer: 0
-  step_Timer_Right: 0
-  step_Timer_Left: 0
+  stepTimerRight: 0
+  stepTimerLeft: 0
   MouseYAxisArms: 0
   MouseYAxisBody: 0
   walkForward: 0
   walkBackward: 0
   stepRight: 0
   stepLeft: 0
-  alert_Leg_Right: 0
-  alert_Leg_Left: 0
+  alertLegRight: 0
+  alertLegLeft: 0
   balanced: 1
   isKeyDown: 0
   moveAxisUsed: 0
@@ -2766,9 +2762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c4df9e82ca43343af2ab82a1de4cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  Left: 1
-  hasJoint: 0
+  playerController: {fileID: 3122338867580340672}
+  playerReach: {fileID: 0}
+  layerToGrab: CanBeGrabbed
 --- !u!1 &3122338867580340735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2942,9 +2938,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c4df9e82ca43343af2ab82a1de4cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
-  Left: 0
-  hasJoint: 0
+  playerController: {fileID: 3122338867580340672}
+  playerReach: {fileID: 0}
+  layerToGrab: CanBeGrabbed
 --- !u!1 &3441530407161919283
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,7 +3758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6703360756035188815}
   m_Layer: 10
-  m_Name: APR_COMP
+  m_Name: Player_COMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

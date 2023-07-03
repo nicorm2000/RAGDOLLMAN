@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8984159992023342886}
   - component: {fileID: 6578301791635713004}
   - component: {fileID: 5817228860573050450}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: rubble-concrete-apocalypse-f
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4176599846025207489}
   - component: {fileID: 2166992452552518155}
   - component: {fileID: 5704876486339391832}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: mattress-pile-apocalypse
   m_TagString: Untagged
   m_Icon: {fileID: 0}

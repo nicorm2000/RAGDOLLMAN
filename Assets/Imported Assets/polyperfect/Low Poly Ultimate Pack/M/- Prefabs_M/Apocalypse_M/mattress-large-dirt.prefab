@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8224964296472900475}
   - component: {fileID: 6178945538278901681}
   - component: {fileID: 4756244975765412664}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: mattress-large-dirt
   m_TagString: CanBeGrabbed
   m_Icon: {fileID: 0}
