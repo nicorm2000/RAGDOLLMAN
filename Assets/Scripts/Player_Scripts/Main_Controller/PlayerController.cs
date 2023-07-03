@@ -53,46 +53,46 @@ public class PlayerController : MonoBehaviour
     public float reachSensitivity = 25f;
     public float armReachStiffness = 2000f;
 
-    [Header("Ground Dependancies")]
+    [Header("Ground Dependencies")]
     [SerializeField] private CheckerGround groundCheck;
 
-    [Header("Ragdoll Activator Dependancies")]
+    [Header("Ragdoll Activator Dependencies")]
     [SerializeField] private ActivateRagdoll activateRagdoll;
 
-    [Header("Ragdoll Deactivator Dependancies")]
+    [Header("Ragdoll Deactivator Dependencies")]
     [SerializeField] private DeactivateRagdoll deactivateRagdoll;
 
-    [Header("Center of Mass Dependancies")]
+    [Header("Center of Mass Dependencies")]
     [SerializeField] private CenterOfMass centerOfMass;
 
-    [Header("Rotation Dependancies")]
+    [Header("Rotation Dependencies")]
     [SerializeField] private PlayerRotation playerRotation;
 
-    [Header("Reset Player's Pose Dependancies")]
+    [Header("Reset Player's Pose Dependencies")]
     [SerializeField] private ResetPlayerPose resetPlayerPose;
 
-    [Header("Reset Walk Cycle Dependancies")]
+    [Header("Reset Walk Cycle Dependencies")]
     [SerializeField] private ResetWalkCycle resetWalkCycle;
 
-    [Header("Ragdoll Check Dependancies")]
+    [Header("Ragdoll Check Dependencies")]
     [SerializeField] private RagdollCheck ragdollCheck;
 
-    [Header("Player Setup Dependancies")]
+    [Header("Player Setup Dependencies")]
     [SerializeField] private PlayerSetup playerSetup;
 
-    [Header("Step Prediction Dependancies")]
+    [Header("Step Prediction Dependencies")]
     [SerializeField] private StepPrediction stepPrediction;
 
-    [Header("Walking Dependancies")]
+    [Header("Walking Dependencies")]
     [SerializeField] private WalkingController walkingController;
 
-    [Header("Movement Dependancies")]
+    [Header("Movement Dependencies")]
     [SerializeField] private PlayerMovement playerMovement;
 
-    [Header("Get Up Dependancies")]
+    [Header("Get Up Dependencies")]
     [SerializeField] private GetUpByJumping getUp;
 
-    [Header("Hands Reach Dependancies")]
+    [Header("Hands Reach Dependencies")]
     [SerializeField] private PlayerReach handsReach;
 
     [HideInInspector] public float timer;

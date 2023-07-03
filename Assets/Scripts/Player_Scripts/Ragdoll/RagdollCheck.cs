@@ -5,13 +5,13 @@ using UnityEngine;
 /// </summary>
 public class RagdollCheck : MonoBehaviour
 {
-    [Header("Player Controller Dependancies")]
+    [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
-    [Header("Ragdoll Activator Dependancies")]
+    [Header("Ragdoll Activator Dependencies")]
     [SerializeField] private ActivateRagdoll activateRagdoll;
 
-    [Header("Ragdoll Deactivator Dependancies")]
+    [Header("Ragdoll Deactivator Dependencies")]
     [SerializeField] private DeactivateRagdoll deactivateRagdoll;
 
     /// <summary>

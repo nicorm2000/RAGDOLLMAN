@@ -3510,7 +3510,7 @@ GameObject:
   - component: {fileID: 150575738}
   - component: {fileID: 150575737}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: Portal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3545,6 +3545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitTimeBetweenScenes: 1.2
   transitionAnim: {fileID: 1430138364}
+  transitionTriggerName: End
 --- !u!114 &150575738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19917,7 +19918,7 @@ GameObject:
   - component: {fileID: 1032547527}
   - component: {fileID: 1032547526}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: PortalBackCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31363,6 +31364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1609911516}
+  layerToCheck: Ground
 --- !u!114 &1609911531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31403,6 +31405,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1609911516}
   deactivateRagdoll: {fileID: 1609911528}
+  timeToResetTimer: 0.2
 --- !u!114 &1609911536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31416,6 +31419,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 1609911516}
+  clampYValue: -0.9
+  clampZValue: 0.9
+  clampYValueIfIsReaching: -1.2
+  clampZValueIfIsReaching: 1.2
 --- !u!1 &1614126268
 GameObject:
   m_ObjectHideFlags: 0
@@ -39859,8 +39866,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1062999461}
+  xAxisValue: 0
+  yAxisValue: 100
   getUpController: {fileID: 1609911534}
   playerMovement: {fileID: 1609911533}
+  moveBodyValue: 100
   playerReach: {fileID: 1609911536}
 --- !u!1001 &2020933870
 PrefabInstance:
@@ -42012,6 +42022,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseUI: {fileID: 1614956336}
   isPaused: 0
+  NotPausedValue: 1
+  PausedValue: 0
 --- !u!4 &2143317215
 Transform:
   m_ObjectHideFlags: 0

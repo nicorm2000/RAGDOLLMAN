@@ -8,7 +8,7 @@ public class GetUpByJumping : MonoBehaviour
     [Header("Player Controller Dependencies")]
     public PlayerController playerController;
 
-    [Header("Ragdoll Deactivator Dependancies")]
+    [Header("Ragdoll Deactivator Dependencies")]
     public DeactivateRagdoll deactivateRagdoll;
 
     [Header("Time to reset Timer")]

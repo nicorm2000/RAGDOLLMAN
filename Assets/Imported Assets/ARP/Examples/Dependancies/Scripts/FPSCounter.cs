@@ -15,7 +15,7 @@ using UnityEngine;
     //-------------------------------------------------------------
 
 
-namespace ARP.Examples.Dependancies.Scripts
+namespace ARP.Examples.Dependencies.Scripts
 {
     public class FPSCounter : MonoBehaviour
     {

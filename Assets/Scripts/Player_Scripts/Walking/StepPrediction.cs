@@ -8,7 +8,7 @@ public class StepPrediction : MonoBehaviour
     [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
-    [Header("Reset Walk Cycle Dependancies")]
+    [Header("Reset Walk Cycle Dependencies")]
     [SerializeField] private ResetWalkCycle resetWalkCycle;
 
     /// <summary>

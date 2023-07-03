@@ -5,7 +5,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerSetup : MonoBehaviour
 {
-    [Header("Player Controller Dependancies")]
+    [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
     /// <summary>
