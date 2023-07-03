@@ -1,6 +1,8 @@
-using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Manages the glitch effects based on the distance between the player and a specified center point.
+/// </summary>
 public class GlitchManager : MonoBehaviour
 {
     [Header("Camera Selector")]
@@ -18,6 +20,9 @@ public class GlitchManager : MonoBehaviour
     [SerializeField] private float maxGlitchFlipIntensity = 0.5f;
     [SerializeField] private float maxGlitchColorIntensity = 0.5f;
 
+    /// <summary>
+    /// Ensures glitchCamera is assigned; if not, adds the GlitchEffect component to the game object.
+    /// </summary>
     private void Start()
     {
         // Ensure glitchCamera is assigned, otherwise add GlitchEffect component to the game object
@@ -27,6 +32,10 @@ public class GlitchManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Checks the distance between the player and the center of the object.
+    /// Applies glitch effects if the distance is within the specified range, otherwise resets the effects.
+    /// </summary>
     private void Update()
     {
         // Calculate the distance between centerOfObject and playerHips

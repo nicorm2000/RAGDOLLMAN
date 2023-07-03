@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Predicts the player's next step and sets the values of walkForward and walkBackward accordingly. If the player is off-balance, sets walkBackward to true if the COMP object is behind both feet, and sets walkForward to true if the COMP object is in front of both feet. If isKeyDown is false, walkForward and walkBackward are set to false.
+/// </summary>
 public class StepPrediction : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]
@@ -9,7 +12,9 @@ public class StepPrediction : MonoBehaviour
     [SerializeField] private ResetWalkCycle resetWalkCycle;
 
     /// <summary>
-    /// Predicts the player's next step and sets the values of walkForward and walkBackward accordingly. If the player is off-balance, sets walkBackward to true if the COMP object is behind both feet, and sets walkForward to true if the COMP object is in front of both feet. If isKeyDown is false, walkForward and walkBackward are set to false.
+    /// Predicts the player's next step and sets the values of walkForward and walkBackward accordingly. 
+    /// If the player is off-balance, sets walkBackward to true if the COMP object is behind both feet, and sets walkForward to true if the COMP object is in front of both feet. 
+    /// If isKeyDown is false, walkForward and walkBackward are set to false.
     /// </summary>
     public void PredictNextStep()
     {

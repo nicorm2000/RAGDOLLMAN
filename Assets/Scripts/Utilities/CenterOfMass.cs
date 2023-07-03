@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Calculates the center of mass of a rigid body based on the positions of the colliders weighted by their mass,
+/// then sets the position of the COMP transform to the resulting center of mass.
+/// </summary>
 public class CenterOfMass : MonoBehaviour
 {
     /// <summary>

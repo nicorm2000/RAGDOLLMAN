@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Resets the stepRight, stepLeft, alert_Leg_Right, and alert_Leg_Left booleans and the step_R_timer and step_L_timer variables to 0 when not moving.
+/// </summary>
 public class ResetWalkCycle : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]

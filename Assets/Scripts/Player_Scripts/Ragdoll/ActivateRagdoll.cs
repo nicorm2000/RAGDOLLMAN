@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Activates the ragdoll state by turning off balance and pose using DriveOff.
+/// </summary>
 public class ActivateRagdoll : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]

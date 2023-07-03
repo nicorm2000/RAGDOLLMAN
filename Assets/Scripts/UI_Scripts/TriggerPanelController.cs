@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the activation and deactivation of panels based on trigger collisions.
+/// </summary>
 public class TriggerPanelController : MonoBehaviour
 {
     [Header("Panel Dependencies")]

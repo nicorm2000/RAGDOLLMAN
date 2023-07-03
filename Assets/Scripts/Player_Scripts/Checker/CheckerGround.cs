@@ -1,9 +1,15 @@
 using UnityEngine;
 
+/// <summary>
+/// Checks if the character is grounded and adjusts balance accordingly.
+/// </summary>
 public class CheckerGround : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
+
+    [Header("Layer to Check")]
+    [SerializeField] private string layerToCheck = "Ground";
 
     /// <summary>
     /// Determines if the character is in an idle state.
@@ -32,7 +38,7 @@ public class CheckerGround : MonoBehaviour
         Ray ray = new Ray(playerTransform.position, -playerTransform.up);
         RaycastHit hit;
 
-        LayerMask groundLayer = 1 << LayerMask.NameToLayer("Ground");
+        LayerMask groundLayer = 1 << LayerMask.NameToLayer(layerToCheck);
 
         if (Physics.Raycast(ray, out hit, playerController.balanceHeight, groundLayer) && IsIdle(playerController.inAir,
             playerController.isJumping,

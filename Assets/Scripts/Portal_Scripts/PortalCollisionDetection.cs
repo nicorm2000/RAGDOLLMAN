@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Detects collisions with a portal and performs teleportation of items or players.
+/// </summary>
 public class PortalCollisionDetection : MonoBehaviour
 {
     [Header("Portal Configuration")]

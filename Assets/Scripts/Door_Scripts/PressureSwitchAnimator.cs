@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the animation state of a pressure switch object.
+/// </summary>
 public class PressureSwitchAnimator : MonoBehaviour
 {
     [Header("Animator Configuration")]

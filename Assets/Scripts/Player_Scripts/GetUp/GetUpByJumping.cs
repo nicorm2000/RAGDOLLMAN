@@ -1,6 +1,8 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
+/// <summary>
+/// Handles the player character's getting up and jumping actions.
+/// </summary>
 public class GetUpByJumping : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]
@@ -8,6 +10,9 @@ public class GetUpByJumping : MonoBehaviour
 
     [Header("Ragdoll Deactivator Dependancies")]
     public DeactivateRagdoll deactivateRagdoll;
+
+    [Header("Time to reset Timer")]
+    [SerializeField] private float timeToResetTimer = 0.2f;
 
     /// <summary>
     /// Handles the player character's getting up and jumping actions.
@@ -33,7 +38,7 @@ public class GetUpByJumping : MonoBehaviour
         {
             playerController.timer = playerController.timer + Time.fixedDeltaTime;
 
-            if (playerController.timer > 0.2f)
+            if (playerController.timer > timeToResetTimer)
             {
                 playerController.timer = 0.0f;
 

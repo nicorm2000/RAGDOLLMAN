@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles opening a website link using the provided URL.
+/// </summary>
 public class OpenURL : MonoBehaviour
 {
     /// <summary>

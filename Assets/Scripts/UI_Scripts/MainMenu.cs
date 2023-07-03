@@ -1,8 +1,10 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handles the functionality of the main menu, including scene transitions and button clicks.
+/// </summary>
 public class MainMenu : MonoBehaviour
 {
     [Header("Scene Configuration")]

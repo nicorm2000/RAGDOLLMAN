@@ -11,9 +11,9 @@ to make commercial use of the work
 
 using UnityEngine;
 
-[ExecuteInEditMode]
-[AddComponentMenu("Image Effects/GlitchEffect")]
-[RequireComponent(typeof(Camera))]
+/// <summary>
+/// Applies a glitch effect to the rendered image using a displacement map and various intensity parameters.
+/// </summary>
 public class GlitchEffect : MonoBehaviour
 {
 	public Texture2D displacementMap;
@@ -37,13 +37,20 @@ public class GlitchEffect : MonoBehaviour
 	private float _flickerTime = 0.5f;
 	private Material _material;
 
-	void Start()
+    /// <summary>
+    /// Initializes the glitch effect by creating a material with the assigned shader.
+    /// </summary>
+    private void Start()
 	{
 		_material = new Material(Shader);
 	}
 
-	// Called by camera to apply image effect
-	void OnRenderImage(RenderTexture source, RenderTexture destination)
+    /// <summary>
+    /// Called by the camera to apply the glitch effect to the rendered image.
+    /// </summary>
+    /// <param name="source">The source render texture.</param>
+    /// <param name="destination">The destination render texture.</param>
+	private void OnRenderImage(RenderTexture source, RenderTexture destination)
 	{
 		_material.SetFloat("_Intensity", intensity);
 		_material.SetFloat("_ColorIntensity", colorIntensity);

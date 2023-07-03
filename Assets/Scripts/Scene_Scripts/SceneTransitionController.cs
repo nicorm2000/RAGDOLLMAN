@@ -2,6 +2,9 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Controls the scene transitions with animations and delays.
+/// </summary>
 public class SceneTransitionController : MonoBehaviour
 {
     private static SceneTransitionController instance;
@@ -10,6 +13,7 @@ public class SceneTransitionController : MonoBehaviour
     [Header("Transition Configuration")]
     [SerializeField] private float waitTimeBetweenScenes = 1.2f;
     [SerializeField] private Animator transitionAnim;
+    [SerializeField] private string transitionTriggerName = "End";
 
     private void Awake()
     {
@@ -35,7 +39,7 @@ public class SceneTransitionController : MonoBehaviour
     /// <returns>The IEnumerator object.</returns>
     private IEnumerator Transition(int sceneIndex)
     {
-        transitionAnim.SetTrigger("End");
+        transitionAnim.SetTrigger(transitionTriggerName);
 
         yield return new WaitForSeconds(waitTimeBetweenScenes);
 

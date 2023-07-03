@@ -1,6 +1,10 @@
 using UnityEditor;
 using UnityEngine;
 
+/// <summary>
+/// Custom editor script for the MeshColliderUpdater component.
+/// Adds a button to the inspector GUI to recalculate the mesh.
+/// </summary>
 [CustomEditor(typeof(MeshColliderUpdater))]
 public class CustomEditorMeshUpdate : Editor
 {

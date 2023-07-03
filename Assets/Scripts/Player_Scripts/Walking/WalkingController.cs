@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the walking behavior of the player character.
+/// </summary>
 public class WalkingController : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]

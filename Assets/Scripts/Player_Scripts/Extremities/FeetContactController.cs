@@ -8,6 +8,9 @@ public class FeetContactController : MonoBehaviour
     [Header("Player Landed Dependencies")]
     [SerializeField] private PlayerLanded playerLanded;
 
+    [Header("Layer to Check")]
+    [SerializeField] private string layerToCheck = "Ground";
+
     /// <summary>
     /// Called when the GameObject collides with another GameObject. Checks if the player is not jumping and is in the air, and if so, checks if the collision was with an object on the "Ground" layer. If both conditions are met, calls the PlayerLanded method of the playerController object.
     /// </summary>
@@ -16,7 +19,7 @@ public class FeetContactController : MonoBehaviour
     {
         if (!playerController.isJumping && playerController.inAir)
         {
-            if (col.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if (col.gameObject.layer == LayerMask.NameToLayer(layerToCheck))
             {
                 playerLanded.PlayerHasLanded(ref playerController.inAir, playerController.isJumping, playerController.jumping, ref playerController.resetPose);
             }

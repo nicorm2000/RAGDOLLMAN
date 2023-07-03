@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
+/// <summary>
+/// Controls the camera movement and rotation to follow a target object.
+/// </summary>
 public class CameraController : MonoBehaviour
 {
     [Header("Player To Follow")]

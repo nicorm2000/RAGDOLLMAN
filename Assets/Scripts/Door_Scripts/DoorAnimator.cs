@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the animation state of a door object.
+/// </summary>
 public class DoorAnimator : MonoBehaviour
 {
     [Header("Animator Configuration")]

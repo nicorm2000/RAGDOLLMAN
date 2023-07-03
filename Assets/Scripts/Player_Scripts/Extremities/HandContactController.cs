@@ -8,6 +8,9 @@ public class HandContactController : MonoBehaviour
     [Header("Player Reach Dependencies")]
     [SerializeField] private PlayerReach playerReach;
 
+    [Header("Layer That Can Be Grabbed")]
+    [SerializeField] private string layerToGrab = "CanBeGrabbed";
+
     //Is left or right hand
     private bool Left;
 
@@ -22,6 +25,7 @@ public class HandContactController : MonoBehaviour
         {
             if (hasJoint && !playerReach.IsReachingLeft)
             {
+                //The breakforce value goes to 0 so the joint has no strength to remain joined
                 gameObject.GetComponent<FixedJoint>().breakForce = 0;
 
                 hasJoint = false;
@@ -39,6 +43,7 @@ public class HandContactController : MonoBehaviour
         {
             if (hasJoint && !playerReach.IsReachingRight)
             {
+                //The breakforce value goes to 0 so the joint has no strength to remain joined
                 gameObject.GetComponent<FixedJoint>().breakForce = 0;
 
                 hasJoint = false;
@@ -60,7 +65,7 @@ public class HandContactController : MonoBehaviour
         //Left Hand
         if (Left)
         {
-            if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
+            if (col.gameObject.tag == layerToGrab && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
             {
                 if (playerReach.IsReachingLeft && !hasJoint && !playerController.punchingLeft)
                 {
@@ -76,7 +81,7 @@ public class HandContactController : MonoBehaviour
         //Right Hand
         if (!Left)
         {
-            if (col.gameObject.tag == "CanBeGrabbed" && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
+            if (col.gameObject.tag == layerToGrab && col.gameObject.layer != LayerMask.NameToLayer(playerController.thisPlayerLayer) && !hasJoint)
             {
                 if (playerReach.IsReachingRight && !hasJoint && !playerController.punchingRight)
                 {

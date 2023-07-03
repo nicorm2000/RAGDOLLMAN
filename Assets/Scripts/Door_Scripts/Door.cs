@@ -1,6 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controls the behavior of a door object, including its opening and closing based on pressure switches.
+/// </summary>
 public class Door : MonoBehaviour
 {
     [Header("Door Configuration")]

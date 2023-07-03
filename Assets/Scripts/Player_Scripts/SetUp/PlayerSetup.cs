@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sets up the Player and its components (camera, joint drives, body parts target rotations to each body part).
+/// </summary>
 public class PlayerSetup : MonoBehaviour
 {
     [Header("Player Controller Dependancies")]

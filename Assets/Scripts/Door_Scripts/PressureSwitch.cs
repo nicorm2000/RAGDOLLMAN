@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents a pressure switch that interacts with a door and triggers animations.
+/// </summary>
 public class PressureSwitch : MonoBehaviour
 {
     [Header("Switch Configuration")]

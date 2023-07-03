@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Deactivates the ragdoll state and restores the character's pose and balance.
+/// </summary>
 public class DeactivateRagdoll : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]

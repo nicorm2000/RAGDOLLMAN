@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Changes the scene when the collider of this object collides with another collider.
+/// </summary>
 public class ChangeSceneOnTrigger : MonoBehaviour
 {
     [Header("Scene Configuration")]

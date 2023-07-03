@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the rotation of the player's body parts based on the direction of the camera.
+/// </summary>
 public class PlayerRotation : MonoBehaviour
 {
     /// <summary>

@@ -1,11 +1,16 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Handles the functionality of the pause menu.
+/// </summary>
 public class PauseMenu : MonoBehaviour
 {
     [Header("Pause Configuration")]
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private bool isPaused;
+    [SerializeField] private int NotPausedValue = 1;
+    [SerializeField] private int PausedValue = 0;
 
     /// <summary>
     /// Toggles the pause state of the game. If the game is paused, activates the menu; otherwise, deactivates the menu.
@@ -30,7 +35,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     private void DeactivateMenu()
     {
-        Time.timeScale = 1;
+        Time.timeScale = NotPausedValue;
 
         pauseUI.SetActive(false);
 
@@ -42,7 +47,7 @@ public class PauseMenu : MonoBehaviour
     /// </summary>
     private void ActivateMenu()
     {
-        Time.timeScale = 0;
+        Time.timeScale = PausedValue;
 
         pauseUI.SetActive(true);
     }

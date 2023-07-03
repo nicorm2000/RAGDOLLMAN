@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Checks if the player has landed and updates the relevant variables accordingly.
+/// </summary>
 public class PlayerLanded : MonoBehaviour
 {
     /// <summary>

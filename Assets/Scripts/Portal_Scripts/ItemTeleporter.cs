@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// A singleton class that allows teleporting items to a specified destination.
+/// </summary>
 public class ItemTeleporter
 {
     private static ItemTeleporter instance;

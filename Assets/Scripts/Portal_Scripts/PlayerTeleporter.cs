@@ -1,7 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// A singleton class that allows teleporting the child objects of the player.
+/// </summary>
 public class PlayerTeleporter
 {
+    [Header("Player tag")]
+    [SerializeField] private string playerTag = "Player";
+
     private static PlayerTeleporter instance;
     public static PlayerTeleporter Instance => instance ??= new PlayerTeleporter();
 
@@ -26,7 +32,7 @@ public class PlayerTeleporter
     /// <param name="player">Everty part of the body that will be checked to look for the Root.</param>
     private Transform GetRoot(Transform player)
     {
-        if (player.parent.tag == "Player") 
+        if (player.parent.tag == playerTag) 
         {
             return player.parent;
         }

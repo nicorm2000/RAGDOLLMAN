@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Checks if the player is balanced and if they're currently in ragdoll mode. If both are true, calls `RagdollDeactivator` to deactivate the ragdoll and reset the player's pose. If both are false, calls `RagdollActivator` to activate the ragdoll.
+/// </summary>
 public class RagdollCheck : MonoBehaviour
 {
     [Header("Player Controller Dependancies")]

@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Respawns the player when they enter a trigger collider, resetting their position and physics.
+/// </summary>
 public class RespawnPlayer : MonoBehaviour
 {
     [Header("Player Dependencies")]
@@ -19,6 +22,11 @@ public class RespawnPlayer : MonoBehaviour
         cam = Camera.main;
     }
 
+    /// <summary>
+    /// Called when another collider enters the trigger collider.
+    /// Respawns the player, resetting their position and physics.
+    /// </summary>
+    /// <param name="other">The collider that entered the trigger collider.</param>
     private void OnTriggerEnter(Collider other)
     {
         if (!checkedTrigger)
@@ -38,7 +46,9 @@ public class RespawnPlayer : MonoBehaviour
                     }
 
                     //Record camera current offset
-                    var cameraOffset = new Vector3(cam.transform.position.x - playerRoot.transform.position.x, cam.transform.position.y - playerRoot.transform.position.y, cam.transform.position.z - playerRoot.transform.position.z);
+                    var cameraOffset = new Vector3(cam.transform.position.x - playerRoot.transform.position.x, 
+                        cam.transform.position.y - playerRoot.transform.position.y, 
+                        cam.transform.position.z - playerRoot.transform.position.z);
 
                     //Set player to new position
                     playerRoot.transform.localPosition = Vector3.zero;

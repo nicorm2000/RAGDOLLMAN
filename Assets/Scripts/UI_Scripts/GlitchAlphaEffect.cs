@@ -1,8 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Controls the alpha effect of an image, creating a glitch-like animation.
+/// </summary>
 public class GlitchAlphaEffect : MonoBehaviour
 {
     [Header("Image Values")]
@@ -17,6 +18,9 @@ public class GlitchAlphaEffect : MonoBehaviour
 
     private bool isMovingToAlphaMin = true;
 
+    /// <summary>
+    /// Updates the alpha value of the glitch image based on time and speed.
+    /// </summary>
     private void Update()
     {
         if (isMovingToAlphaMin)

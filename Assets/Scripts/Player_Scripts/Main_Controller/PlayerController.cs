@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls the movement and actions of the player character using ragdoll physics and joint drives.
+/// </summary>
 public class PlayerController : MonoBehaviour
 {
-    //Active Ragdoll Player parts
+    [Header("Active Ragdoll Player parts")]
     public ConfigurableJoint Root;
     public ConfigurableJoint Body;
     public ConfigurableJoint Head;
@@ -19,6 +22,36 @@ public class PlayerController : MonoBehaviour
 
     //Center of mass point
     public Transform COMP;
+
+    [Header("The Layer Only This Player Is On")]
+    //Player layer name
+    public string thisPlayerLayer = "Player_1";
+
+    [Header("Movement Properties")]
+    //Movement
+    public float moveSpeed = 10f;
+    public float turnSpeed = 6f;
+    public float jumpForce = 18f;
+
+    [Header("Balance Properties")]
+    //Balance
+    public bool autoGetUpWhenPossible = true;
+    public bool useStepPrediction = true;
+
+    public float balanceHeight = 2.5f;
+    public float balanceStrength = 5000f;
+    public float coreStrength = 1500f;
+    public float limbStrength = 500f;
+
+    //Walking
+    public float stepDuration = 0.2f;
+    public float stepHeight = 1.7f;
+    public float feetMountForce = 25f;
+
+    [Header("Reach Properties")]
+    //Reach
+    public float reachSensitivity = 25f;
+    public float armReachStiffness = 2000f;
 
     [Header("Ground Dependancies")]
     [SerializeField] private CheckerGround groundCheck;
@@ -61,43 +94,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Hands Reach Dependancies")]
     [SerializeField] private PlayerReach handsReach;
-
-    [Header("Player Input Axis")]
-    //Player Axis controls
-    public string forwardBackward = "Vertical";
-    public string horizontal = "Horizontal";
-    public string reachLeft = "Fire1";
-    public string reachRight = "Fire2";
-
-    [Header("The Layer Only This Player Is On")]
-    //Player layer name
-    public string thisPlayerLayer = "Player_1";
-
-    [Header("Movement Properties")]
-    //Movement
-    public float moveSpeed = 10f;
-    public float turnSpeed = 6f;
-    public float jumpForce = 18f;
-
-    [Header("Balance Properties")]
-    //Balance
-    public bool autoGetUpWhenPossible = true;
-    public bool useStepPrediction = true;
-
-    public float balanceHeight = 2.5f;
-    public float balanceStrength = 5000f;
-    public float coreStrength = 1500f;
-    public float limbStrength = 500f;
-
-    //Walking
-    public float stepDuration = 0.2f;
-    public float stepHeight = 1.7f;
-    public float feetMountForce = 25f;
-
-    [Header("Reach Properties")]
-    //Reach
-    public float reachSensitivity = 25f;
-    public float armReachStiffness = 2000f;
 
     [HideInInspector] public float timer;
     [HideInInspector] public float stepTimerRight;
@@ -154,11 +150,17 @@ public class PlayerController : MonoBehaviour
     [HideInInspector] public Quaternion UpperLeftLegTarget;
     [HideInInspector] public Quaternion LowerLeftLegTarget;
 
+    /// <summary>
+    /// Sets up the player character.
+    /// </summary>
     private void Awake()
     {
         playerSetup.SetupPlayer();
     }
 
+    /// <summary>
+    /// Updates the player's hand reach, performs step prediction (if enabled), checks if the player is on the ground or in the air, and checks for ragdoll state.
+    /// </summary>
     private void Update()
     {
         handsReach.ReachHands();
@@ -183,6 +185,9 @@ public class PlayerController : MonoBehaviour
             playerParts);
     }
 
+    /// <summary>
+    /// Performs walking motion, calculates player rotation, resets the player's pose, and handles player get-up actions.
+    /// </summary>
     private void FixedUpdate()
     {
         walkingController.Walking();

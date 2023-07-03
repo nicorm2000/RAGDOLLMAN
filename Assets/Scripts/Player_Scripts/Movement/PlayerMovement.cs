@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// Controls the player's movement based on input and manages the player's state.
+/// </summary>
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player Controller Dependencies")]
@@ -7,6 +10,32 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 movementValue = Vector2.zero;
 
+    private PlayerState currentState;
+
+    public enum PlayerState
+    {
+        Balanced,
+        NotBalanced
+    }
+
+    /// <summary>
+    /// Sets the player's movement based on the provided normalized movement input.
+    /// </summary>
+    /// <param name="normalizedMovement">The normalized movement input.</param>
+    public void SetMovement(Vector2 normalizedMovement) => movementValue = normalizedMovement;
+
+    /// <summary>
+    /// Initializes the Finite State Machine (FSM) with the starting state.
+    /// </summary>
+    private void Start()
+    {
+        // Initialize the FSM with the starting state
+        currentState = PlayerState.NotBalanced;
+    }
+
+    /// <summary>
+    /// Called on a fixed time interval and processes the movement based on the movement value.
+    /// </summary>
     private void FixedUpdate()
     {
         ProcessMovementValue(movementValue);
@@ -36,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
         playerController.isKeyDown = false;
     }
 
+    /// <summary>
+    /// Processes the movement based on the provided input.
+    /// </summary>
+    /// <param name="input">The input for horizontal and forward movement.</param>
     private void ProcessMovementValue(Vector2 input)
     {
         var parts0Transform = playerController.playerParts[0].transform;
@@ -52,22 +85,42 @@ public class PlayerMovement : MonoBehaviour
         velocity = Vector3.Lerp(velocity, (playerController.direction * playerController.moveSpeed) + new Vector3(0, velocity.y, 0), 0.8f);
         parts0Rigidbody.velocity = velocity;
 
-        // The player is balanced if this is true
-        if ((horizontalInput != 0 || forwardInput != 0) && playerController.balanced)
+        switch (currentState)
         {
-            if (!playerController.walkForward && !playerController.moveAxisUsed)
-            {
-                MovementTrue();
-            }
-        }
-        else if (horizontalInput == 0 && forwardInput == 0)
-        {
-            if (playerController.walkForward && playerController.moveAxisUsed)
-            {
-                MovementFalse();
-            }
+            case PlayerState.Balanced:
+
+                if ((horizontalInput != 0 || forwardInput != 0) && playerController.balanced)
+                {
+                    if (!playerController.walkForward && !playerController.moveAxisUsed)
+                    {
+                        MovementTrue();
+                    }
+                }
+                else
+                {
+                    currentState = PlayerState.NotBalanced;
+                    MovementFalse();
+                }
+
+                break;
+
+            case PlayerState.NotBalanced:
+
+                if (horizontalInput == 0 && forwardInput == 0)
+                {
+                    if (playerController.walkForward && playerController.moveAxisUsed)
+                    {
+                        MovementFalse();
+                    }
+                }
+                else
+                {
+                    currentState = PlayerState.Balanced;
+
+                    MovementTrue();
+                }
+
+                break;
         }
     }
-
-    public void SetMovement(Vector2 normalizedMovement) => movementValue = normalizedMovement;
 }

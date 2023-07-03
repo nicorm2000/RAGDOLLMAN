@@ -1,7 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Applies ejection force to an item upon entering a portal.
+/// </summary>
 public class PortalEjectionForceApplier
 {
+    [Header("Physics Configuration")]
+    [SerializeField] private float ejectionForce = 5f;
+
     /// <summary>
     /// Applies ejection force to the specified item.
     /// </summary>
@@ -12,8 +18,6 @@ public class PortalEjectionForceApplier
 
         if (itemRigidbody != null)
         {
-            float ejectionForce = 5f; // Or use a configurable value
-
             Vector3 ejectiondirection = Vector3.forward; // Or calculate based on the portal orientation
 
             itemRigidbody.AddForce(ejectiondirection * ejectionForce, ForceMode.Impulse);

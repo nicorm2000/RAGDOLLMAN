@@ -1,6 +1,9 @@
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Controls the lerping movement between two game objects.
+/// </summary>
 public class LerpingController : MonoBehaviour
 {
     [Header("Game Objects")]
