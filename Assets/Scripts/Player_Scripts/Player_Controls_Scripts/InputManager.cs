@@ -12,6 +12,9 @@ public class InputManager : MonoBehaviour
     [Header("Player Controller Dependencies")]
     [SerializeField] PlayerMovement playerMovement;
 
+    [Header("Player Reach Dependencies")]
+    [SerializeField] PlayerReach playerReach;
+
     /// <summary>
     /// Callback function for mouse camera movement input.
     /// </summary>
@@ -38,8 +41,8 @@ public class InputManager : MonoBehaviour
     {
         if (context.performed)
         {
-            cameraController.currentX += context.ReadValue<Vector2>().x * cameraController.rotateSpeed * 10 * Time.deltaTime;
-            cameraController.currentY -= context.ReadValue<Vector2>().y * cameraController.rotateSpeed * 10 * Time.deltaTime;
+            cameraController.currentX += context.ReadValue<Vector2>().x * cameraController.rotateSpeed * 100 * Time.deltaTime;
+            cameraController.currentY -= context.ReadValue<Vector2>().y * cameraController.rotateSpeed * 100 * Time.deltaTime;
         }
         else
         {
@@ -84,5 +87,33 @@ public class InputManager : MonoBehaviour
     {
         Vector2 movementInput = context.phase == InputActionPhase.Canceled ? Vector2.zero : context.ReadValue<Vector2>();
         playerMovement.SetMovement(movementInput);
+    }
+
+    public void OnReachLeft(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Canceled || context.phase == InputActionPhase.Started)
+        {
+            playerReach.HandReachLeft(context.phase == InputActionPhase.Started);
+        }
+    }
+
+    public void OnReachRight(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Canceled || context.phase == InputActionPhase.Started)
+        {
+            playerReach.HandReachRight(context.phase == InputActionPhase.Started);
+        }
+    }
+
+    public void OnMoveBodyMouse(InputAction.CallbackContext context)
+    {
+        float movementBodyInput = context.phase == InputActionPhase.Canceled ? 0.0f: context.ReadValue<float>();
+        playerReach.MoveBody(movementBodyInput);
+    }
+
+    public void OnMoveBodyController(InputAction.CallbackContext context)
+    {
+        float movementBodyInput = context.phase == InputActionPhase.Canceled ? 0.0f : context.ReadValue<float>() * -10f;
+        playerReach.MoveBody(movementBodyInput);
     }
 }

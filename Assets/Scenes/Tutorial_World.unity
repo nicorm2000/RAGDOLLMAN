@@ -31147,9 +31147,17 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3122338867580340673, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: playerReach
+      value: 
+      objectReference: {fileID: 1609911536}
+    - target: {fileID: 3122338867580340673, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1609911516}
+    - target: {fileID: 3122338867580340674, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: playerReach
+      value: 
+      objectReference: {fileID: 1609911536}
     - target: {fileID: 3122338867580340674, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerController
       value: 
@@ -39682,11 +39690,35 @@ MonoBehaviour:
     m_ActionId: 0a7b988a-bf76-42b8-9abe-8b13ebc3576b
     m_ActionName: Player/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonSouth]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnReachLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 93e3a8ca-8d24-4cad-8bf0-138ea77169ed
     m_ActionName: Player/ReachLeft[/Mouse/leftButton,/DualShock4GamepadHID/leftTrigger]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnReachRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 05dcdd51-8857-4cca-88e1-ecd9d456e117
     m_ActionName: Player/ReachRight[/Mouse/rightButton,/DualShock4GamepadHID/rightTrigger]
   - m_PersistentCalls:
@@ -39777,6 +39809,38 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: fd38e37b-4417-4ffb-a2e9-4e5c2d13745b
     m_ActionName: Player/New action
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnMoveBodyMouse
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3ea161ed-c498-455c-ae94-ca25a106c86a
+    m_ActionName: Player/MoveBody[/DualShock4GamepadHID/rightStick/y,/Mouse/delta/y]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnMoveBodyController
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d490fed6-f67a-44d8-b465-18449062d679
+    m_ActionName: Player/MoveBodyController[/DualShock4GamepadHID/rightStick/y]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -39796,7 +39860,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1062999461}
   getUpController: {fileID: 1609911534}
-  playerMovement: {fileID: 0}
+  playerMovement: {fileID: 1609911533}
+  playerReach: {fileID: 1609911536}
 --- !u!1001 &2020933870
 PrefabInstance:
   m_ObjectHideFlags: 0

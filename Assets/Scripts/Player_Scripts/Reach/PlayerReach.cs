@@ -5,13 +5,17 @@ public class PlayerReach : MonoBehaviour
     [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
+    public bool IsReachingLeft { get; private set; }
+    public bool IsReachingRight { get; private set; }
+    private float moveBodyValue;
+
     /// <summary>
     /// Handles the player's reach with both hands.
     /// </summary>
     public void ReachHands()
     {
         //Simulates body bending by allowing the player to move the mouse up and down to control the rotation of a ConfigurableJoint component attached to playerParts[1]
-        float newYAxis = playerController.MouseYAxisBody + (Input.GetAxis("Mouse Y") / playerController.reachSensitivity);
+        float newYAxis = playerController.MouseYAxisBody + (moveBodyValue / playerController.reachSensitivity);
 
         newYAxis = Mathf.Clamp(newYAxis, -0.9f, 0.9f);
 
@@ -23,9 +27,7 @@ public class PlayerReach : MonoBehaviour
         playerController.playerParts[1].targetRotation = new Quaternion(playerController.MouseYAxisBody, 0, 0, 1);
 
         //Handle player's left reach
-        float reachLeftAxis = Input.GetAxisRaw(playerController.reachLeft);
-
-        if (reachLeftAxis != 0)
+        if (IsReachingLeft)
         {
             if (!playerController.reachLeftAxisUsed)
             {
@@ -34,7 +36,7 @@ public class PlayerReach : MonoBehaviour
                 playerController.reachLeftAxisUsed = true;
             }
 
-            float newYAxisArms = playerController.MouseYAxisArms + (Input.GetAxis("Mouse Y") / playerController.reachSensitivity);
+            float newYAxisArms = playerController.MouseYAxisArms + (moveBodyValue / playerController.reachSensitivity);
 
             newYAxisArms = Mathf.Clamp(newYAxisArms, -1.2f, 1.2f);
             
@@ -43,7 +45,7 @@ public class PlayerReach : MonoBehaviour
             playerController.playerParts[5].targetRotation = new Quaternion(-0.58f - newYAxisArms, -0.88f - newYAxisArms, -0.8f, 1);
         }
 
-        if (reachLeftAxis == 0 && playerController.reachLeftAxisUsed)
+        if (!IsReachingLeft && playerController.reachLeftAxisUsed)
         {
             if (playerController.balanced)
             {
@@ -59,11 +61,8 @@ public class PlayerReach : MonoBehaviour
             playerController.reachLeftAxisUsed = false;
         }
 
-        //Handle player's left reach
-        float reachRightAxis = Input.GetAxisRaw(playerController.reachRight);
-
         //Handle player's right reach
-        if (reachRightAxis != 0)
+        if (IsReachingRight)
         {
             if (!playerController.reachRightAxisUsed)
             {
@@ -72,7 +71,7 @@ public class PlayerReach : MonoBehaviour
                 playerController.reachRightAxisUsed = true;
             }
 
-            float newYAxisArms = playerController.MouseYAxisArms + (Input.GetAxis("Mouse Y") / playerController.reachSensitivity);
+            float newYAxisArms = playerController.MouseYAxisArms + (moveBodyValue / playerController.reachSensitivity);
 
             newYAxisArms = Mathf.Clamp(newYAxisArms, -1.2f, 1.2f);
 
@@ -81,7 +80,7 @@ public class PlayerReach : MonoBehaviour
             playerController.playerParts[3].targetRotation = new Quaternion(0.58f - newYAxisArms, -0.88f - newYAxisArms, 0.8f, 1);
         }
 
-        if (reachRightAxis == 0 && playerController.reachRightAxisUsed)
+        if (!IsReachingRight && playerController.reachRightAxisUsed)
         {
             //Sets the right reach input is not being used (specified by the reachRight variable), and if so,
             //it resets the stiffness of the ConfigurableJoint components attached to playerParts[3], playerParts[4], and playerParts[1]
@@ -102,6 +101,12 @@ public class PlayerReach : MonoBehaviour
             }
         }
     }
+
+    public void HandReachLeft(bool currentState) => IsReachingLeft = currentState;
+
+    public void HandReachRight(bool currentState) => IsReachingRight = currentState;
+
+    public void MoveBody(float currentValue) => moveBodyValue = currentValue;
 
     /// <summary>
     /// Adjusts the joint strengths of the specified player parts.

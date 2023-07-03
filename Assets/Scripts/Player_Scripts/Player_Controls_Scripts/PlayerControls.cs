@@ -77,7 +77,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""9c6e3627-cc4a-4e98-82c7-e9f255c51fdf"",
                     ""expectedControlType"": ""Vector2"",
-                    ""processors"": ""ScaleVector2(x=10,y=10)"",
+                    ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
                 },
@@ -86,6 +86,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""Value"",
                     ""id"": ""fd38e37b-4417-4ffb-a2e9-4e5c2d13745b"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveBodyMouse"",
+                    ""type"": ""Value"",
+                    ""id"": ""3ea161ed-c498-455c-ae94-ca25a106c86a"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""MoveBodyController"",
+                    ""type"": ""Value"",
+                    ""id"": ""d490fed6-f67a-44d8-b465-18449062d679"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -333,6 +351,94 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""77b7450b-cbc7-4acf-b824-bc5941b6bce0"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""4fdc143d-f6b5-4a45-a4ab-49767119c6b3"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0590c552-058c-4c1d-be34-ff61fc166009"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c8a1b00f-86e0-4477-bebb-560c719ce041"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""3fb3ff54-2fba-4af5-ad9d-e2b7a4b0aabe"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0f3ab180-d3f3-45fb-9431-d49ba360c108"",
+                    ""path"": ""<Mouse>/delta/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveBodyMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8caf93df-c69b-41f3-b521-9c45019b7191"",
+                    ""path"": ""<Gamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveBodyController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""738b6d72-2f1a-41ab-9908-b2fe44640d25"",
+                    ""path"": ""<DualShockGamepad>/rightStick/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveBodyController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -864,6 +970,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_MouseCamera = m_Player.FindAction("MouseCamera", throwIfNotFound: true);
         m_Player_ControllerCamera = m_Player.FindAction("ControllerCamera", throwIfNotFound: true);
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_MoveBodyMouse = m_Player.FindAction("MoveBodyMouse", throwIfNotFound: true);
+        m_Player_MoveBodyController = m_Player.FindAction("MoveBodyController", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -944,6 +1052,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MouseCamera;
     private readonly InputAction m_Player_ControllerCamera;
     private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_MoveBodyMouse;
+    private readonly InputAction m_Player_MoveBodyController;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -955,6 +1065,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @MouseCamera => m_Wrapper.m_Player_MouseCamera;
         public InputAction @ControllerCamera => m_Wrapper.m_Player_ControllerCamera;
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @MoveBodyMouse => m_Wrapper.m_Player_MoveBodyMouse;
+        public InputAction @MoveBodyController => m_Wrapper.m_Player_MoveBodyController;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -985,6 +1097,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
+            @MoveBodyMouse.started += instance.OnMoveBodyMouse;
+            @MoveBodyMouse.performed += instance.OnMoveBodyMouse;
+            @MoveBodyMouse.canceled += instance.OnMoveBodyMouse;
+            @MoveBodyController.started += instance.OnMoveBodyController;
+            @MoveBodyController.performed += instance.OnMoveBodyController;
+            @MoveBodyController.canceled += instance.OnMoveBodyController;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1010,6 +1128,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
+            @MoveBodyMouse.started -= instance.OnMoveBodyMouse;
+            @MoveBodyMouse.performed -= instance.OnMoveBodyMouse;
+            @MoveBodyMouse.canceled -= instance.OnMoveBodyMouse;
+            @MoveBodyController.started -= instance.OnMoveBodyController;
+            @MoveBodyController.performed -= instance.OnMoveBodyController;
+            @MoveBodyController.canceled -= instance.OnMoveBodyController;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1154,6 +1278,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMouseCamera(InputAction.CallbackContext context);
         void OnControllerCamera(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
+        void OnMoveBodyMouse(InputAction.CallbackContext context);
+        void OnMoveBodyController(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
