@@ -1,5 +1,6 @@
 using UnityEditor;
 using UnityEngine;
+#if UNITY_EDITOR
 
 /// <summary>
 /// Custom editor script for the MeshColliderUpdater component.
@@ -25,3 +26,5 @@ public class CustomEditorMeshUpdate : Editor
         }
     }
 }
+
+#endif
