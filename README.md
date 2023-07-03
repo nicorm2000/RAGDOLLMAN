@@ -48,5 +48,5 @@ ESC / Start or Options (controller) - Pause
 ## EXTRA COMMENTS
 
 Remeber it is a game in progress and it will mostly change in the feature by adding more worlds and mechanics, this is a DEMO of the general idea of the game.
-
+This game was made as a project for one of the assessments of my university class, it was an introduction to the use of SOLID, SINGLETON and FSM.
 Please leave a comment if you like it and report any kind of bug, every help is thanked!
