@@ -5,6 +5,7 @@ public class HandContactController : MonoBehaviour
     [Header("Player Controller Dependencies")]
     [SerializeField] private PlayerController playerController;
 
+    [Header("Player Reach Dependencies")]
     [SerializeField] private PlayerReach playerReach;
 
     //Is left or right hand

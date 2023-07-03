@@ -102,10 +102,22 @@ public class PlayerReach : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Sets the state of left hand reaching.
+    /// </summary>
+    /// <param name="currentState">The current state of left hand reaching.</param>
     public void HandReachLeft(bool currentState) => IsReachingLeft = currentState;
 
+    /// <summary>
+    /// Sets the state of right hand reaching.
+    /// </summary>
+    /// <param name="currentState">The current state of right hand reaching.</param>
     public void HandReachRight(bool currentState) => IsReachingRight = currentState;
 
+    /// <summary>
+    /// Moves the body with the specified value.
+    /// </summary>
+    /// <param name="currentValue">The value used to move the body.</param>
     public void MoveBody(float currentValue) => moveBodyValue = currentValue;
 
     /// <summary>
