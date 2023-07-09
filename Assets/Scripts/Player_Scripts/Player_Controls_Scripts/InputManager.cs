@@ -8,8 +8,8 @@ public class InputManager : MonoBehaviour
 {
     [Header("Player Controller Configuration")]
     [SerializeField] CameraController cameraController;
-    [SerializeField] float xAxisValue = 100f;
-    [SerializeField] float yAxisValue = 100f;
+    [SerializeField] float xAxisScaleCamera = 100f;
+    [SerializeField] float yAxisScaleCamera = 100f;
 
     [Header("Player Controller Dependencies")]
     [SerializeField] GetUpByJumping getUpController;
@@ -20,6 +20,17 @@ public class InputManager : MonoBehaviour
 
     [Header("Player Reach Dependencies")]
     [SerializeField] PlayerReach playerReach;
+
+    private Vector2 currentDelta;
+
+    private void LateUpdate()
+    {
+        if (currentDelta.x >= 0.5f || currentDelta.x <= -0.5f || currentDelta.y <= -0.5f || currentDelta.y >= 0.5f)
+        {
+            cameraController.currentX += currentDelta.x * cameraController.rotateSpeed * xAxisScaleCamera * Time.deltaTime;
+            cameraController.currentY += currentDelta.y * cameraController.rotateSpeed * yAxisScaleCamera * Time.deltaTime;
+        }
+    }
 
     /// <summary>
     /// Callback function for mouse camera movement input.
@@ -45,16 +56,7 @@ public class InputManager : MonoBehaviour
     /// <param name="context">The input action callback context.</param>
     public void OnControllerCameraMove(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            cameraController.currentX += context.ReadValue<Vector2>().x * cameraController.rotateSpeed * xAxisValue * Time.deltaTime;
-            cameraController.currentY += context.ReadValue<Vector2>().y * cameraController.rotateSpeed * yAxisValue * Time.deltaTime;
-        }
-        else
-        {
-            cameraController.currentX += 0;
-            cameraController.currentY += 0;
-        }
+        currentDelta = context.ReadValue<Vector2>();
     }
 
     /// <summary>

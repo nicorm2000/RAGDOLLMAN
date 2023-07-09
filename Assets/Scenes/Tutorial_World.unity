@@ -20417,12 +20417,8 @@ MonoBehaviour:
   rotateSpeed: 10
   minAngle: -90
   maxAngle: 25
-  cam: {fileID: 0}
   currentX: 0
   currentY: 0
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  dir: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1062999462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39663,8 +39659,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1062999461}
-  xAxisValue: 10
-  yAxisValue: 10
+  xAxisScaleCamera: 50
+  yAxisScaleCamera: 50
   getUpController: {fileID: 2046723226}
   playerMovement: {fileID: 2046723224}
   moveBodyValue: 10

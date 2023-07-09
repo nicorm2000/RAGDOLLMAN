@@ -21,12 +21,13 @@ public class CameraController : MonoBehaviour
     public float minAngle = -45.0f;
     public float maxAngle = -10.0f;
 
-    [HideInInspector] public Camera cam;
     [HideInInspector] public float currentX = 0.0f;
     [HideInInspector] public float currentY = 0.0f;
-    [HideInInspector] public Quaternion rotation;
-    [HideInInspector] public Vector3 dir;
-    [HideInInspector] public Vector3 offset;
+    
+    private Camera cam;
+    private Quaternion rotation;
+    private Vector3 dir;
+    private Vector3 offset;
 
     /// <summary>
     /// Locks cursor, makes it invisible, sets camera, and its offset.

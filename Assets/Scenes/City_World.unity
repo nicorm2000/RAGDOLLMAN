@@ -16959,8 +16959,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraController: {fileID: 1373541672}
-  xAxisValue: 10
-  yAxisValue: 10
+  xAxisScaleCamera: 100
+  yAxisScaleCamera: 100
   getUpController: {fileID: 1632846269}
   playerMovement: {fileID: 1632846267}
   moveBodyValue: 10
@@ -16992,7 +16992,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1902879873}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: OnPause
         m_Mode: 0
@@ -20209,12 +20209,8 @@ MonoBehaviour:
   rotateSpeed: 10
   minAngle: -90
   maxAngle: 25
-  cam: {fileID: 0}
   currentX: 0
   currentY: 0
-  rotation: {x: 0, y: 0, z: 0, w: 0}
-  dir: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &1373541673
 MonoBehaviour:
   m_ObjectHideFlags: 0
