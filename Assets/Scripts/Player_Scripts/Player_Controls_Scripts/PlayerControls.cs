@@ -107,6 +107,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""NextLevel"",
+                    ""type"": ""Button"",
+                    ""id"": ""65122276-ea74-464f-945d-ce7ef77c0f89"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GodMode"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a6146a7-8321-4ec2-9d99-41fbd3da497e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Flash"",
+                    ""type"": ""Button"",
+                    ""id"": ""cf4c8459-3ba3-4d62-ac9b-9984c38a3653"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""FeatherFall"",
+                    ""type"": ""Button"",
+                    ""id"": ""b96ecf77-f484-4817-bf43-c3f1cceee067"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -437,6 +473,50 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""MoveBodyController"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""02b8c15f-beea-4cbd-a8d7-5ab120ca0769"",
+                    ""path"": ""<Keyboard>/f9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NextLevel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59bdde9d-c525-4feb-b61b-49f9a4f58375"",
+                    ""path"": ""<Keyboard>/f10"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GodMode"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9158b917-66d5-4bdb-a457-81c93bad313a"",
+                    ""path"": ""<Keyboard>/f11"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Flash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23a98e30-b362-4890-97a0-f2e1681e2b8f"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""FeatherFall"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -972,6 +1052,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
         m_Player_MoveBodyMouse = m_Player.FindAction("MoveBodyMouse", throwIfNotFound: true);
         m_Player_MoveBodyController = m_Player.FindAction("MoveBodyController", throwIfNotFound: true);
+        m_Player_NextLevel = m_Player.FindAction("NextLevel", throwIfNotFound: true);
+        m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
+        m_Player_Flash = m_Player.FindAction("Flash", throwIfNotFound: true);
+        m_Player_FeatherFall = m_Player.FindAction("FeatherFall", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1054,6 +1138,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Movement;
     private readonly InputAction m_Player_MoveBodyMouse;
     private readonly InputAction m_Player_MoveBodyController;
+    private readonly InputAction m_Player_NextLevel;
+    private readonly InputAction m_Player_GodMode;
+    private readonly InputAction m_Player_Flash;
+    private readonly InputAction m_Player_FeatherFall;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1067,6 +1155,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Movement => m_Wrapper.m_Player_Movement;
         public InputAction @MoveBodyMouse => m_Wrapper.m_Player_MoveBodyMouse;
         public InputAction @MoveBodyController => m_Wrapper.m_Player_MoveBodyController;
+        public InputAction @NextLevel => m_Wrapper.m_Player_NextLevel;
+        public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
+        public InputAction @Flash => m_Wrapper.m_Player_Flash;
+        public InputAction @FeatherFall => m_Wrapper.m_Player_FeatherFall;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1103,6 +1195,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @MoveBodyController.started += instance.OnMoveBodyController;
             @MoveBodyController.performed += instance.OnMoveBodyController;
             @MoveBodyController.canceled += instance.OnMoveBodyController;
+            @NextLevel.started += instance.OnNextLevel;
+            @NextLevel.performed += instance.OnNextLevel;
+            @NextLevel.canceled += instance.OnNextLevel;
+            @GodMode.started += instance.OnGodMode;
+            @GodMode.performed += instance.OnGodMode;
+            @GodMode.canceled += instance.OnGodMode;
+            @Flash.started += instance.OnFlash;
+            @Flash.performed += instance.OnFlash;
+            @Flash.canceled += instance.OnFlash;
+            @FeatherFall.started += instance.OnFeatherFall;
+            @FeatherFall.performed += instance.OnFeatherFall;
+            @FeatherFall.canceled += instance.OnFeatherFall;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1134,6 +1238,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @MoveBodyController.started -= instance.OnMoveBodyController;
             @MoveBodyController.performed -= instance.OnMoveBodyController;
             @MoveBodyController.canceled -= instance.OnMoveBodyController;
+            @NextLevel.started -= instance.OnNextLevel;
+            @NextLevel.performed -= instance.OnNextLevel;
+            @NextLevel.canceled -= instance.OnNextLevel;
+            @GodMode.started -= instance.OnGodMode;
+            @GodMode.performed -= instance.OnGodMode;
+            @GodMode.canceled -= instance.OnGodMode;
+            @Flash.started -= instance.OnFlash;
+            @Flash.performed -= instance.OnFlash;
+            @Flash.canceled -= instance.OnFlash;
+            @FeatherFall.started -= instance.OnFeatherFall;
+            @FeatherFall.performed -= instance.OnFeatherFall;
+            @FeatherFall.canceled -= instance.OnFeatherFall;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1280,6 +1396,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMovement(InputAction.CallbackContext context);
         void OnMoveBodyMouse(InputAction.CallbackContext context);
         void OnMoveBodyController(InputAction.CallbackContext context);
+        void OnNextLevel(InputAction.CallbackContext context);
+        void OnGodMode(InputAction.CallbackContext context);
+        void OnFlash(InputAction.CallbackContext context);
+        void OnFeatherFall(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
