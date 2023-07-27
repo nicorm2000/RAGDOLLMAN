@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Manages input actions and controls the player character based on the input.
@@ -139,5 +140,32 @@ public class InputManager : MonoBehaviour
     {
         float movementBodyInput = context.phase == InputActionPhase.Canceled ? 0.0f : context.ReadValue<float>() * moveBodyValue;
         playerReach.MoveBody(movementBodyInput);
+    }
+
+    public void OnNextLevel(InputAction.CallbackContext context)
+    {
+        if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void OnGodMode(InputAction.CallbackContext context)
+    {
+
+    }
+
+    public void OnFlash(InputAction.CallbackContext context)
+    {
+
+    }
+
+    public void OnFeatherFall(InputAction.CallbackContext context)
+    {
+
     }
 }

@@ -40531,6 +40531,34 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d490fed6-f67a-44d8-b465-18449062d679
     m_ActionName: Player/MoveBodyController[/DualShock4GamepadHID/rightStick/y]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnNextLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 65122276-ea74-464f-945d-ce7ef77c0f89
+    m_ActionName: Player/NextLevel[/Keyboard/f9]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1a6146a7-8321-4ec2-9d99-41fbd3da497e
+    m_ActionName: Player/GodMode[/Keyboard/f10]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cf4c8459-3ba3-4d62-ac9b-9984c38a3653
+    m_ActionName: Player/Flash[/Keyboard/f11]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b96ecf77-f484-4817-bf43-c3f1cceee067
+    m_ActionName: Player/FeatherFall[/Keyboard/f12]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
