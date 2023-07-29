@@ -22379,6 +22379,78 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 462127417988321999, guid: d17924d82a349194aa13c941937a0613, type: 3}
   m_PrefabInstance: {fileID: 1136270092}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1138217375
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1138217376}
+  - component: {fileID: 1138217379}
+  - component: {fileID: 1138217378}
+  - component: {fileID: 1138217377}
+  m_Layer: 0
+  m_Name: Cheats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1138217376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138217375}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1804371368}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1138217377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138217375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8d40c92cab23a4d8d1010b0e081316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1138217378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138217375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d0a98907f5c3343aa448c772f8c0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1609911516}
+  flashMoveSpeedMultiplier: 2
+--- !u!114 &1138217379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138217375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25619dd5b76cfb4fac0bcd421c39154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1141726411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35951,6 +36023,7 @@ Transform:
   - {fileID: 2143317215}
   - {fileID: 2020219439}
   - {fileID: 2046723223}
+  - {fileID: 1138217376}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -40552,7 +40625,19 @@ MonoBehaviour:
     m_ActionId: 1a6146a7-8321-4ec2-9d99-41fbd3da497e
     m_ActionName: Player/GodMode[/Keyboard/f10]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnFlash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: cf4c8459-3ba3-4d62-ac9b-9984c38a3653
     m_ActionName: Player/Flash[/Keyboard/f11]
   - m_PersistentCalls:
@@ -40583,6 +40668,7 @@ MonoBehaviour:
   playerMovement: {fileID: 2046723224}
   moveBodyValue: 10
   playerReach: {fileID: 2046723225}
+  flashCheat: {fileID: 1138217378}
 --- !u!1001 &2020933870
 PrefabInstance:
   m_ObjectHideFlags: 0

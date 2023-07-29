@@ -7,10 +7,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class InputManager : MonoBehaviour
 {
-    [Header("Player Controller Configuration")]
-    [SerializeField] PlayerController playerController;
-    [SerializeField] float flashMoveSpeedMultiplier = 3f;
-
     [Header("Camera Controller Configuration")]
     [SerializeField] CameraController cameraController;
     [SerializeField] float xAxisScaleCamera = 100f;
@@ -25,6 +21,9 @@ public class InputManager : MonoBehaviour
 
     [Header("Player Reach Dependencies")]
     [SerializeField] PlayerReach playerReach;
+
+    [Header("Flash Dependencies")]
+    [SerializeField] Flash flashCheat;
 
     private Vector2 currentDelta;
 
@@ -165,7 +164,7 @@ public class InputManager : MonoBehaviour
 
     public void OnFlash(InputAction.CallbackContext context)
     {
-
+        flashCheat.ToggleFlash();
     }
 
     public void OnFeatherFall(InputAction.CallbackContext context)
