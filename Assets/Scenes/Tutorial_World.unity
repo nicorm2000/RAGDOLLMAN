@@ -22388,7 +22388,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1138217376}
-  - component: {fileID: 1138217379}
   - component: {fileID: 1138217378}
   - component: {fileID: 1138217377}
   m_Layer: 0
@@ -22439,18 +22438,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1609911516}
   flashMoveSpeedMultiplier: 2
---- !u!114 &1138217379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1138217375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b25619dd5b76cfb4fac0bcd421c39154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1141726411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31978,6 +31965,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07c4df9e82ca43343af2ab82a1de4cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1609911519 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3122338867580340687, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+  m_PrefabInstance: {fileID: 1609911514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1614126268
 GameObject:
   m_ObjectHideFlags: 0
@@ -40641,7 +40633,19 @@ MonoBehaviour:
     m_ActionId: cf4c8459-3ba3-4d62-ac9b-9984c38a3653
     m_ActionName: Player/Flash[/Keyboard/f11]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2020219441}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnFeatherFall
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b96ecf77-f484-4817-bf43-c3f1cceee067
     m_ActionName: Player/FeatherFall[/Keyboard/f12]
   m_NeverAutoSwitchControlSchemes: 0
@@ -40669,6 +40673,7 @@ MonoBehaviour:
   moveBodyValue: 10
   playerReach: {fileID: 2046723225}
   flashCheat: {fileID: 1138217378}
+  featherFallCheat: {fileID: 2147304572}
 --- !u!1001 &2020933870
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43196,6 +43201,20 @@ ConfigurableJoint:
   m_CorrespondingSourceObject: {fileID: 3122338867580340246, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
   m_PrefabInstance: {fileID: 1609911514}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2147304572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609911519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25619dd5b76cfb4fac0bcd421c39154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1609911516}
+  featherFallMultiplier: 0.1
 --- !u!1001 &988188499770930029
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,6 +25,9 @@ public class InputManager : MonoBehaviour
     [Header("Flash Dependencies")]
     [SerializeField] Flash flashCheat;
 
+    [Header("Feather Fall Dependencies")]
+    [SerializeField] FeatherFall featherFallCheat;
+
     private Vector2 currentDelta;
 
     private void LateUpdate()
@@ -169,6 +172,6 @@ public class InputManager : MonoBehaviour
 
     public void OnFeatherFall(InputAction.CallbackContext context)
     {
-
+        featherFallCheat.ToggleFeatherFall();
     }
 }
