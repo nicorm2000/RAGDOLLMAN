@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 public class InputManager : MonoBehaviour
 {
     [Header("Player Controller Configuration")]
+    [SerializeField] PlayerController playerController;
+    [SerializeField] float flashMoveSpeedMultiplier = 3f;
+
+    [Header("Camera Controller Configuration")]
     [SerializeField] CameraController cameraController;
     [SerializeField] float xAxisScaleCamera = 100f;
     [SerializeField] float yAxisScaleCamera = 100f;
