@@ -16,9 +16,20 @@ public class LerpingController : MonoBehaviour
 
     private IEnumerator currentLerpCoroutine;
 
-    private void Start()
+    /// <summary>
+    /// Starts the lerping process.
+    /// </summary>
+    private void OnEnable()
     {
         StartLerping();
+    }
+
+    /// <summary>
+    /// Stops the lerping process.
+    /// </summary>
+    private void OnDisable()
+    {
+        StopCoroutine(currentLerpCoroutine);
     }
 
     /// <summary>

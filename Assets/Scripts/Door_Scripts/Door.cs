@@ -7,12 +7,10 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     [Header("Door Configuration")]
-    [SerializeField] private int requiredSwitchesToOpen = 1;
+    [SerializeField] private int requiredSwitchesToOpen = 3;
+    [SerializeField] private GameObject currentObject;
 
-    [SerializeField] private DoorAnimator doorAnimator;
-
-    [HideInInspector]
-    public bool isDoorOpen = false;
+    private bool isDoorOpen = false;
 
     // The list of pressure switches currently active on the door
     private List<PressureSwitch> currentSwitchesOpen = new List<PressureSwitch>();
@@ -69,7 +67,7 @@ public class Door : MonoBehaviour
     {
         if (!isDoorOpen)
         {
-            doorAnimator.SetDoorState(true);
+            currentObject.SetActive(true);
         }
 
         isDoorOpen = true;
@@ -82,7 +80,7 @@ public class Door : MonoBehaviour
     {
         if (isDoorOpen)
         {
-            doorAnimator.SetDoorState(false);
+            currentObject.SetActive(false);
         }
 
         isDoorOpen = false;

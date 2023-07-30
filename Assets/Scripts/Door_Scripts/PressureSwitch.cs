@@ -5,12 +5,14 @@ using UnityEngine;
 /// </summary>
 public class PressureSwitch : MonoBehaviour
 {
-    [Header("Switch Configuration")]
+    [Header("Switch Dependencies")]
     [SerializeField] private Door currentDoor;
-
     [SerializeField] private PressureSwitchAnimator switchAnimator;
-
     [SerializeField] private LayerMask playerLayer;
+
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 0;
 
     /// <summary>
     /// Called when a collider stays within the switch trigger.
