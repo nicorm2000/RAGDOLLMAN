@@ -17,6 +17,10 @@ public class RespawnPlayer : MonoBehaviour
     [SerializeField] private GodMode godModeScript;//Reference to the GodMode script
     [SerializeField] private bool forceRespawn = false;//Whether to force respawn regardless of "God mode"
 
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 2;
+
     private Camera cam;
     private Rigidbody[] playerPhysics;
     private bool checkedTrigger;
@@ -37,6 +41,11 @@ public class RespawnPlayer : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer(player.GetComponent<PlayerController>().thisPlayerLayer))
             {
+                if (audioManager != null)
+                {
+                    audioManager.PlaySoundEffect(indexSFX);
+                }
+
                 checkedTrigger = true;
 
                 if (!godModeScript.godMode || forceRespawn)

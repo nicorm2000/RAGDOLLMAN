@@ -11,6 +11,10 @@ public class GetUpByJumping : MonoBehaviour
     [Header("Ragdoll Deactivator Dependencies")]
     public DeactivateRagdoll deactivateRagdoll;
 
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 1;
+
     [Header("Time to reset Timer")]
     [SerializeField] private float timeToResetTimer = 0.2f;
 
@@ -32,6 +36,11 @@ public class GetUpByJumping : MonoBehaviour
             v3.z = playerController.playerParts[0].GetComponent<Rigidbody>().velocity.z;
 
             playerController.playerParts[0].GetComponent<Rigidbody>().velocity = v3;
+
+            if (audioManager != null)
+            {
+                audioManager.PlaySoundEffect(indexSFX);
+            }
         }
 
         if (playerController.isJumping)

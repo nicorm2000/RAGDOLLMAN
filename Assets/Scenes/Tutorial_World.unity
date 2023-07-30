@@ -16073,6 +16073,7 @@ MonoBehaviour:
   soundEffects:
   - {fileID: 8300000, guid: 5f2ce88f552344a448b3691587bf61c8, type: 3}
   - {fileID: 8300000, guid: 72cc17cdff545054588c25a3a81b5343, type: 3}
+  - {fileID: 8300000, guid: 7ff6ce29d362df14a8f921c835e15761, type: 3}
   backgroundMusic:
   - {fileID: 8300000, guid: f7f939c0737987641949eb8e1dcd0542, type: 3}
   soundEffectAudioSource: {fileID: 796118319}
@@ -32084,6 +32085,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2046723225}
     - target: {fileID: 3122338867580340673, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 796118317}
+    - target: {fileID: 3122338867580340673, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerController
       value: 
       objectReference: {fileID: 1609911516}
@@ -32091,6 +32096,10 @@ PrefabInstance:
       propertyPath: playerReach
       value: 
       objectReference: {fileID: 2046723225}
+    - target: {fileID: 3122338867580340674, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 796118317}
     - target: {fileID: 3122338867580340674, guid: d7f8811a3a3300147a8afdb8f600a68e, type: 3}
       propertyPath: playerController
       value: 
@@ -41336,6 +41345,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 1609911516}
   deactivateRagdoll: {fileID: 2046723230}
+  audioManager: {fileID: 796118317}
+  indexSFX: 1
   timeToResetTimer: 0.2
 --- !u!114 &2046723227
 MonoBehaviour:

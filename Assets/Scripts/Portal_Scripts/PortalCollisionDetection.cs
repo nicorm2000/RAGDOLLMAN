@@ -14,6 +14,10 @@ public class PortalCollisionDetection : MonoBehaviour
     [Header("Player Configuration")]
     [SerializeField] private LayerMask playerLayer;
 
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 4;
+
     /// <summary>
     /// Called when another collider enters the portal collider.
     /// Teleports the item or all child objects of the player to the destination.
@@ -24,11 +28,21 @@ public class PortalCollisionDetection : MonoBehaviour
         if (((1 << other.gameObject.layer) & itemLayer) != 0)
         {
             ItemTeleporter.Instance.TeleportItem(other.gameObject, teleportDestination);
+
+            if (audioManager != null)
+            {
+                audioManager.PlaySoundEffect(indexSFX);
+            }
         }
 
         if (((1 << other.gameObject.layer) & playerLayer) != 0)
         {
             PlayerTeleporter.Instance.TeleportChildren(other.gameObject, teleportDestination);
+
+            if (audioManager != null)
+            {
+                audioManager.PlaySoundEffect(indexSFX);
+            }
         }
     }
 }

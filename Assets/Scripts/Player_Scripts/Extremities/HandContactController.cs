@@ -8,6 +8,10 @@ public class HandContactController : MonoBehaviour
     [Header("Player Reach Dependencies")]
     [SerializeField] private PlayerReach playerReach;
 
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 0;
+
     [Header("Layer That Can Be Grabbed")]
     [SerializeField] private string layerToGrab = "CanBeGrabbed";
 
@@ -74,6 +78,11 @@ public class HandContactController : MonoBehaviour
                     gameObject.AddComponent<FixedJoint>();
                     gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
                     gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
+
+                    if(audioManager != null)
+                    {
+                        audioManager.PlaySoundEffect(indexSFX);
+                    }
                 }
             }
         }
@@ -90,6 +99,11 @@ public class HandContactController : MonoBehaviour
                     gameObject.AddComponent<FixedJoint>();
                     gameObject.GetComponent<FixedJoint>().breakForce = Mathf.Infinity;
                     gameObject.GetComponent<FixedJoint>().connectedBody = col.gameObject.GetComponent<Rigidbody>();
+                    
+                    if (audioManager != null)
+                    {
+                        audioManager.PlaySoundEffect(indexSFX);
+                    }
                 }
             }
         }
