@@ -13,6 +13,10 @@ public class RespawnPlayer : MonoBehaviour
     [Header("Camera Settings")]
     [SerializeField] private bool instantCameraUpdate = false;
 
+    [Header("GodMode Dependencies")]
+    [SerializeField] private GodMode godModeScript;//Reference to the GodMode script
+    [SerializeField] private bool forceRespawn = false;//Whether to force respawn regardless of "God mode"
+
     private Camera cam;
     private Rigidbody[] playerPhysics;
     private bool checkedTrigger;
@@ -35,36 +39,40 @@ public class RespawnPlayer : MonoBehaviour
             {
                 checkedTrigger = true;
 
-                if (player != null)
+                if (!godModeScript.godMode || forceRespawn)
                 {
-                    playerPhysics = player.GetComponentsInChildren<Rigidbody>();
 
-                    //Deactivate physics
-                    foreach (Rigidbody physics in playerPhysics)
+                    if (player != null)
                     {
-                        physics.isKinematic = true;
-                    }
+                        playerPhysics = player.GetComponentsInChildren<Rigidbody>();
 
-                    //Record camera current offset
-                    var cameraOffset = new Vector3(cam.transform.position.x - playerRoot.transform.position.x, 
-                        cam.transform.position.y - playerRoot.transform.position.y, 
-                        cam.transform.position.z - playerRoot.transform.position.z);
+                        //Deactivate physics
+                        foreach (Rigidbody physics in playerPhysics)
+                        {
+                            physics.isKinematic = true;
+                        }
 
-                    //Set player to new position
-                    playerRoot.transform.localPosition = Vector3.zero;
+                        //Record camera current offset
+                        var cameraOffset = new Vector3(cam.transform.position.x - playerRoot.transform.position.x,
+                            cam.transform.position.y - playerRoot.transform.position.y,
+                            cam.transform.position.z - playerRoot.transform.position.z);
 
-                    player.transform.position = playerSpawn.position;
+                        //Set player to new position
+                        playerRoot.transform.localPosition = Vector3.zero;
 
-                    //Re-activate physics
-                    foreach (Rigidbody physics in playerPhysics)
-                    {
-                        physics.isKinematic = false;
-                    }
+                        player.transform.position = playerSpawn.position;
 
-                    //Apply camera offset to new position
-                    if (instantCameraUpdate)
-                    {
-                        cam.transform.position = playerRoot.transform.position + cameraOffset;
+                        //Re-activate physics
+                        foreach (Rigidbody physics in playerPhysics)
+                        {
+                            physics.isKinematic = false;
+                        }
+
+                        //Apply camera offset to new position
+                        if (instantCameraUpdate)
+                        {
+                            cam.transform.position = playerRoot.transform.position + cameraOffset;
+                        }
                     }
                 }
 

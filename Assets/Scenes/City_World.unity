@@ -3878,6 +3878,8 @@ MonoBehaviour:
   playerRoot: {fileID: 1832120267}
   playerSpawn: {fileID: 343973557}
   instantCameraUpdate: 1
+  godModeScript: {fileID: 400404831}
+  forceRespawn: 1
 --- !u!1001 &228155033
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6491,6 +6493,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a22b1a6ac8514b94be5436867998358, type: 3}
+--- !u!1 &400404829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400404830}
+  - component: {fileID: 400404832}
+  - component: {fileID: 400404831}
+  m_Layer: 0
+  m_Name: Cheats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400404830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400404829}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -43.44016, y: -42.25437, z: 135.66962}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1271817777}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &400404831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400404829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8d40c92cab23a4d8d1010b0e081316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  godMode: 1
+--- !u!114 &400404832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400404829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83d0a98907f5c3343aa448c772f8c0a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 0}
+  flashMoveSpeedMultiplier: 2
 --- !u!1001 &409497379
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7495,6 +7557,8 @@ MonoBehaviour:
   playerRoot: {fileID: 1832120267}
   playerSpawn: {fileID: 4084466}
   instantCameraUpdate: 1
+  godModeScript: {fileID: 400404831}
+  forceRespawn: 1
 --- !u!65 &468940770
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7928,6 +7992,8 @@ MonoBehaviour:
   playerRoot: {fileID: 1832120267}
   playerSpawn: {fileID: 1472173396}
   instantCameraUpdate: 1
+  godModeScript: {fileID: 400404831}
+  forceRespawn: 1
 --- !u!1001 &484812739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13717,6 +13783,8 @@ MonoBehaviour:
   playerRoot: {fileID: 1832120267}
   playerSpawn: {fileID: 341883922}
   instantCameraUpdate: 1
+  godModeScript: {fileID: 400404831}
+  forceRespawn: 1
 --- !u!1001 &909228335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15194,6 +15262,8 @@ MonoBehaviour:
   playerRoot: {fileID: 1832120267}
   playerSpawn: {fileID: 286328591}
   instantCameraUpdate: 1
+  godModeScript: {fileID: 400404831}
+  forceRespawn: 1
 --- !u!4 &1013224744 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1701019085237506607, guid: df16780d478fb9748915c09832f81ad7, type: 3}
@@ -16423,6 +16493,8 @@ MonoBehaviour:
   playerRoot: {fileID: 1832120267}
   playerSpawn: {fileID: 216380323}
   instantCameraUpdate: 1
+  godModeScript: {fileID: 400404831}
+  forceRespawn: 1
 --- !u!1001 &1102001430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16965,6 +17037,8 @@ MonoBehaviour:
   playerMovement: {fileID: 1632846267}
   moveBodyValue: 10
   playerReach: {fileID: 1632846268}
+  flashCheat: {fileID: 0}
+  featherFallCheat: {fileID: 0}
 --- !u!114 &1128694138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19150,6 +19224,7 @@ Transform:
   - {fileID: 545066611}
   - {fileID: 1902879874}
   - {fileID: 1128694136}
+  - {fileID: 400404830}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
