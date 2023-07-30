@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GodMode : MonoBehaviour
 {
+    public bool godMode = false;
+
     // Start is called before the first frame update
     void Start()
     {
