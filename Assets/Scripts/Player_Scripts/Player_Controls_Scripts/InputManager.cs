@@ -28,6 +28,9 @@ public class InputManager : MonoBehaviour
     [Header("Feather Fall Dependencies")]
     [SerializeField] FeatherFall featherFallCheat;
 
+    [Header("God Mode Dependencies")]
+    [SerializeField] GodMode godMode;
+
     private Vector2 currentDelta;
 
     private void LateUpdate()
@@ -148,6 +151,10 @@ public class InputManager : MonoBehaviour
         playerReach.MoveBody(movementBodyInput);
     }
 
+    /// <summary>
+    /// Loads the next level if available, otherwise loads the first level.
+    /// </summary>
+    /// <param name="context">The input action callback context.</param>
     public void OnNextLevel(InputAction.CallbackContext context)
     {
         if (SceneManager.GetActiveScene().buildIndex < SceneManager.sceneCountInBuildSettings - 1)
@@ -160,16 +167,28 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Toggles the god mode cheat.
+    /// </summary>
+    /// <param name="context">The input action callback context.</param>
     public void OnGodMode(InputAction.CallbackContext context)
     {
-
+        godMode.ToggleGodMode();
     }
 
+    /// <summary>
+    /// Toggles the flash cheat.
+    /// </summary>
+    /// <param name="context">The input action callback context.</param>
     public void OnFlash(InputAction.CallbackContext context)
     {
         flashCheat.ToggleFlash();
     }
 
+    /// <summary>
+    /// Toggles the feather fall cheat.
+    /// </summary>
+    /// <param name="context">The input action callback context.</param>
     public void OnFeatherFall(InputAction.CallbackContext context)
     {
         featherFallCheat.ToggleFeatherFall();

@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class GodMode : MonoBehaviour
 {
+    [Header("Player Controller Configuration")]
+    [SerializeField] PlayerController playerController;
+
     public bool godMode = false;
 
-    // Start is called before the first frame update
-    void Start()
+    /// <summary>
+    /// Toggles the god mode ability on or off, adjusting the player's capability of dying or not.
+    /// </summary>
+    public void ToggleGodMode()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        godMode = !godMode;
     }
 }
