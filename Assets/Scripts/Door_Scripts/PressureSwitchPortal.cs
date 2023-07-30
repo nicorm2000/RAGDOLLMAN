@@ -8,10 +8,14 @@ public class PressureSwitchPortal : MonoBehaviour
 {
     [Header("Switch Configuration")]
     [SerializeField] private GameObject currentObject;
-
     [SerializeField] private PressureSwitchAnimator switchAnimator;
-
     [SerializeField] private LayerMask playerLayer;
+
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 0;
+
+    private bool soundEffectPlayed = false;
 
     /// <summary>
     /// Called when a player stays within the collider.
@@ -25,6 +29,13 @@ public class PressureSwitchPortal : MonoBehaviour
             currentObject.SetActive(true);
 
             switchAnimator.SetSwitchState(true);
+
+            if (!soundEffectPlayed && audioManager != null)
+            {
+                audioManager.PlaySoundEffect(indexSFX);
+
+                soundEffectPlayed = true;
+            }
         }
     }
 
@@ -40,6 +51,8 @@ public class PressureSwitchPortal : MonoBehaviour
             currentObject.SetActive(false);
 
             switchAnimator.SetSwitchState(false);
+
+            soundEffectPlayed = false;
         }
     }
 }
