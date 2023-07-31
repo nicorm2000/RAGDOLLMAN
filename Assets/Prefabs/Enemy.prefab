@@ -149,6 +149,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 5
+  detectionZone: {fileID: 7135423607121427998}
 --- !u!1 &7960943679338192759
 GameObject:
   m_ObjectHideFlags: 0

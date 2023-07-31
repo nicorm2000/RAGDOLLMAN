@@ -17000,6 +17000,8 @@ MonoBehaviour:
   flashCheat: {fileID: 400404832}
   featherFallCheat: {fileID: 1832120268}
   godMode: {fileID: 400404831}
+  audioManager: {fileID: 1705175121}
+  indexSFX: 1
 --- !u!114 &1128694138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24241,8 +24243,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 620355966}
   deactivateRagdoll: {fileID: 1632846273}
-  audioManager: {fileID: 1705175121}
-  indexSFX: 1
   timeToResetTimer: 0.2
 --- !u!114 &1632846270
 MonoBehaviour:

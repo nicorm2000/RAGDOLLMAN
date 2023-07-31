@@ -31,7 +31,12 @@ public class InputManager : MonoBehaviour
     [Header("God Mode Dependencies")]
     [SerializeField] GodMode godMode;
 
+    [Header("Audio Manager Dependencies")]
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private int indexSFX = 1;
+
     private Vector2 currentDelta;
+    private bool jumpingSFX = false;
 
     private void LateUpdate()
     {
@@ -75,6 +80,8 @@ public class InputManager : MonoBehaviour
     /// <param name="context">The input action callback context.</param>
     public void OnJump(InputAction.CallbackContext context)
     {
+        jumpingSFX = false;
+
         if (context.performed)
         {
             if (!getUpController.playerController.jumpAxisUsed)
@@ -82,6 +89,13 @@ public class InputManager : MonoBehaviour
                 if (getUpController.playerController.balanced && !getUpController.playerController.inAir)
                 {
                     getUpController.playerController.jumping = true;
+
+                    if (!jumpingSFX && audioManager != null)
+                    {
+                        audioManager.PlaySoundEffect(indexSFX);
+
+                        jumpingSFX = true;
+                    }
                 }
                 else if (!getUpController.playerController.balanced)
                 {

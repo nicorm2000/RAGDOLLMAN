@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
 /// Controls the patrolling behavior of an object between specified points.
 /// </summary>
-public class Patrol : MonoBehaviour
+public class EnemyPatrol : MonoBehaviour, IEnemyFactory
 {
     [Header("Patrolling Configurations")]
-    [SerializeField] Transform[] points;
-    [SerializeField] float speed = 5f;
+    public List <Transform> points;
+    public float speed = 5f;
+    public RespawnPlayer detectionZone;
 
     private int currentPosition;
 
@@ -24,6 +26,29 @@ public class Patrol : MonoBehaviour
     /// </summary>
     private void Update()
     {
+        Patrol();
+    }
+
+    /// <summary>
+    /// Initializes the enemy detection zone with the provided data.
+    /// </summary>
+    /// <param name="detectData">The data used to initialize the detection zone.</param>
+    public void Init(EnemyDetectPlayer detectData)
+    {
+        detectionZone.player = detectData.player;
+        detectionZone.playerRoot = detectData.playerRoot;
+        detectionZone.playerSpawn = detectData.playerSpawn;
+        detectionZone.godModeScript = detectData.godModeScript;
+        detectionZone.forceRespawn = detectData.forceRespawn;
+        detectionZone.audioManager = detectData.audioManager;
+        detectionZone.indexSFX = detectData.indexSFX;
+    }
+
+    /// <summary>
+    /// Moves the enemy towards the patrol points and rotates towards the next point.
+    /// </summary>
+    public void Patrol()
+    {
         if (transform.position != points[currentPosition].position)
         {
             transform.position = Vector3.MoveTowards(transform.position, points[currentPosition].position, speed * Time.deltaTime);
@@ -31,7 +56,7 @@ public class Patrol : MonoBehaviour
         }
         else
         {
-            currentPosition = (currentPosition + 1) % points.Length;
+            currentPosition = (currentPosition + 1) % points.Count;
         }
     }
 

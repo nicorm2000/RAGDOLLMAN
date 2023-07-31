@@ -6,20 +6,20 @@ using UnityEngine;
 public class RespawnPlayer : MonoBehaviour
 {
     [Header("Player Dependencies")]
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject playerRoot;
-    [SerializeField] private Transform playerSpawn;
+    public GameObject player;
+    public GameObject playerRoot;
+    public Transform playerSpawn;
 
     [Header("Camera Settings")]
     [SerializeField] private bool instantCameraUpdate = false;
 
     [Header("GodMode Dependencies")]
-    [SerializeField] private GodMode godModeScript;//Reference to the GodMode script
-    [SerializeField] private bool forceRespawn = false;//Whether to force respawn regardless of "God mode"
+    public GodMode godModeScript;//Reference to the GodMode script
+    public bool forceRespawn = false;//Whether to force respawn regardless of "God mode"
 
     [Header("Audio Manager Dependencies")]
-    [SerializeField] private AudioManager audioManager;
-    [SerializeField] private int indexSFX = 2;
+    public AudioManager audioManager;
+    public int indexSFX = 2;
 
     private Camera cam;
     private Rigidbody[] playerPhysics;
@@ -41,7 +41,7 @@ public class RespawnPlayer : MonoBehaviour
         {
             if (other.gameObject.layer == LayerMask.NameToLayer(player.GetComponent<PlayerController>().thisPlayerLayer))
             {
-                if (audioManager != null)
+                if (!godModeScript.godMode && audioManager != null)
                 {
                     audioManager.PlaySoundEffect(indexSFX);
                 }

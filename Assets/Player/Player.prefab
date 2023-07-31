@@ -1483,6 +1483,7 @@ GameObject:
   - component: {fileID: 3122338867580340247}
   - component: {fileID: 3122338867580340260}
   - component: {fileID: 3122338867580340246}
+  - component: {fileID: 212705245}
   m_Layer: 10
   m_Name: APR_Root
   m_TagString: Player
@@ -1631,6 +1632,20 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &212705245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122338867580340687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b25619dd5b76cfb4fac0bcd421c39154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 3122338867580340672}
+  featherFallMultiplier: 0.25
 --- !u!1 &3122338867580340723
 GameObject:
   m_ObjectHideFlags: 0
@@ -2764,6 +2779,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 3122338867580340672}
   playerReach: {fileID: 0}
+  audioManager: {fileID: 0}
+  indexSFX: 0
   layerToGrab: CanBeGrabbed
 --- !u!1 &3122338867580340735
 GameObject:
@@ -2940,6 +2957,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerController: {fileID: 3122338867580340672}
   playerReach: {fileID: 0}
+  audioManager: {fileID: 0}
+  indexSFX: 0
   layerToGrab: CanBeGrabbed
 --- !u!1 &3441530407161919283
 GameObject:
